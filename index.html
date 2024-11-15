@@ -19,72 +19,76 @@
   <body>
     <section class="infoBar">
       <div class="infoBar--box">
-        <i class="fa-brands fa-instagram infoBar--icon"></i>
-        <p class="infoBar--text">flights@dream.com</p>
+        <i class="fa-brands fa-instagram fa-lg"></i>
+        <p class="infoBar--text">@fligthsdream</p>
       </div>
       <div class="infoBar--box">
+        <i class="fa-solid fa-phone"></i>
         <p class="infoBar--text">+(507) 301-1101</p>
       </div>
       <div class="infoBar--box">
+        <i class="fa-brands fa-whatsapp"></i>
         <p class="infoBar--text">+(507) 6310-1101</p>
       </div>
       <div class="infoBar--box">
+        <i class="fa-solid fa-location-dot"></i>
         <p class="infoBar--text">Calle Garibay,4,1ra Dr- Dr, Donostia, Guipúzcoa,20004</p>
       </div>
     </section>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand ps-5" href="#">
-          <img src="./assets/img/flight-dreams-logo-traz-cut.png" alt="Bootstrap" class="navbar--logo" />
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Billetes aéreos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Autobuses</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Trenes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Cruceros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Cruceros</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dropdown link </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-          </ul>
+    <header class="header">
+      <div>
+        <div class="header--logo">
+          <img src="./assets/img/flight-dreams-logo-traz-cut.png" alt="flightDreams" />
         </div>
-        <button class="btn btn-outline-success me-2" type="button">Iniciar sesión</button>
       </div>
-    </nav>
 
-    <div id="carouselExample" class="carousel slide">
+      <div class="header">
+        <a href="" class="header--link">
+          <p>Inicio</p>
+        </a>
+        <a href="" class="header--link">
+          <p>Billetes aéreos</p>
+        </a>
+        <a href="" class="header--link">
+          <p>Autobuses</p>
+        </a>
+        <a href="" class="header--link">
+          <p>Trenes</p>
+        </a>
+        <a href="" class="header--link">
+          <p>Cruceros</p>
+        </a>
+        <a href="" class="header--link">
+          <p>Envíos</p>
+        </a>
+        <a href="" class="header--link">
+          <p>Seguros</p>
+        </a>
+        <a href="" class="header--link">
+          <p>Hoteles</p>
+        </a>
+      </div>
+
+      <div>
+        <button type="button" class="btn btn-success">Login</button>
+      </div>
+    </header>
+
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-overlay">
+        <h1>Bienvenido a FlightsDreams</h1>
+        <p>Descubre destinos increíbles con nosotros.</p>
+      </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="..." class="d-block w-100" alt="..." />
+          <img src="./assets/img/aviones.webp" class="d-block w-100 h-30" alt="..." />
         </div>
         <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="..." />
+          <img src="./assets/img/abuelos.jpg" class="d-block w-100 h-30" alt="..." />
         </div>
         <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="..." />
+          <img src="./assets/img/crucero.jpeg" class="d-block w-100 h-30" alt="..." />
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -97,7 +101,40 @@
       </button>
     </div>
 
-    <main class="mainContainer"></main>
+    <main class="mainContainer">
+      <h2 class="mainContainer--title">Descubre lugares impresionantes con nosotros</h2>
+      <h3 class="mainContainer--subtitle">Asigna tu próximo viaje</h3>
+
+      <div class="card-group p-5">
+        <div class="card">
+          <img src="./assets/img/barcelona.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+            <button type="button" class="btn btn-success">Ver más</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./assets/img/toronto.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+            <button type="button" class="btn btn-success">Ver más</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./assets/img/barcelona.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+            <button type="button" class="btn btn-success">Ver más</button>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
