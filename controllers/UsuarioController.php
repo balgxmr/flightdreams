@@ -32,7 +32,7 @@ class UsuarioController {
                 // Verificamos si el registro fue exitoso
                 if ($resultado) {
                     // Redirigir al usuario a la página de inicio o login (puedes personalizar esto)
-                    header('Location: login.html'); 
+                    header('Location: ../public/index.php'); 
                 } else {
                     // Si hubo un error al registrar el usuario
                     echo "Error al registrar el usuario";
@@ -40,6 +40,58 @@ class UsuarioController {
             } else {
                 echo "Todos los campos son obligatorios";
             }
+        }
+    }
+
+     // Acción para loguear a un usuario
+    public function loginUsuario() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $correo = $_POST['correo'];
+            $contrasena = $_POST['contrasena'];
+
+            if (!empty($correo) && !empty($contrasena)) {
+                $usuarioModel = new Usuario();
+                $usuario = $usuarioModel->obtenerPorCorreo($correo);
+
+                if ($usuario && password_verify($contrasena, $usuario['Contrasena'])) {
+                    // Inicia sesión o redirige
+                    session_start();
+                    $_SESSION['usuario'] = $usuario;
+                    header('Location: ../public/index.php');
+                } else {
+                    echo "Correo o contraseña incorrectos.";
+                }
+            } else {
+                echo "Todos los campos son obligatorios.";
+            }
+        } else {
+            require_once '../views/usuarios/login.php';
+        }
+    }
+
+    // Acción para loguear a un administrador
+    public function loginAdministrador() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $nombreUsuario = $_POST['nombre_usuario'];
+            $contrasena = $_POST['contrasena'];
+
+            if (!empty($nombreUsuario) && !empty($contrasena)) {
+                $usuarioModel = new Usuario();
+                $administrador = $usuarioModel->obtenerPorNombreUsuario($nombreUsuario);
+
+                if ($administrador && password_verify($contrasena, $administrador['contrasena'])) {
+                    // Inicia sesión o redirige
+                    session_start();
+                    $_SESSION['admin'] = $administrador;
+                    header('Location: ../public/index.php');
+                } else {
+                    echo "Usuario o contraseña incorrectos.";
+                }
+            } else {
+                echo "Todos los campos son obligatorios.";
+            }
+        } else {
+            require_once '../views/admin/login.php';
         }
     }
 }

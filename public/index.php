@@ -89,20 +89,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
-
-<?php
-// Incluye los controladores
-require_once '../controllers/UsuarioController.php';
-
-// Obtiene el controlador y la acción de los parámetros de la URL
-$controller = isset($_GET['controller']) ? $_GET['controller'] : 'usuario';
-$action = isset($_GET['action']) ? $_GET['action'] : 'registrar';
-
-// Dirige a los métodos correspondientes en el controlador
-if ($controller == 'usuario') {
-    $usuarioController = new UsuarioController();
-    if ($action == 'registrar') {
-        $usuarioController->registrar();
-    }
-}
-?>

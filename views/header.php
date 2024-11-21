@@ -45,7 +45,7 @@
       </ul>
     </div>
 
-    <a href="./paquete.html" class="header--link">
+    <a href="../config/routes.php?controller=paquete&action=listar" class="header--link">
       <p>Paquetes</p>
     </a>
     <a href="" class="header--link">
@@ -57,7 +57,7 @@
   </div>
 
   <div>
-    <a href="../views/usuarios/login.html">
+    <a href="../views/usuarios/login.php">
       <button type="button" class="btn btn-success">Login</button>
     </a>
   </div>

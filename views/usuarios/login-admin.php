@@ -25,7 +25,7 @@
             <img class="img-fluid" src="../../public/images/Flight-&-Dreams-LOGO-Traz.png "alt="" />
           </div>
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-            <form method="POST" action="/admin/login">
+            <form method="POST" action="../../config/routes.php?controller=usuario&action=loginAdministrador">
               <div>
                 <i class="fa-solid fa-user-tie fa-2x row d-flex justify-content-center align-items-center"></i>
                 <h1 class="row d-flex justify-content-center align-items-center p-3">Inicia sesión (Administrador)</h1>
@@ -47,14 +47,13 @@
               <div class="d-flex justify-content-between align-items-center">
                 <!-- Checkbox -->
                 <div class="form-check mb-0"></div>
-                <a href="./login.html" class="text-body">Iniciar sesión como usuario</a>
+                <a href="./login.php" class="text-body">Iniciar sesión como usuario</a>
               </div>
 
               <div class="text-center text-lg-start mt-4 pt-2">
-                <a href="./index.html">
+
                   <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">Iniciar sesión</button>
-                </a>
-                <p class="small fw-bold mt-2 pt-1 mb-0">¿No tienes una cuenta? <a href="./register.html" class="link-danger">Registrate</a></p>
+
               </div>
             </form>
           </div>

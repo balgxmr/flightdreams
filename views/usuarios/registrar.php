@@ -25,7 +25,7 @@
             <img class="img-fluid" src="./assets/img/Flight-&-Dreams-LOGO-Traz.png" alt="" />
           </div>
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-            <form method="POST" action="../../public/index.php">
+            <form method="POST" action="../../config/routes.php?controller=usuario&action=registrar">
               <div>
                 <i class="fa-solid fa-circle-user fa-2x row d-flex justify-content-center align-items-center"></i>
                 <h1 class="row d-flex justify-content-center align-items-center p-3">Registrarse</h1>
