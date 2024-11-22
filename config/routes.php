@@ -17,6 +17,8 @@
             $usuarioController->loginUsuario();
         } elseif ($action == 'loginAdministrador') {
             $usuarioController->loginAdministrador();
+        } elseif($action == 'logout') {
+            $usuarioController->logout();
         }
     } 
 

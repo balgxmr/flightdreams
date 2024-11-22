@@ -1,5 +1,6 @@
 <?php
 require_once '../models/Usuario.php';
+require_once '../config/config.php';
 
 class UsuarioController {
 
@@ -93,6 +94,17 @@ class UsuarioController {
         } else {
             require_once '../views/admin/login.php';
         }
+    }
+
+    public function logout() {
+        session_start(); // Inicia la sesión si no está iniciada
+        session_unset(); // Limpia las variables de sesión
+        session_destroy(); // Destruye la sesión activa
+        
+        // Redirige al usuario a la página de login
+        header("Location: " . BASE_URL . "views/usuarios/login.php");
+        exit;
+        
     }
 }
 ?>

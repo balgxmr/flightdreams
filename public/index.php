@@ -25,13 +25,13 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="./assets/img/aviones.webp" class="d-block w-100 h-30" alt="..." />
+          <img src="../public/images/aviones.webp" class="d-block w-100 h-30" alt="..." />
         </div>
         <div class="carousel-item">
-          <img src="./assets/img/abuelos.jpg" class="d-block w-100 h-30" alt="..." />
+          <img src="../public/images/abuelos.jpg" class="d-block w-100 h-30" alt="..." />
         </div>
         <div class="carousel-item">
-          <img src="./assets/img/crucero.jpeg" class="d-block w-100 h-30" alt="..." />
+          <img src="../public/images/crucero.jpeg" class="d-block w-100 h-30" alt="..." />
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -50,7 +50,7 @@
 
       <div class="card-group p-5">
         <div class="card">
-          <img src="./assets/img/barcelona.jpg" class="card-img-top" alt="..." />
+          <img src="../public/images/barcelona.jpg" class="card-img-top" alt="..." />
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="card">
-          <img src="./assets/img/toronto.jpg" class="card-img-top" alt="..." />
+          <img src="../public/images/toronto.jpg" class="card-img-top" alt="..." />
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -70,7 +70,7 @@
           </div>
         </div>
         <div class="card">
-          <img src="./assets/img/barcelona.jpg" class="card-img-top" alt="..." />
+          <img src="../public/images/barcelona.jpg" class="card-img-top" alt="..." />
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
