@@ -38,13 +38,12 @@ require_once __DIR__ . '/../config/config.php';
     <div class="dropdown p-4 header--link">
       <a class="dropdown-toggle text-decoration-none text-body-secondary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/billetes_aereos.php">Billétes Aéreos</a></li>
         <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/autobuses.php">Autobuses</a></li>
         <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/cruceros.php">Crucero</a></li>
         <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/trenes.php">Trenes</a></li>
         <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/vuelos.php">Vuelos</a></li>
         <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/hoteles.php">Hoteles</a></li>
-        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/pasadia.php">Pasadía</a></li>
+        <!-- <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/pasadia.php">Pasadía</a></li> -->
       </ul>
     </div>
 

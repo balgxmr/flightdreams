@@ -401,3 +401,6 @@ body {
   color: var(--azulBase);
   margin-top: 15px;
 }
+.hero-section--text {
+  color: var(--naranjaOscuro);
+}

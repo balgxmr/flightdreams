@@ -21,12 +21,12 @@
 
     <section id="carouselExample" class="carousel slide">
       <div class="carousel-overlay">
-        <h1>Cruceros</h1>
-        <p>Cotiza ya tu próximo viaje.</p>
+        <h1>Hoteles</h1>
+        <p>Haz tu reserva de habitación</p>
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../../public/images/cruceros.webp" class="d-block w-100 h-30 imagenCotizar" alt="..." />
+          <img src="../../public/images/hoteles.jpg" class="d-block w-100 h-30 imagenCotizar" alt="..." />
         </div>
       </div>
     </section>
@@ -41,7 +41,7 @@
           <div class="row g-3 mb-3">
             <!-- Destino -->
             <div class="col-md-4">
-              <label for="destino" class="form-label">¿Desde donde ir?</label>
+              <label for="destino" class="form-label">Lugar</label>
               <select id="destino" class="form-select">
                 <option selected>Seleccionar...</option>
                 <option>Panamá, San Lorenzo</option>
@@ -52,7 +52,7 @@
             
             <!-- Destino -->
             <div class="col-md-4">
-              <label for="destino" class="form-label">¿A donde ir?</label>
+              <label for="destino" class="form-label">Tipo de habitación</label>
               <select id="destino" class="form-select">
                 <option selected>Seleccionar...</option>
                 <option>Caribe</option>
@@ -71,12 +71,12 @@
           <div class="row g-3 mb-3">
             <!-- Fecha inicial -->
             <div class="col-md-4">
-              <label for="fechaInicio" class="form-label">Fecha Inicial</label>
+              <label for="fechaInicio" class="form-label">Fecha de entrada</label>
               <input type="date" id="fechaInicio" class="form-control" />
             </div>
             <!-- Fecha final -->
             <div class="col-md-4">
-              <label for="fechaFinal" class="form-label">Fecha Final</label>
+              <label for="fechaFinal" class="form-label">Fecha de salida</label>
               <input type="date" id="fechaFinal" class="form-control" />
             </div>
 
@@ -95,12 +95,6 @@
               </div>
             </div>
           </div>
-
-          <div class="row g-3 mb-3">
-            
-          </div>
-
-
           
           <div class="d-flex justify-content-between align-items-center">
             <span class="fs-5 fw-bold text-primary"></span>

@@ -21,12 +21,12 @@
 
     <section id="carouselExample" class="carousel slide">
       <div class="carousel-overlay">
-        <h1>Cruceros</h1>
+        <h1>Autobuses</h1>
         <p>Cotiza ya tu próximo viaje.</p>
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../../public/images/cruceros.webp" class="d-block w-100 h-30 imagenCotizar" alt="..." />
+          <img src="../../public/images/autobuses.jpg" class="d-block w-100 h-30 imagenCotizar" alt="..." />
         </div>
       </div>
     </section>
@@ -41,23 +41,23 @@
           <div class="row g-3 mb-3">
             <!-- Destino -->
             <div class="col-md-4">
-              <label for="destino" class="form-label">¿Desde donde ir?</label>
-              <select id="destino" class="form-select">
-                <option selected>Seleccionar...</option>
-                <option>Panamá, San Lorenzo</option>
-                <option>Americada</option>
-                <option>Asia</option>
-              </select>
-            </div>
-            
-            <!-- Destino -->
-            <div class="col-md-4">
               <label for="destino" class="form-label">¿A donde ir?</label>
               <select id="destino" class="form-select">
                 <option selected>Seleccionar...</option>
                 <option>Caribe</option>
                 <option>Europa</option>
                 <option>Asia</option>
+              </select>
+            </div>
+
+            <!-- Destino -->
+            <div class="col-md-4">
+              <label for="destino" class="form-label">Tipo de autobús</label>
+              <select id="destino" class="form-select">
+                <option selected>Seleccionar...</option>
+                <option>Económico</option>
+                <option>Ejecutivo</option>
+                <option>De lujo</option>
               </select>
             </div>
             

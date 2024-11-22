@@ -21,8 +21,8 @@
 
     <!-- Sección principal -->
     <section class="hero-section">
-      <h1>Sobre Nosotros</h1>
-      <p>Conoce nuestra historia, misión y valores. Estamos aquí para hacer tus sueños realidad.</p>
+      <h1 class="hero-section--text">Sobre Nosotros</h1>
+      <p class="hero-section--text">Conoce nuestra historia, misión y valores. Estamos aquí para hacer tus sueños realidad.</p>
     </section>
 
     <!-- Sección de contenido -->
@@ -43,6 +43,30 @@
     <section class="team-section">
       <h2>Conoce a nuestro equipo</h2>
       <div class="container">
+        <div class="row g-4 mb-3">
+          <div class="col-md-4">
+            <div class="card team-card text-center p-3">
+              <img src="https://via.placeholder.com/150" alt="Integrante" class="mx-auto" />
+              <h5>Juan Pérez</h5>
+              <p class="text-muted">CEO y Fundador</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card team-card text-center p-3">
+              <img src="https://via.placeholder.com/150" alt="Integrante" class="mx-auto" />
+              <h5>María González</h5>
+              <p class="text-muted">Gerente de Operaciones</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card team-card text-center p-3">
+              <img src="https://via.placeholder.com/150" alt="Integrante" class="mx-auto" />
+              <h5>Laura Torres</h5>
+              <p class="text-muted">Líder de Marketing</p>
+            </div>
+          </div>
+        </div>
+
         <div class="row g-4">
           <div class="col-md-4">
             <div class="card team-card text-center p-3">

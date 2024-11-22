@@ -21,12 +21,12 @@
 
     <section id="carouselExample" class="carousel slide">
       <div class="carousel-overlay">
-        <h1>Cruceros</h1>
+        <h1>Vuelos</h1>
         <p>Cotiza ya tu próximo viaje.</p>
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../../public/images/cruceros.webp" class="d-block w-100 h-30 imagenCotizar" alt="..." />
+          <img src="../../public/images/vuelos.webp" class="d-block w-100 h-30 imagenCotizar" alt="..." />
         </div>
       </div>
     </section>
@@ -37,22 +37,10 @@
           <h5 class="m-0">Rellena los detalles del viaje</h5>
         </div>
         <form>
-          
           <div class="row g-3 mb-3">
-            <!-- Destino -->
-            <div class="col-md-4">
-              <label for="destino" class="form-label">¿Desde donde ir?</label>
-              <select id="destino" class="form-select">
-                <option selected>Seleccionar...</option>
-                <option>Panamá, San Lorenzo</option>
-                <option>Americada</option>
-                <option>Asia</option>
-              </select>
-            </div>
-            
-            <!-- Destino -->
-            <div class="col-md-4">
-              <label for="destino" class="form-label">¿A donde ir?</label>
+            <!-- Aeropuerto de destino -->
+            <div class="col-md-3">
+              <label for="destino" class="form-label">Aeropuerto de destino</label>
               <select id="destino" class="form-select">
                 <option selected>Seleccionar...</option>
                 <option>Caribe</option>
@@ -60,13 +48,43 @@
                 <option>Asia</option>
               </select>
             </div>
-            
+
+            <!-- Aeropuerto de salida -->
+            <div class="col-md-3">
+              <label for="salida" class="form-label">Aeropuerto de salida</label>
+              <select id="salida" class="form-select">
+                <option selected>Seleccionar...</option>
+                <option>Caribe</option>
+                <option>Europa</option>
+                <option>Asia</option>
+              </select>
+            </div>
+
             <!-- Personas -->
-            <div class="col-md-4">
+            <div class="col-md-3">
               <label for="personas" class="form-label">Personas</label>
-              <input type="number" id="personas" class="form-control" min="1" max="20" placeholder="Cantidad de personas" />
+              <input
+                type="number"
+                id="personas"
+                class="form-control"
+                min="1"
+                max="20"
+                placeholder="Cantidad de personas"
+              />
+            </div>
+
+            <!-- Clase del vuelo -->
+            <div class="col-md-3">
+              <label for="clase" class="form-label">Clase del vuelo</label>
+              <select id="clase" class="form-select">
+                <option selected>Seleccionar...</option>
+                <option>Económica</option>
+                <option>Ejecutiva</option>
+                <option>Primera clase</option>
+              </select>
             </div>
           </div>
+
           
           <div class="row g-3 mb-3">
             <!-- Fecha inicial -->
@@ -96,12 +114,6 @@
             </div>
           </div>
 
-          <div class="row g-3 mb-3">
-            
-          </div>
-
-
-          
           <div class="d-flex justify-content-between align-items-center">
             <span class="fs-5 fw-bold text-primary"></span>
             <div>

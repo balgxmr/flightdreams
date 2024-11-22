@@ -21,12 +21,12 @@
 
     <section id="carouselExample" class="carousel slide">
       <div class="carousel-overlay">
-        <h1>Cruceros</h1>
+        <h1>Trenes</h1>
         <p>Cotiza ya tu próximo viaje.</p>
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../../public/images/cruceros.webp" class="d-block w-100 h-30 imagenCotizar" alt="..." />
+          <img src="../../public/images/trenes.jpg" class="d-block w-100 h-30 imagenCotizar" alt="..." />
         </div>
       </div>
     </section>
@@ -38,25 +38,14 @@
         </div>
         <form>
           
-          <div class="row g-3 mb-3">
-            <!-- Destino -->
-            <div class="col-md-4">
-              <label for="destino" class="form-label">¿Desde donde ir?</label>
-              <select id="destino" class="form-select">
-                <option selected>Seleccionar...</option>
-                <option>Panamá, San Lorenzo</option>
-                <option>Americada</option>
-                <option>Asia</option>
-              </select>
-            </div>
-            
+          <div class="row g-3 mb-3">            
             <!-- Destino -->
             <div class="col-md-4">
               <label for="destino" class="form-label">¿A donde ir?</label>
               <select id="destino" class="form-select">
                 <option selected>Seleccionar...</option>
-                <option>Caribe</option>
-                <option>Europa</option>
+                <option>Italia</option>
+                <option>Francia</option>
                 <option>Asia</option>
               </select>
             </div>
@@ -65,6 +54,17 @@
             <div class="col-md-4">
               <label for="personas" class="form-label">Personas</label>
               <input type="number" id="personas" class="form-control" min="1" max="20" placeholder="Cantidad de personas" />
+            </div>
+
+            <!-- Destino -->
+            <div class="col-md-4">
+              <label for="destino" class="form-label">Clase del tren</label>
+              <select id="destino" class="form-select">
+                <option selected>Seleccionar...</option>
+                <option>Primera clase</option>
+                <option>Segunda clase</option>
+                <option>Económica</option>
+              </select>
             </div>
           </div>
           
@@ -95,12 +95,6 @@
               </div>
             </div>
           </div>
-
-          <div class="row g-3 mb-3">
-            
-          </div>
-
-
           
           <div class="d-flex justify-content-between align-items-center">
             <span class="fs-5 fw-bold text-primary"></span>
