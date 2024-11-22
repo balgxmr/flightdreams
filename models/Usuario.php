@@ -10,6 +10,7 @@
 
         // Función para registrar un nuevo usuario
         public function registrar($nombre, $apellido, $correo, $contrasena, $nacionalidad, $residencia, $telefono) {
+            
             // Encriptamos la contraseña
             $contrasena_encriptada = password_hash($contrasena, PASSWORD_DEFAULT);
 

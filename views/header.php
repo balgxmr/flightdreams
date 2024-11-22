@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/config.php';
+session_start(); // Inicia la sesión
 ?>
 
 <section class="infoBar">
@@ -43,7 +44,6 @@ require_once __DIR__ . '/../config/config.php';
         <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/trenes.php">Trenes</a></li>
         <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/vuelos.php">Vuelos</a></li>
         <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/hoteles.php">Hoteles</a></li>
-        <!-- <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/pasadia.php">Pasadía</a></li> -->
       </ul>
     </div>
 
@@ -59,8 +59,27 @@ require_once __DIR__ . '/../config/config.php';
   </div>
 
   <div>
-    <a href="<?php echo BASE_URL; ?>views/usuarios/login.php">
-      <button type="button" class="btn btn-success">Login</button>
-    </a>
+    <div>
+      <?php if (isset($_SESSION['usuario'])): ?>
+        <a href="<?php echo BASE_URL; ?>config/routes.php?controller=viajes&action=verReservas" class="header--link">
+          <i class="fa-solid fa-calendar-check fa-lg"></i> Mis Reservas
+        </a>
+      <?php endif; ?>
+    </div>
+
+    <?php if (isset($_SESSION['usuario'])): ?>
+      <!-- Mostrar icono de usuario si el usuario está logueado -->
+      <a href="<?php echo BASE_URL; ?>views/usuarios/perfil.php" class="header--link">
+        <i class="fa-solid fa-user fa-lg"></i> Perfil
+      </a>
+      <a href="<?php echo BASE_URL; ?>config/routes.php?controller=usuario&action=logout" class="header--link text-danger">
+        <i class="fa-solid fa-right-from-bracket fa-lg"></i> Cerrar sesión
+      </a>
+    <?php else: ?>
+      <!-- Mostrar botón de Login si el usuario no está logueado -->
+      <a href="<?php echo BASE_URL; ?>views/usuarios/login.php">
+        <button type="button" class="btn btn-success">Login</button>
+      </a>
+    <?php endif; ?>
   </div>
 </header>
