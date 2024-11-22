@@ -117,7 +117,9 @@ body {
   text-align: center;
 }
 .mainContainer--title {
-  font-weight: 400;
+  font-weight: 800;
+  font-size: 3rem;
+  color: var(--naranjaOscuro);
 }
 .mainContainer--subtitle {
   font-size: 1.6rem;
@@ -334,4 +336,68 @@ body {
 }
 .menu a i {
   margin-right: 10px;
+}
+
+/*
+ *
+ * 
+ * ACERCA DE NOSOTROS PÁGINA
+ *
+ *
+ */
+.hero-section {
+  background-color: var(--naranjaSuave);
+  color: var(--blanco);
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.about-content {
+  padding: 50px 20px;
+}
+
+.about-content .card {
+  border: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-content .card img {
+  border-radius: 5px;
+}
+
+.team-section {
+  background-color: var(--naranjaSuave);
+  color: var(--negro);
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.team-section h2 {
+  color: var(--naranjaOscuro);
+  margin-bottom: 30px;
+}
+
+.team-card {
+  background-color: var(--blanco);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.team-card img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.team-card h5 {
+  color: var(--azulBase);
+  margin-top: 15px;
 }

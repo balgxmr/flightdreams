@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../config/config.php';
+?>
+
 <section class="infoBar">
   <div class="infoBar--box">
     <i class="fa-brands fa-instagram fa-lg"></i>
@@ -20,44 +24,43 @@
 <header class="header">
   <div>
     <div class="header--logo">
-      <a href="./index.html">
-        <img src="./assets/img/flight-dreams-logo-traz-cut.png" alt="flightDreams" />
+      <a href="<?php echo BASE_URL; ?>public/index.php">
+        <img src="<?php echo BASE_URL; ?>public/images/flight-dreams-logo-traz-cut.png" alt="flightDreams" />
       </a>
     </div>
   </div>
 
   <div class="header">
-    <a href="./index.html" class="header--link">
+    <a href="<?php echo BASE_URL; ?>public/index.php" class="header--link">
       <p>Inicio</p>
     </a>
 
     <div class="dropdown p-4 header--link">
       <a class="dropdown-toggle text-decoration-none text-body-secondary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="./billetes_aereos.html">Billétes Aéreos</a></li>
-        <li><a class="dropdown-item" href="./autobuses.html">Autobuses</a></li>
-        <li><a class="dropdown-item" href="./cruceros.html">Crucero</a></li>
-        <li><a class="dropdown-item" href="./trenes.html">Trenes</a></li>
-        <li><a class="dropdown-item" href="./vuelos.html">Vuelos</a></li>
-        <li><a class="dropdown-item" href="./hoteles.html">Hoteles</a></li>
-        <li><a class="dropdown-item" href="./pasadia.html">Pasadía</a></li>
-        <!-- <li><a class="dropdown-item" href="./visas.html">Visas</a></li> -->
+        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/billetes_aereos.php">Billétes Aéreos</a></li>
+        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/autobuses.php">Autobuses</a></li>
+        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/cruceros.php">Crucero</a></li>
+        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/trenes.php">Trenes</a></li>
+        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/vuelos.php">Vuelos</a></li>
+        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/hoteles.php">Hoteles</a></li>
+        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/pasadia.php">Pasadía</a></li>
       </ul>
     </div>
 
-    <a href="../config/routes.php?controller=paquete&action=listar" class="header--link">
+    <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listar" class="header--link">
       <p>Paquetes</p>
     </a>
-    <a href="" class="header--link">
+    <a href="<?php echo BASE_URL; ?>views/servicios/visas.php" class="header--link">
       <p>Visas</p>
     </a>
-    <a href="" class="header--link">
+    <a href="<?php echo BASE_URL; ?>views/about-us/about-us.php" class="header--link">
       <p>Sobre Nosotros</p>
     </a>
   </div>
 
   <div>
-    <a href="../views/usuarios/login.php">
+    <a href="<?php echo BASE_URL; ?>views/usuarios/login.php">
       <button type="button" class="btn btn-success">Login</button>
     </a>
   </div>

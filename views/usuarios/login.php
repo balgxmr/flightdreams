@@ -22,7 +22,7 @@
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-md-9 col-lg-6 col-xl-5">
             <!-- <img src="https://t3.ftcdn.net/jpg/05/27/24/36/360_F_527243669_mhBh7M6Xb9hxg0y2Ug87XfQrlX20suMU.jpg" class="img-fluid" alt="Sample image" /> -->
-            <img class="img-fluid" src="./assets/img/Flight-&-Dreams-LOGO-Traz.png" alt="" />
+            <img class="img-fluid" src="../../images/Flight-&-Dreams-LOGO-Traz.png" alt="" />
           </div>
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form method="POST" action="../../config/routes.php?controller=usuario&action=loginUsuario">
