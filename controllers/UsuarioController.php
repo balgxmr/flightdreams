@@ -32,6 +32,8 @@ class UsuarioController {
 
                 // Verificamos si el registro fue exitoso
                 if ($resultado) {
+                    session_start();
+                    $_SESSION['usuario'] = $usuario['id_usuario'];
                     // Redirigir al usuario a la página de inicio o login (puedes personalizar esto)
                     header('Location: ../public/index.php'); 
                 } else {
@@ -105,6 +107,44 @@ class UsuarioController {
         header("Location: " . BASE_URL . "views/usuarios/login.php");
         exit;
         
+    }
+
+    public function editarPerfil() {
+        session_start();
+        if (isset($_SESSION['usuario'])) {
+            $userId = $_SESSION['usuario'];
+            $usuarioModel = new Usuario();
+            $usuario = $usuarioModel->obtenerUsuarioPorId($userId);
+
+            require_once __DIR__ . '/../views/usuarios/editarPerfil.php';
+        } else {
+            header("Location: " . BASE_URL . "views/usuarios/login.php");
+            exit;
+        }
+    }
+
+    public function actualizarPerfil() {
+        session_start();
+        if (isset($_SESSION['usuario'])) {
+            $userId = $_SESSION['usuario'];
+            $nombre = $_POST['nombre'];
+            $email = $_POST['email'];
+            $telefono = $_POST['telefono'];
+
+            $usuarioModel = new Usuario();
+            $actualizado = $usuarioModel->actualizarUsuario($userId, $nombre, $email, $telefono);
+
+            if ($actualizado) {
+                $_SESSION['success_message'] = "Datos actualizados correctamente.";
+            } else {
+                $_SESSION['error_message'] = "Error al actualizar los datos.";
+            }
+            header("Location: " . BASE_URL . "?controller=usuario&action=editarPerfil");
+            exit;
+        } else {
+            header("Location: " . BASE_URL . "views/usuarios/login.php");
+            exit;
+        }
     }
 }
 ?>

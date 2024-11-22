@@ -44,9 +44,20 @@
         }
 
         public function obtenerPorNombreUsuario($nombreUsuario) {
-            $query = $this->db->prepare("SELECT * FROM Administrador WHERE nombre_usuario = :nombre_usuario");
+            $query = $this->conexion->prepare("SELECT * FROM Administrador WHERE nombre_usuario = :nombre_usuario");
             $query->bindParam(':nombre_usuario', $nombreUsuario);
             $query->execute();
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }
+
+        public function actualizarUsuario($id, $nombre, $email, $telefono) {
+            $query = $this->conexion->prepare("UPDATE usuarios SET nombre = ?, email = ?, telefono = ? WHERE id = ?");
+            return $query->execute([$nombre, $email, $telefono, $id]);
+        }
+
+        public function obtenerUsuarioPorId($id) {
+            $query = $this->conexion->prepare("SELECT * FROM usuarios WHERE id = ?");
+            $query->execute([$id]);
             return $query->fetch(PDO::FETCH_ASSOC);
         }
     }
