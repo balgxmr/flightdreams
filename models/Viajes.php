@@ -31,5 +31,11 @@ class Viajes {
         }
     }
 
+    public function verReservas($userId) {
+        $query = $this->conexion->prepare("SELECT * FROM Viajes WHERE id_usuario = ?");
+        $query->execute([$userId]);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 ?>

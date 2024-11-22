@@ -2,6 +2,7 @@
     // Incluye los controladores
     require_once '../controllers/UsuarioController.php';
     require_once '../controllers/PaqueteController.php';
+    require_once '../controllers/ViajesController.php';
 
     // Obtiene el controlador y la acción de los parámetros de la URL
     $controller = isset($_GET['controller']) ? $_GET['controller'] : null;
@@ -27,6 +28,14 @@
     
         if ($action == 'listar') {
             $paqueteController->listar();
+        }
+    }
+
+    if ($controller == 'viajes') {
+        $paqueteController = new ViajesController();
+    
+        if ($action == 'verReservas') {
+            $paqueteController->verReservas();
         }
     }
 ?>

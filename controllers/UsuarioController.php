@@ -57,7 +57,7 @@ class UsuarioController {
                 if ($usuario && password_verify($contrasena, $usuario['Contrasena'])) {
                     // Inicia sesión o redirige
                     session_start();
-                    $_SESSION['usuario'] = $usuario;
+                    $_SESSION['usuario'] = $usuario['id_usuario'];
                     header('Location: ../public/index.php');
                 } else {
                     echo "Correo o contraseña incorrectos.";

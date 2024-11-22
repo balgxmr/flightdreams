@@ -61,6 +61,15 @@ session_start(); // Inicia la sesión
   </div>
 
   <div>
+
+    <div>
+      <?php if (isset($_SESSION['usuario'])): ?>
+        <a href="<?php echo BASE_URL; ?>config/routes.php?controller=viajes&action=verReservas" class="header--link">
+          <i class="fa-solid fa-calendar-check fa-lg"></i> Mis Reservas
+        </a>
+      <?php endif; ?>
+    </div>
+
     <?php if (isset($_SESSION['usuario'])): ?>
       <!-- Mostrar icono de usuario si el usuario está logueado -->
       <a href="<?php echo BASE_URL; ?>views/usuarios/perfil.php" class="header--link">
