@@ -20,7 +20,9 @@
             $usuarioController->loginAdministrador();
         } elseif($action == 'logout') {
             $usuarioController->logout();
-        }
+        } elseif($action == 'actualizarUsuario') {
+            $usuarioController->actualizarUsuario();
+        } 
     } 
 
     if ($controller == 'paquete') {
