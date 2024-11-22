@@ -22,7 +22,7 @@
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-md-9 col-lg-6 col-xl-5">
             <!-- <img src="https://t3.ftcdn.net/jpg/05/27/24/36/360_F_527243669_mhBh7M6Xb9hxg0y2Ug87XfQrlX20suMU.jpg" class="img-fluid" alt="Sample image" /> -->
-            <img class="img-fluid" src="../../images/Flight-&-Dreams-LOGO-Traz.png" alt="" />
+            <img class="img-fluid" src="../../public/images/Flight-&-Dreams-LOGO-Traz.png" alt="" />
           </div>
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form method="POST" action="../../config/routes.php?controller=usuario&action=loginUsuario">
@@ -33,15 +33,15 @@
               </div>
 
               <!-- Email input -->
-              <div data-mdb-input-init class="form-outline mb-4">
+              <div data-mdb-input-init class="form-outline mb-2">
                 <input type="email" id="" name="correo" class="form-control form-control-lg" placeholder="Ingresa un correo electrónico válido" />
-                <label class="form-label pt-2" for="form3Example3">Correo electrónico</label>
+                <label class="form-label pt-1" for="form3Example3">Correo electrónico</label>
               </div>
 
               <!-- Password input -->
-              <div data-mdb-input-init class="form-outline mb-3">
+              <div data-mdb-input-init class="form-outline mb-2">
                 <input type="password" id="" name="contrasena" class="form-control form-control-lg" placeholder="Introduce la contraseña" />
-                <label class="form-label pt-2" for="form3Example4">Contraseña</label>
+                <label class="form-label pt-1" for="form3Example4">Contraseña</label>
               </div>
 
               <div class="d-flex justify-content-between align-items-center">

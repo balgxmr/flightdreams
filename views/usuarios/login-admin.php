@@ -28,20 +28,20 @@
             <form method="POST" action="../../config/routes.php?controller=usuario&action=loginAdministrador">
               <div>
                 <i class="fa-solid fa-user-tie fa-2x row d-flex justify-content-center align-items-center"></i>
-                <h1 class="row d-flex justify-content-center align-items-center p-3">Inicia sesión (Administrador)</h1>
+                <h2 class="row d-flex justify-content-center align-items-center p-3">Inicia sesión (Admin)</h2>
                 <hr class="p-3" />
               </div>
 
               <!-- Email input -->
-              <div data-mdb-input-init class="form-outline mb-4">
+              <div data-mdb-input-init class="form-outline mb-2">
                 <input type="text" id="" name="nombre_usuario" class="form-control form-control-lg" placeholder="Ingresa tu nombre de usuario" required />
-                <label class="form-label pt-2" for="form3Example3">Nombre de usuario</label>
+                <label class="form-label pt-1" for="form3Example3">Nombre de usuario</label>
               </div>
 
               <!-- Password input -->
-              <div data-mdb-input-init class="form-outline mb-3">
+              <div data-mdb-input-init class="form-outline mb-2">
                 <input type="password" id="" name="contrasena" class="form-control form-control-lg" placeholder="Introduce la contraseña" required />
-                <label class="form-label pt-2" for="form3Example4">Contraseña</label>
+                <label class="form-label pt-1" for="form3Example4">Contraseña</label>
               </div>
 
               <div class="d-flex justify-content-between align-items-center">

@@ -22,50 +22,52 @@
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-md-9 col-lg-6 col-xl-5">
             <!-- <img src="https://t3.ftcdn.net/jpg/05/27/24/36/360_F_527243669_mhBh7M6Xb9hxg0y2Ug87XfQrlX20suMU.jpg" class="img-fluid" alt="Sample image" /> -->
-            <img class="img-fluid" src="../../images/Flight-&-Dreams-LOGO-Traz.png" alt="" />
+            <img class="img-fluid" src="../../public/images/Flight-&-Dreams-LOGO-Traz.png" alt="" />
           </div>
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form method="POST" action="../../config/routes.php?controller=usuario&action=registrar">
               <div>
                 <i class="fa-solid fa-circle-user fa-2x row d-flex justify-content-center align-items-center"></i>
-                <h1 class="row d-flex justify-content-center align-items-center p-3">Registrarse</h1>
-                <hr class="pt-3" />
+                <h1 class="row d-flex justify-content-center align-items-center p-1">Registrarse</h1>
+                <hr class="" />
               </div>
 
               <p class="row d-flex justify-content-center h5 pb-3 fw-light">Llena los campos</p>
 
-              <!-- Nombre -->
-              <div data-mdb-input-init class="form-outline mb-4">
-                <input type="text" id="nombre" name="nombre" class="form-control form-control-lg" placeholder="Nombre" required />
-              </div>
+              <div name="nombre_apellido" class="d-flex justify-content-between gap-2">
+                <!-- Nombre -->
+                <div data-mdb-input-init class="form-outline mb-2">
+                  <input type="text" id="nombre" name="nombre" class="form-control form-control-lg" placeholder="Nombre" required />
+                </div>
 
-              <!-- Apellido -->
-              <div data-mdb-input-init class="form-outline mb-4">
-                <input type="text" id="apellido" name="apellido" class="form-control form-control-lg" placeholder="Apellido" required />
+                <!-- Apellido -->
+                <div data-mdb-input-init class="form-outline mb-2">
+                  <input type="text" id="apellido" name="apellido" class="form-control form-control-lg" placeholder="Apellido" required />
+                </div>
               </div>
 
               <!-- Email input -->
-              <div data-mdb-input-init class="form-outline mb-4">
+              <div data-mdb-input-init class="form-outline mb-2">
                 <input type="email" id="correo" name="correo" class="form-control form-control-lg" placeholder="Correo electrónico" required />
               </div>
 
               <!-- Password input -->
-              <div data-mdb-input-init class="form-outline mb-3">
+              <div data-mdb-input-init class="form-outline mb-2">
                 <input type="password" id="contrasena" name="contrasena" class="form-control form-control-lg" placeholder="Contraseña" required />
               </div>
 
               <!-- Nacionalidad -->
-              <div data-mdb-input-init class="form-outline mb-4">
+              <div data-mdb-input-init class="form-outline mb-2">
                 <input type="text" id="nacionalidad" name="nacionalidad" class="form-control form-control-lg" placeholder="Nacionalidad" required />
               </div>
 
               <!-- Residencia -->
-              <div data-mdb-input-init class="form-outline mb-4">
+              <div data-mdb-input-init class="form-outline mb-2">
                 <input type="text" id="residencia" name="residencia" class="form-control form-control-lg" placeholder="Lugar de residencia" required />
               </div>
 
               <!-- Teléfono -->
-              <div data-mdb-input-init class="form-outline mb-4">
+              <div data-mdb-input-init class="form-outline mb-2">
                 <input type="tel" id="telefono" name="telefono" class="form-control form-control-lg" placeholder="Número de teléfono" required />
               </div>
 
@@ -74,7 +76,7 @@
                 
                 <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">Registrarme</button>
 
-                <p class="small fw-bold mt-2 pt-1 mb-0">¿Ya tienes una cuenta? <a href="./login.html" class="link-danger">Inicia sesión</a></p>
+                <p class="small fw-bold mt-2 pt-1 mb-0">¿Ya tienes una cuenta? <a href="./login.php" class="link-danger">Inicia sesión</a></p>
               </div>
             </form>
           </div>

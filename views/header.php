@@ -53,33 +53,30 @@ session_start(); // Inicia la sesión
     <a href="<?php echo BASE_URL; ?>views/servicios/visas.php" class="header--link">
       <p>Visas</p>
     </a>
+    <?php if (isset($_SESSION['usuario'])): ?>
+      <a href="<?php echo BASE_URL; ?>config/routes.php?controller=viajes&action=verReservas" class="header--link">
+        <p>Reservas</p>
+      </a>
+    <?php endif; ?>
     <a href="<?php echo BASE_URL; ?>views/about-us/about-us.php" class="header--link">
       <p>Sobre Nosotros</p>
     </a>
   </div>
 
-  <div>
-    <div>
-      <?php if (isset($_SESSION['usuario'])): ?>
-        <a href="<?php echo BASE_URL; ?>config/routes.php?controller=viajes&action=verReservas" class="header--link">
-          <i class="fa-solid fa-calendar-check fa-lg"></i> Mis Reservas
-        </a>
-      <?php endif; ?>
-    </div>
-
+  <div class="d-flex justify-content-end align-items-center gap-3">
     <?php if (isset($_SESSION['usuario'])): ?>
-      <!-- Mostrar icono de usuario si el usuario está logueado -->
-      <a href="<?php echo BASE_URL; ?>views/usuarios/perfil.php" class="header--link">
-        <i class="fa-solid fa-user fa-lg"></i> Perfil
-      </a>
-      <a href="<?php echo BASE_URL; ?>config/routes.php?controller=usuario&action=logout" class="header--link text-danger">
-        <i class="fa-solid fa-right-from-bracket fa-lg"></i> Cerrar sesión
-      </a>
-    <?php else: ?>
-      <!-- Mostrar botón de Login si el usuario no está logueado -->
-      <a href="<?php echo BASE_URL; ?>views/usuarios/login.php">
-        <button type="button" class="btn btn-success">Login</button>
-      </a>
-    <?php endif; ?>
+        <!-- Mostrar icono de usuario si el usuario está logueado -->
+        <a href="<?php echo BASE_URL; ?>views/usuarios/perfil.php" class="header--link text-decoration-none">
+            <i class="fa-solid fa-user fa-lg"></i> Perfil
+        </a>
+        <a href="<?php echo BASE_URL; ?>config/routes.php?controller=usuario&action=logout" class="header--link text-danger text-decoration-none">
+            <i class="fa-solid fa-right-from-bracket fa-lg"></i> Cerrar sesión
+        </a>
+      <?php else: ?>
+          <!-- Mostrar botón de Login si el usuario no está logueado -->
+          <a href="<?php echo BASE_URL; ?>views/usuarios/login.php">
+              <button type="button" class="btn btn-success">Login</button>
+          </a>
+      <?php endif; ?>
   </div>
 </header>
