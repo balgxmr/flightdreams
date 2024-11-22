@@ -404,3 +404,6 @@ body {
 .hero-section--text {
   color: var(--naranjaOscuro);
 }
+.update-user-icon {
+  font-size: 20rem;
+}
