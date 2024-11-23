@@ -8,15 +8,27 @@ class Admin {
         $this->conexion = new DB();
     }
     
-    public function verReservasAdmin() {
-        $query = $this->conexion->prepare("
+    public function verReservasAdmin($estado = '') {
+        // Empieza con la consulta base
+        $sql = "
             SELECT 
                 v.*, 
-                u.Nombre AS nombre_usuario, Correo, Telefono,
+                u.Nombre AS nombre_usuario, 
+                u.Correo, 
+                u.Telefono,
                 p.Nombre AS nombre_paquete
             FROM Viajes v
             LEFT JOIN usuario u ON v.id_usuario = u.id_usuario
             LEFT JOIN paquete p ON v.id_paquete = p.id_paquete
+        ";
+    
+        // Añadir la cláusula WHERE si se pasa el estado
+        if ($estado) {
+            $sql .= " WHERE v.estado = :estado";
+        }
+    
+        // Ordenar la consulta
+        $sql .= "
             ORDER BY 
                 CASE v.estado
                     WHEN 'pendiente' THEN 1
@@ -25,10 +37,23 @@ class Admin {
                     ELSE 4
                 END,
                 v.fecha_registro;
-        ");
+        ";
+    
+        // Preparar la consulta
+        $query = $this->conexion->prepare($sql);
+    
+        // Si se pasa un estado, se debe vincular el parámetro
+        if ($estado) {
+            $query->bindParam(':estado', $estado, PDO::PARAM_STR);
+        }
+    
+        // Ejecutar la consulta
         $query->execute();
+    
+        // Retornar los resultados
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+    
     
 
     public function actualizarEstado($idViajes)

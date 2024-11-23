@@ -29,6 +29,15 @@
       <div class="row gx-0 justify-content-center align-items-center">
         <div class="col-12">
           <h2 class="mainContainer--title">Historial de Reservas</h2>
+
+                    <!-- Filtro de estado -->
+                    <div class="d-flex justify-content-start mb-3">
+                        <a href="?controller=admin&action=verReservasAdmin&estado=" class="btn btn-primary me-2">Ver Todas</a>
+                        <a href="?controller=admin&action=verReservasAdmin&estado=pendiente" class="btn btn-warning me-2">Pendientes</a>
+                        <a href="?controller=admin&action=verReservasAdmin&estado=confirmado" class="btn btn-success me-2">Confirmadas</a>
+                        <a href="?controller=admin&action=verReservasAdmin&estado=cancelado" class="btn btn-secondary">Canceladas</a>
+                    </div>
+
           <div class="card mt-5">
             <div class="card-body">
               <?php if (!empty($reservas)): ?>
