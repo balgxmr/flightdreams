@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/../config/config.php';
-session_start(); // Inicia la sesión
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
 ?>
 
 <section class="infoBar">
@@ -39,7 +41,7 @@ session_start(); // Inicia la sesión
     <div class="dropdown p-4 header--link">
       <a class="dropdown-toggle text-decoration-none text-body-secondary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/autobuses.php">Autobuses</a></li>
+        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=Autobus">Autobuses</a></li>
         <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/cruceros.php">Crucero</a></li>
         <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/trenes.php">Trenes</a></li>
         <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/vuelos.php">Vuelos</a></li>
@@ -66,7 +68,7 @@ session_start(); // Inicia la sesión
   <div class="d-flex justify-content-end align-items-center gap-3">
     <?php if (isset($_SESSION['usuario'])): ?>
         <!-- Mostrar icono de usuario si el usuario está logueado -->
-        <a href="<?php echo BASE_URL; ?>views/usuarios/perfil.php" class="header--link text-decoration-none">
+        <a href="<?php echo BASE_URL; ?>config/routes.php?controller=usuario&action=mostrarFormularioActualizar" class="header--link text-decoration-none">
             <i class="fa-solid fa-user fa-lg"></i> Perfil
         </a>
         <a href="<?php echo BASE_URL; ?>config/routes.php?controller=usuario&action=logout" class="header--link text-danger text-decoration-none">

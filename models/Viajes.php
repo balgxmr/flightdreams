@@ -9,32 +9,66 @@ class Viajes {
     }
 
     // Función para insertar un nuevo viaje en la base de datos
-    public function crearViaje($estado, $fecha_inicio, $fecha_final, $visa, $id_usuario, $id_paquete) {
-        try {
-            $query = "INSERT INTO Viajes (Estado, Fecha_inicio, Fecha_final, Visa, id_usuario, id_paquete) 
-                      VALUES (:estado, :fecha_inicio, :fecha_final, :visa, :id_usuario, :id_paquete)";
-            $stmt = $this->conexion->prepare($query);
-
-            // Vincular parámetros
-            $stmt->bindParam(':estado', $estado);
-            $stmt->bindParam(':fecha_inicio', $fecha_inicio);
-            $stmt->bindParam(':fecha_final', $fecha_final);
-            $stmt->bindParam(':visa', $visa, PDO::PARAM_BOOL);
-            $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
-            $stmt->bindParam(':id_paquete', $id_paquete, PDO::PARAM_INT);
-
-            // Ejecutar consulta
-            return $stmt->execute();
-        } catch (PDOException $e) {
-            echo "Error al crear el viaje: " . $e->getMessage();
-            return false;
+    public function crearViaje($id_usuario, $id_paquete, $destino_salida, $destino_origen, $estado, $personas, $fecha_inicio, $fecha_final, $visa, $servicio, $tipo_autobus, $tipo_habitacion, $clase_vuelo, $clase_tren) {
+        // Comprobar si algunos valores son nulos y asignar null en la base de datos si es necesario
+        $id_paquete = $id_paquete ?: NULL;
+        $destino_origen = $destino_origen ?: NULL;
+        $fecha_final = $fecha_final ?: NULL;
+        $tipo_autobus = $tipo_autobus ?: NULL;
+        $tipo_habitacion = $tipo_habitacion ?: NULL;
+        $clase_vuelo = $clase_vuelo ?: NULL;
+        $clase_tren = $clase_tren ?: NULL;
+    
+        // Crear la consulta SQL
+        $query = "INSERT INTO viajes (id_usuario, id_paquete, destino_salida, destino_origen, estado, personas, fecha_inicio, fecha_final, visa, servicio, tipo_autobus, tipo_habitacion, clase_vuelo, clase_tren) 
+                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    
+        // Preparar la consulta
+        $stmt = $this->conexion->prepare($query);
+    
+        // Usar bindValue para enlazar los valores a la consulta (PDO no necesita tipos explícitos como mysqli)
+        $stmt->bindValue(1, $id_usuario, PDO::PARAM_INT);
+        $stmt->bindValue(2, $id_paquete, PDO::PARAM_INT);
+        $stmt->bindValue(3, $destino_salida, PDO::PARAM_STR);
+        $stmt->bindValue(4, $destino_origen, PDO::PARAM_STR);
+        $stmt->bindValue(5, $estado, PDO::PARAM_STR);
+        $stmt->bindValue(6, $personas, PDO::PARAM_INT);
+        $stmt->bindValue(7, $fecha_inicio, PDO::PARAM_STR);
+        $stmt->bindValue(8, $fecha_final, PDO::PARAM_STR);
+        $stmt->bindValue(9, $visa, PDO::PARAM_STR);
+        $stmt->bindValue(10, $servicio, PDO::PARAM_STR);
+        $stmt->bindValue(11, $tipo_autobus, PDO::PARAM_STR);
+        $stmt->bindValue(12, $tipo_habitacion, PDO::PARAM_STR);
+        $stmt->bindValue(13, $clase_vuelo, PDO::PARAM_STR);
+        $stmt->bindValue(14, $clase_tren, PDO::PARAM_STR);
+    
+        // Ejecutar la consulta
+        if ($stmt->execute()) {
+            return true; // Retorna true si se inserta correctamente
         }
+        
+        // Retorna false si ocurre algún error
+        return false;
     }
+    
 
     public function verReservas($userId) {
-        $query = $this->conexion->prepare("SELECT * FROM Viajes WHERE id_usuario = ?");
+        $query = $this->conexion->prepare("SELECT * FROM Viajes WHERE id_usuario = ? ORDER BY 
+         CASE estado
+             WHEN 'confirmado' THEN 1
+             WHEN 'pendiente' THEN 2
+             WHEN 'cancelado' THEN 3
+             ELSE 4
+         END,
+         fecha_registro;");
         $query->execute([$userId]);
         return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function actualizarEstado($idViajes)
+    {
+        $stmt = $this->conexion->prepare("UPDATE Viajes SET estado = 'cancelado' WHERE id_viajes = ?");
+        return $stmt->execute([$idViajes]);
     }
 
 }

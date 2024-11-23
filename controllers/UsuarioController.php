@@ -5,7 +5,7 @@ require_once '../config/config.php';
 class UsuarioController {
 
     // Acción para mostrar el formulario de registro
-    public function mostrarFormulario() {
+    public function mostrarFormularioRegistro() {
         require_once '../views/usuarios/registrar.php';
     }
 
@@ -29,9 +29,11 @@ class UsuarioController {
 
                 // Llamamos a la función para registrar el usuario
                 $resultado = $usuarioModel->registrar($nombre, $apellido, $correo, $contrasena, $nacionalidad, $residencia, $telefono);
+                
 
                 // Verificamos si el registro fue exitoso
                 if ($resultado) {
+                    $usuario = $usuarioModel->obtenerPorCorreo($correo);
                     session_start();
                     $_SESSION['usuario'] = $usuario['id_usuario'];
                     // Redirigir al usuario a la página de inicio o login (puedes personalizar esto)
@@ -104,46 +106,78 @@ class UsuarioController {
         session_destroy(); // Destruye la sesión activa
         
         // Redirige al usuario a la página de login
-        header("Location: " . BASE_URL . "views/usuarios/login.php");
+        header("Location: " . BASE_URL . "public/index.php");
         exit;
         
     }
 
-    public function editarPerfil() {
+    public function mostrarFormularioActualizar()
+    {
         session_start();
-        if (isset($_SESSION['usuario'])) {
-            $userId = $_SESSION['usuario'];
-            $usuarioModel = new Usuario();
-            $usuario = $usuarioModel->obtenerUsuarioPorId($userId);
 
-            require_once __DIR__ . '/../views/usuarios/editarPerfil.php';
-        } else {
-            header("Location: " . BASE_URL . "views/usuarios/login.php");
-            exit;
-        }
+        verificarSesion();
+
+        // Obtener ID del usuario de la sesión
+        $id = $_SESSION['usuario'];
+
+        // Obtener datos del usuario
+        $usuarioModel = new Usuario();
+        $usuario = $usuarioModel->obtenerUsuarioPorId($id);
+
+        // Cargar la vista y pasarle los datos del usuario
+        require_once '../views/usuarios/actualizar-usuario.php';
     }
 
-    public function actualizarPerfil() {
+    public function actualizarUsuario()
+    {
         session_start();
-        if (isset($_SESSION['usuario'])) {
-            $userId = $_SESSION['usuario'];
+
+        verificarSesion();
+
+        $id = $_SESSION['usuario'];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nombre = $_POST['nombre'];
-            $email = $_POST['email'];
+            $apellido = $_POST['apellido'];
+            $correo = $_POST['correo'];
+            $contrasena = $_POST['contrasena'];
+            $nacionalidad = $_POST['nacionalidad'];
+            $residencia = $_POST['residencia'];
             $telefono = $_POST['telefono'];
 
-            $usuarioModel = new Usuario();
-            $actualizado = $usuarioModel->actualizarUsuario($userId, $nombre, $email, $telefono);
+            $id = $_SESSION['usuario'];
 
-            if ($actualizado) {
-                $_SESSION['success_message'] = "Datos actualizados correctamente.";
+            // Obtener datos del usuario
+            $usuarioModel = new Usuario();
+            $usuario = $usuarioModel->obtenerUsuarioPorId($id);
+
+            if (!empty($contrasena)) {
+                // Si hay una nueva contraseña, generamos un nuevo hash
+                $contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
             } else {
-                $_SESSION['error_message'] = "Error al actualizar los datos.";
+                // Si no se cambió la contraseña, mantenemos el valor actual
+                // Asegúrate de obtener la contraseña actual del usuario en este caso
+                $contrasena = $usuario['Contrasena']; // Aquí asumes que la contraseña actual es la que se mantiene si no se cambia
             }
-            header("Location: " . BASE_URL . "?controller=usuario&action=editarPerfil");
-            exit;
-        } else {
-            header("Location: " . BASE_URL . "views/usuarios/login.php");
-            exit;
+
+            $resultado = $usuarioModel->actualizarUsuario(
+                $id,
+                $nombre,
+                $apellido,
+                $correo,
+                $contrasena,
+                $nacionalidad,
+                $residencia,
+                $telefono
+            );
+
+            if ($resultado) {
+                // Redirigir con éxito
+                header('Location: ../public/index.php');
+            } else {
+                // Mostrar error
+                echo "Error al actualizar usuario.";
+            }
         }
     }
 }

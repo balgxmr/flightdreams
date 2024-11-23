@@ -7,6 +7,7 @@
     // Obtiene el controlador y la acción de los parámetros de la URL
     $controller = isset($_GET['controller']) ? $_GET['controller'] : null;
     $action = isset($_GET['action']) ? $_GET['action'] : null;
+    $servicio = $_GET['servicio'] ?? null;
 
     // Verifica y dirige a los métodos correspondientes en el controlador
     if ($controller == 'usuario') {
@@ -22,14 +23,23 @@
             $usuarioController->logout();
         } elseif($action == 'actualizarUsuario') {
             $usuarioController->actualizarUsuario();
-        } 
+        } elseif($action == 'mostrarFormularioActualizar') {
+            $usuarioController->mostrarFormularioActualizar();
+            
+        }
     } 
 
     if ($controller == 'paquete') {
         $paqueteController = new PaqueteController();
     
-        if ($action == 'listar') {
-            $paqueteController->listar();
+        if ($servicio) {
+            if ($action == 'listarPorServicio') {
+                $paqueteController->listarPorServicio($servicio);
+            }
+        } else {
+            if ($action == 'listar') {
+                $paqueteController->listar();
+            }
         }
     }
 
@@ -38,6 +48,10 @@
     
         if ($action == 'verReservas') {
             $paqueteController->verReservas();
-        }
+        } elseif($action == 'reservar') {
+            $paqueteController->reservar();
+        } elseif($action == 'actualizarEstado') {
+            $paqueteController->actualizarEstado();
+        } 
     }
 ?>
