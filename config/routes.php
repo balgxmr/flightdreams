@@ -35,7 +35,7 @@
     
         if ($servicio) {
             if ($action == 'listarPorServicio') {
-                $paqueteController->listarPorServicio($servicio);
+                $paqueteController->listarPorServicio();
             }
         } else {
             if ($action == 'listar') {
@@ -61,7 +61,9 @@
     
         if ($action == 'verReservasAdmin') {
             $adminController->verReservasAdmin();
-        } 
+        } elseif($action == 'actualizarEstado'){
+            $adminController->actualizarEstado();
+        }
     }
 
 ?>

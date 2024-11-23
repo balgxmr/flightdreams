@@ -79,15 +79,18 @@
                           </td>
                           <td><?php echo $reserva['visa'] === 0 ? 'no' : ($reserva['visa'] === 1 ? 'sí' : 'no'); ?></td>
                           <td>
-                            <?php if ($reserva['estado'] !== 'cancelado'): ?>
-                                <form method="POST" class="d-flex align-items-center justify-content-center" action="../config/routes.php?controller=viajes&action=actualizarEstado">
-                                    <input type="hidden" name="id_viajes" value="<?php echo $reserva['id_viajes']; ?>">
-                                    <button type="submit" class="btn btn-primary btn-sm text-white d-flex align-items-center">
-                                        <i class="fa-solid fa-trash me-2"></i> 
-                                        Cancelar
-                                    </button>
+                                <form action="../config/routes.php?controller=admin&action=actualizarEstado" method="POST">
+
+                                    <select name="estado" id="estado">
+                                        <option value="cancelado" <?= $reserva['estado'] == 'cancelado' ? 'selected' : '' ?>>Cancelado</option>
+                                        <option value="confirmado" <?= $reserva['estado'] == 'confirmado' ? 'selected' : '' ?>>Confirmado</option>
+                                        <option value="pendiente" <?= $reserva['estado'] == 'pendiente' ? 'selected' : '' ?>>Pendiente</option>
+                                    </select>
+                                    
+                                    <input type="hidden" name="id_viajes" value="<?= $reserva['id_viajes'] ?>">
+
+                                    <button type="submit">Actualizar Estado</button>
                                 </form>
-                            <?php endif; ?>
                           </td>
                         </tr>
                       <?php endforeach; ?>

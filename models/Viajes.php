@@ -60,7 +60,7 @@ class Viajes {
              WHEN 'cancelado' THEN 3
              ELSE 4
          END,
-         fecha_registro;");
+         fecha_registro desc;");
         $query->execute([$userId]);
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
