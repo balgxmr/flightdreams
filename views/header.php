@@ -41,11 +41,11 @@ if (session_status() === PHP_SESSION_NONE) {
     <div class="dropdown p-4 header--link">
       <a class="dropdown-toggle text-decoration-none text-body-secondary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=Autobus">Autobuses</a></li>
-        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/cruceros.php">Crucero</a></li>
-        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/trenes.php">Trenes</a></li>
-        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/vuelos.php">Vuelos</a></li>
-        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>views/servicios/hoteles.php">Hoteles</a></li>
+        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=autobuses">Autobuses</a></li>
+        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=cruceros">Crucero</a></li>
+        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=trenes">Trenes</a></li>
+        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=vuelos">Vuelos</a></li>
+        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=hoteles">Hoteles</a></li>
       </ul>
     </div>
 

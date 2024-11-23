@@ -11,12 +11,19 @@
             // Incluye la vista para mostrar los paquetes
             require_once '../views/paquete/paquetes.php';
         }
-
+    
         public function listarPorServicio($servicio) {
             $paqueteModel = new Paquete();
             $paquetes = $paqueteModel->obtenerPorServicio($servicio);
 
-            require_once '../views/servicios/autobuses.php';
+            require_once '../views/servicios/' . $servicio . '.php';
+        }
+
+        public function listarPorServicioPaquetes($servicio) {
+            $paqueteModel = new Paquete();
+            $paquetes = $paqueteModel->obtenerPorServicio($servicio);
+
+            require_once '../views/paquete/paquetes.php';
         }
     }
 ?>

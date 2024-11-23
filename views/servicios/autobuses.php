@@ -99,7 +99,7 @@
             </div>
           </div>
 
-          <input type="hidden" name="servicio" value="Autobus" />
+          <input type="hidden" name="servicio" value="autobuses" />
           
           <div class="d-flex justify-content-between align-items-center">
             <span class="fs-5 fw-bold text-primary"></span>
@@ -114,7 +114,7 @@
 
     <section class="mainContainer">
         <h2 class="mainContainer--title">¿Sin ideas a donde ir?</h2>
-        <h3 class="mainContainer--subtitle">Te recomendamos viajes en autobuses</h3>
+        <h3 class="mainContainer--subtitle">Te recomendamos viajes en Autobuses</h3>
 
         <?php if (!empty($paquetes)): ?>
         <div class="row">
