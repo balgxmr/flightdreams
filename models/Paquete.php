@@ -9,7 +9,7 @@
         }
 
         public function obtenerTodos() {
-            $query = "SELECT * FROM paquete"; // Ajusta según tu tabla
+            $query = "SELECT * FROM paquete"; 
             $stmt = $this->conexion->prepare($query); // Prepara la consulta
             $stmt->execute(); // Ejecuta la consulta
             return $stmt->fetchAll(PDO::FETCH_ASSOC); // Devuelve los resultados como array asociativo
@@ -21,6 +21,18 @@
             $stmt->bindValue(1, $servicio, PDO::PARAM_STR);
             $stmt->execute(); // Ejecuta la consulta
             return $stmt->fetchAll(PDO::FETCH_ASSOC); // Devuelve los resultados como array asociativo
+        }
+
+        public function obtenerTresServiciosDiferentes() {
+            $query = "
+                SELECT * 
+                FROM paquete 
+                GROUP BY servicio 
+                LIMIT 3
+            "; // Agrupamos por servicio y limitamos a 3
+            $stmt = $this->conexion->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 ?>
