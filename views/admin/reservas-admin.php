@@ -19,6 +19,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- Iconos: Font-Awesome -->
   <script src="https://kit.fontawesome.com/5ddbd215bf.js" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="gridContainer">
@@ -47,53 +49,50 @@
                     <?php if (!empty($reservas)): ?>
                       <div class="table-responsive">
                         <table class="table table-striped table-hover">
-                          <thead class="table-primary">
+                          <thead>
                             <tr>
-                              <th>#</th>
-                              <th>Nombre del usuario</th>
-                              <th>Correo</th>
-                              <th>Telefono</th>
-                              <th>Nombre del paquete</th>
-                              <th>Servicio</th>
-                              <th>Destino</th>
-                              <th>Personas</th>
-                              <th>Fecha inicial</th>
-                              <th>Estado</th>
-                              <th>Visa</th>
-                              <th>Cancelar</th>
+                              <th class="text-center">#</th>
+                              <th class="text-center">Nombre de Usuario</th>
+                              <th class="text-center">Correo</th>
+                              <th class="text-center">Teléfono</th>
+                              <th class="text-center">Paquete</th>
+                              <th class="text-center">Servicio</th>
+                              <th class="text-center">Destino</th>
+                              <th class="text-center">Personas</th>
+                              <th class="text-center">Fecha Inicio</th>
+                              <th class="text-center">Estado</th>
+                              <th class="text-center">Visa</th>
+                              <th class="text-center">Acciones</th>
                             </tr>
                           </thead>
                           <tbody>
                             <?php foreach ($reservas as $index => $reserva): ?>
                               <tr>
-                                <td><?php echo $index + 1; ?></td>
-                                <td><?php echo htmlspecialchars($reserva['nombre_usuario']); ?></td>
-                                <td><?php echo htmlspecialchars($reserva['Correo']); ?></td>
-                                <td><?php echo htmlspecialchars($reserva['Telefono']); ?></td>
-                                <td><?php echo !empty($reserva['nombre_paquete']) ? htmlspecialchars($reserva['nombre_paquete']) : 'No disponible'; ?></td>
-                                <td><?php echo htmlspecialchars($reserva['servicio']); ?></td>
-                                <td><?php echo htmlspecialchars($reserva['destino_salida']); ?></td>
-                                <td><?php echo htmlspecialchars($reserva['personas']); ?></td>
-                                <td><?php echo htmlspecialchars($reserva['fecha_inicio']); ?></td>
-                                <td>
+                                <td class="text-center"><?php echo $index + 1; ?></td>
+                                <td class="text-center"><?php echo htmlspecialchars($reserva['nombre_usuario']); ?></td>
+                                <td class="text-center"><?php echo htmlspecialchars($reserva['Correo']); ?></td>
+                                <td class="text-center"><?php echo htmlspecialchars($reserva['Telefono']); ?></td>
+                                <td class="text-center"><?php echo !empty($reserva['nombre_paquete']) ? htmlspecialchars($reserva['nombre_paquete']) : 'No disponible'; ?></td>
+                                <td class="text-center"><?php echo htmlspecialchars($reserva['servicio']); ?></td>
+                                <td class="text-center"><?php echo htmlspecialchars($reserva['destino_salida']); ?></td>
+                                <td class="text-center"><?php echo htmlspecialchars($reserva['personas']); ?></td>
+                                <td class="text-center"><?php echo htmlspecialchars($reserva['fecha_inicio']); ?></td>
+                                <td class="text-center">
                                   <span class="badge bg-<?php echo $reserva['estado'] == 'confirmado' ? 'success' : ($reserva['estado'] == 'pendiente' ? 'warning' : 'secondary'); ?>">
                                     <?php echo htmlspecialchars($reserva['estado']); ?>
                                   </span>
                                 </td>
-                                <td><?php echo $reserva['visa'] === 0 ? 'no' : ($reserva['visa'] === 1 ? 'sí' : 'no'); ?></td>
-                                <td>
+                                <td class="text-center"><?php echo $reserva['visa'] === 0 ? 'no' : ($reserva['visa'] === 1 ? 'sí' : 'no'); ?></td>
+                                <td class="text-center">
                                   <form action="../config/routes.php?controller=admin&action=actualizarEstado" method="POST">
                                     <div class="form-group">
-                                      <!-- <label for="estado">Estado</label> -->
                                       <select name="estado" id="estado" class="form-control">
                                         <option value="cancelado" <?= $reserva['estado'] == 'cancelado' ? 'selected' : '' ?>>Cancelado</option>
                                         <option value="confirmado" <?= $reserva['estado'] == 'confirmado' ? 'selected' : '' ?>>Confirmado</option>
                                         <option value="pendiente" <?= $reserva['estado'] == 'pendiente' ? 'selected' : '' ?>>Pendiente</option>
                                       </select>
                                     </div>
-
                                     <input type="hidden" name="id_viajes" value="<?= $reserva['id_viajes'] ?>">
-                                    
                                     <button type="submit" class="btn btn-primary btn-sm">Actualizar Estado</button>
                                   </form>
                                 </td>
