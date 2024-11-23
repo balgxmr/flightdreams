@@ -41,13 +41,16 @@
           <div class="row g-3 mb-3">
             <!-- Destino -->
             <div class="col-md-4">
-              <label for="destino_salida" class="form-label">¿A donde ir?</label>
-              <select name="destino_salida" id="destino_salida" class="form-select" required>
-                <option selected>Seleccionar...</option>
-                <option>Caribe</option>
-                <option>Europa</option>
-                <option>Asia</option>
-              </select>
+              <!-- text -->
+              <label for="destino_salida" class="form-label">¿A dónde ir?</label>
+              <input 
+                type="text" 
+                name="destino_salida" 
+                id="destino_salida" 
+                class="form-control" 
+                required 
+                maxlength="65"
+                placeholder="Ej. Ciudad del Saber">
             </div>
 
             <!-- autobus -->
@@ -97,17 +100,11 @@
           </div>
 
           <input type="hidden" name="servicio" value="Autobus" />
-
-          <div class="row g-3 mb-3">
-            
-          </div>
-
-
           
           <div class="d-flex justify-content-between align-items-center">
             <span class="fs-5 fw-bold text-primary"></span>
             <div>
-              <button type="submit" class="btn btn-success me-2">Registrar</button>
+              <button type="submit" class="btn btn-success me-2">Reservar</button>
               <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
             </div>
           </div>

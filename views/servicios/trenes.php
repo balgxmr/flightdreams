@@ -36,30 +36,33 @@
         <div class="bg-primary text-white p-3 mb-3">
           <h5 class="m-0">Rellena los detalles del viaje</h5>
         </div>
-        <form>
+        <form method="POST" action="../../config/routes.php?controller=viajes&action=reservar">
           
           <div class="row g-3 mb-3">            
             <!-- Destino -->
             <div class="col-md-4">
-              <label for="destino" class="form-label">¿A donde ir?</label>
-              <select id="destino" class="form-select">
-                <option selected>Seleccionar...</option>
-                <option>Italia</option>
-                <option>Francia</option>
-                <option>Asia</option>
-              </select>
+              <!-- text -->
+              <label for="destino_salida" class="form-label">¿A dónde ir?</label>
+              <input 
+                type="text" 
+                name="destino_salida" 
+                id="destino_salida" 
+                class="form-control" 
+                required 
+                maxlength="65"
+                placeholder="Ej. Estación Las Nevadas">
             </div>
             
             <!-- Personas -->
             <div class="col-md-4">
               <label for="personas" class="form-label">Personas</label>
-              <input type="number" id="personas" class="form-control" min="1" max="20" placeholder="Cantidad de personas" />
+              <input name="personas" type="number" id="personas" class="form-control" min="1" max="20" placeholder="Cantidad de personas" required/>
             </div>
 
             <!-- Destino -->
             <div class="col-md-4">
-              <label for="destino" class="form-label">Clase del tren</label>
-              <select id="destino" class="form-select">
+              <label for="clase_tren" class="form-label">Clase del tren</label>
+              <select name="clase_tren" id="clase_tren" class="form-select">
                 <option selected>Seleccionar...</option>
                 <option>Primera clase</option>
                 <option>Segunda clase</option>
@@ -71,13 +74,13 @@
           <div class="row g-3 mb-3">
             <!-- Fecha inicial -->
             <div class="col-md-4">
-              <label for="fechaInicio" class="form-label">Fecha Inicial</label>
-              <input type="date" id="fechaInicio" class="form-control" />
+              <label for="fecha_inicio" class="form-label">Fecha Inicial</label>
+              <input name="fecha_inicio" type="date" id="fecha_inicio" class="form-control" required/>
             </div>
             <!-- Fecha final -->
             <div class="col-md-4">
-              <label for="fechaFinal" class="form-label">Fecha Final</label>
-              <input type="date" id="fechaFinal" class="form-control" />
+              <label for="fecha_final" class="form-label">Fecha Final</label>
+              <input name="fecha_final" type="date" id="fecha_final" class="form-control" required/>
             </div>
 
             <!-- Visa -->
@@ -85,21 +88,23 @@
               <label class="form-label text-center d-block">Visa</label>
               <div class="d-flex align-items-center justify-content-center align-bottom">
                 <div class="form-check me-3">
-                  <input class="form-check-input" type="radio" id="visa-requerida" name="visa" value="requerida" />
+                  <input class="form-check-input" type="radio" id="visa-requerida" name="visa" value=1 required/>
                   <label class="form-check-label" for="visa-requerida">Requerida</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" id="visa-no-requerida" name="visa" value="no_requerida" />
+                  <input class="form-check-input" type="radio" id="visa-no-requerida" name="visa" value=0 required/>
                   <label class="form-check-label" for="visa-no-requerida">No Requerida</label>
                 </div>
               </div>
             </div>
           </div>
+
+          <input type="hidden" name="servicio" value="Tren" />
           
           <div class="d-flex justify-content-between align-items-center">
             <span class="fs-5 fw-bold text-primary"></span>
             <div>
-              <button type="submit" class="btn btn-success me-2">Registrar</button>
+              <button type="submit" class="btn btn-success me-2">Reservar</button>
               <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
             </div>
           </div>
@@ -109,65 +114,53 @@
 
     <section class="mainContainer">
         <h2 class="mainContainer--title">¿Sin ideas a donde ir?</h2>
-        <h3 class="mainContainer--subtitle">Te recomendamos viajes:</h3>
+        <h3 class="mainContainer--subtitle">Te recomendamos viajes en autobuses</h3>
 
-        <div class="card-group p-5">
-          <div class="card">
-            <img src="../../public/images/barcelona.jpg" class="card-img-top h-50" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card-footer">
-              <button type="button" class="btn btn-success">Cotizar</button>
-            </div>
-          </div>
-          <div class="card">
-            <img src="../../public/images/toronto.jpg" class="card-img-top h-50" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            </div>
-            <div class="card-footer">
-              <button type="button" class="btn btn-success">Cotizar</button>
-            </div>
-          </div>
-          
-          <div class="card">
-            <img src="../../public/images/barcelona.jpg" class="card-img-top h-50" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-              <a href="./paquete.php">
-                <button type="button" class="btn btn-success">Cotizar</button>
-              </a>
-            </div>
-          </div>
+        <?php if (!empty($paquetes)): ?>
+        <div class="row">
+            <?php 
+            $count = 0; 
+            foreach ($paquetes as $paquete): 
+                // Calcular la duración entre las fechas
+                $fechaInicio = new DateTime($paquete['Fecha_inicio']);
+                $fechaFinal = new DateTime($paquete['Fecha_final']);
+                $duracion = $fechaInicio->diff($fechaFinal)->days; // Diferencia en días
+            ?>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <?php if (!empty($paquete['Foto'])): ?>
+                            <img class="card-img-top h-50" src="../public/images/canal-panama.jpg" alt="Imagen del paquete">
+                        <?php endif; ?>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $paquete['Nombre']; ?></h5>
+                            <p class="card-text"><?php echo $paquete['Descripcion']; ?></p>
+                            <p class="card-text">
+                                <strong>Destino:</strong> <?php echo $paquete['Destino']; ?><br>
+                                <strong>Precio:</strong> $<?php echo number_format($paquete['Precio'], 2); ?><br>
+                                <strong>Duración:</strong> <?php echo $duracion; ?> días<br>
+                                <!-- <strong>Fechas:</strong> <?php echo $paquete['Fecha_inicio']; ?> - <?php echo $paquete['Fecha_final']; ?> -->
+                                <strong>Servicio: <?php echo $paquete['servicio'];; ?></strong>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-success">Ver itinerario</button>
+                        </div>
+                    </div>
+                </div>
 
-          <div class="card">
-            <img src="../../public/images/barcelona.jpg" class="card-img-top h-50" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card-footer">
-              <button type="button" class="btn btn-success">Cotizar</button>
-            </div>
+                <?php 
+                $count++;
+                // Cierra la fila actual y abre una nueva después de 3 tarjetas
+                if ($count % 3 == 0): 
+                ?>
+              </div><div class="row">
+                <?php endif; ?>
+            <?php endforeach; ?>
           </div>
+      <?php else: ?>
+          <p>No hay paquetes registrados.</p>
+      <?php endif; ?>
 
-          <div class="card">
-            <img src="../../public/images/barcelona.jpg" class="card-img-top h-50" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card-footer">
-              <button type="button" class="btn btn-success">Cotizar</button>
-            </div>
-          </div>
-        </div>
       </section>
 
 
