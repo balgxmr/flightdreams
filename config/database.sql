@@ -1,3 +1,5 @@
+CREATE DATABASE flightsanddreams;
+
 -- Crear tabla Usuario
 CREATE TABLE Usuario (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,38 +19,33 @@ CREATE TABLE Paquete (
     Descripcion TEXT,
     Destino VARCHAR(100),
     Precio DECIMAL(10, 2),
-    Foto VARCHAR(255),
+    Foto LONGBLOB,
     Fecha_inicio DATE,
     Fecha_final DATE,
+    servicio VARCHAR(255) NOT NULL,
     itinerario TEXT
 );
 
 -- Crear tabla Viajes
 CREATE TABLE Viajes (
-    id_viajes INT AUTO_INCREMENT PRIMARY KEY,
-    Estado VARCHAR(20),
-    Fecha_inicio DATE,
-    Fecha_final DATE,
-    Visa BOOLEAN,
-    id_usuario INT NOT NULL,
-    id_paquete INT NOT NULL,
-    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE,
-    FOREIGN KEY (id_paquete) REFERENCES Paquete(id_paquete) ON DELETE CASCADE
-);
-
--- Crear tabla Servicio
-CREATE TABLE Servicio (
-    id_servicio INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(50) NOT NULL
-);
-
--- Crear tabla intermedia entre Paquete y Servicio para relación N:M
-CREATE TABLE Paquete_Servicio (
-    id_paquete INT NOT NULL,
-    id_servicio INT NOT NULL,
-    PRIMARY KEY (id_paquete, id_servicio),
-    FOREIGN KEY (id_paquete) REFERENCES Paquete(id_paquete) ON DELETE CASCADE,
-    FOREIGN KEY (id_servicio) REFERENCES Servicio(id_servicio) ON DELETE CASCADE
+    id_viajes INT AUTO_INCREMENT PRIMARY KEY, -- Identificador único del viaje
+    id_usuario INT NOT NULL, -- Relación con la tabla usuario (obligatorio)
+    id_paquete INT, -- Relación con la tabla paquete (puede ser NULL)
+    destino_salida VARCHAR(255) NOT NULL, -- Lugar de salida (obligatorio)
+    destino_origen VARCHAR(255), -- Lugar de destino (puede ser NULL)
+    estado ENUM('pendiente', 'confirmado', 'cancelado') NOT NULL, -- Estado del viaje (obligatorio)
+    personas INT NOT NULL, -- Número de personas (obligatorio)
+    fecha_inicio DATE NOT NULL, -- Fecha de inicio del viaje (obligatorio)
+    fecha_final DATE, -- Fecha final del viaje (puede ser NULL)
+    visa BOOLEAN, -- Si se requiere visa (TRUE/FALSE)
+    servicio VARCHAR(255) NOT NULL, -- Tipo de servicio (obligatorio)
+    tipo_autobus VARCHAR(50), -- Tipo de autobús (puede ser NULL)
+    tipo_habitacion VARCHAR(50), -- Tipo de habitación (puede ser NULL)
+    clase_vuelo VARCHAR(50), -- Clase del vuelo (puede ser NULL)
+    clase_tren VARCHAR(50), -- Clase del tren (puede ser NULL),
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_usuario FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_paquete FOREIGN KEY (id_paquete) REFERENCES paquete(id_paquete) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 CREATE TABLE Administrador (

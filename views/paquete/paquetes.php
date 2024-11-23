@@ -46,7 +46,7 @@
                                 <strong>Precio:</strong> $<?php echo number_format($paquete['Precio'], 2); ?><br>
                                 <strong>Duración:</strong> <?php echo $duracion; ?> días<br>
                                 <!-- <strong>Fechas:</strong> <?php echo $paquete['Fecha_inicio']; ?> - <?php echo $paquete['Fecha_final']; ?> -->
-                                <strong>Servicios:</strong>
+                                <strong>Servicio: <?php echo $paquete['servicio'];; ?></strong>
                             </p>
                         </div>
                         <div class="card-footer">

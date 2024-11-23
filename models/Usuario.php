@@ -50,15 +50,40 @@
             return $query->fetch(PDO::FETCH_ASSOC);
         }
 
-        public function actualizarUsuario($id, $nombre, $email, $telefono) {
-            $query = $this->conexion->prepare("UPDATE usuarios SET nombre = ?, email = ?, telefono = ? WHERE id = ?");
-            return $query->execute([$nombre, $email, $telefono, $id]);
+        public function obtenerUsuarioPorId($id) {
+            $sql = "SELECT * FROM Usuario WHERE id_usuario = :id";
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+
+            return $stmt->fetch(PDO::FETCH_ASSOC); 
         }
 
-        public function obtenerUsuarioPorId($id) {
-            $query = $this->conexion->prepare("SELECT * FROM usuarios WHERE id = ?");
-            $query->execute([$id]);
-            return $query->fetch(PDO::FETCH_ASSOC);
+        public function actualizarUsuario($id, $nombre, $apellido, $correo, $contrasena, $nacionalidad, $residencia, $telefono) {
+            $sql = "UPDATE usuario SET 
+                    Nombre = :nombre, 
+                    Apellido = :apellido, 
+                    Correo = :correo, 
+                    Contrasena = :contrasena, 
+                    Nacionalidad = :nacionalidad, 
+                    Residencia = :residencia, 
+                    Telefono = :telefono 
+                    WHERE id_usuario = :id";
+            $stmt = $this->conexion->prepare($sql);
+
+            // Bind de los parámetros
+            $stmt->bindParam(':nombre', $nombre);
+            $stmt->bindParam(':apellido', $apellido);
+            $stmt->bindParam(':correo', $correo);
+            $stmt->bindParam(':contrasena', $contrasena);
+            $stmt->bindParam(':nacionalidad', $nacionalidad);
+            $stmt->bindParam(':residencia', $residencia);
+            $stmt->bindParam(':telefono', $telefono);
+            $stmt->bindParam(':id', $id);
+
+            // Ejecutar la consulta
+            return $stmt->execute();
         }
+            
     }
 ?>

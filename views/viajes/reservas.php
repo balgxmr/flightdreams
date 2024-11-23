@@ -1,4 +1,7 @@
-<?php require_once '../config/config.php'; ?>
+<?php 
+  require_once '../config/config.php'; 
+  verificarSesion();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,29 +38,37 @@
                 <thead class="table-primary">
                   <tr>
                     <th>#</th>
-                    <th>Fecha Inicio</th>
-                    <th>Fecha Final</th>
+                    <th>Servicio</th>
+                    <th>Destino</th>
+                    <th>Personas</th>
+                    <th>Fecha inicial</th>
                     <th>Estado</th>
-                    <th>Acciones</th>
+                    <th>Cancelar</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach ($reservas as $index => $reserva): ?>
                     <tr>
                       <td><?php echo $index + 1; ?></td>
+                      <td><?php echo htmlspecialchars($reserva['servicio']); ?></td>
+                      <td><?php echo htmlspecialchars($reserva['destino_salida']); ?></td>
+                      <td><?php echo htmlspecialchars($reserva['personas']); ?></td>
+                      <td><?php echo htmlspecialchars($reserva['fecha_inicio']); ?></td>
                       <td>
-                        <span class="badge bg-<?php echo $reserva['Estado'] == 'Completado' ? 'success' : ($reserva['Estado'] == 'En curso' ? 'warning' : 'secondary'); ?>">
-                          <?php echo htmlspecialchars($reserva['Estado']); ?>
+                        <span class="badge bg-<?php echo $reserva['estado'] == 'confirmado' ? 'success' : ($reserva['estado'] == 'pendiente' ? 'warning' : 'secondary'); ?>">
+                          <?php echo htmlspecialchars($reserva['estado']); ?>
                         </span>
                       </td>
-                      <td><?php echo htmlspecialchars($reserva['Destino_final']); ?></td>
-                      <td><?php echo htmlspecialchars($reserva['Personas']); ?></td>
-                      <td><?php echo htmlspecialchars($reserva['Servicios']); ?></td>
-                      <td><?php echo htmlspecialchars($reserva['Fecha_inicio']); ?></td>
                       <td>
-                        <a href="<?php echo BASE_URL . 'config/routes.php?controller=viajes&action=verReserva&id=' . $reserva['id_viajes']; ?>" class="btn btn-primary btn-sm">
-                          <i class="fa-solid fa-trash"></i> Eliminar
-                        </a>
+                        <?php if ($reserva['estado'] !== 'cancelado'): ?>
+                            <form method="POST" action="../config/routes.php?controller=viajes&action=actualizarEstado" class="btn btn-primary btn-sm">
+                                <input type="hidden" name="id_viajes" value="<?php echo $reserva['id_viajes']; ?>">
+                                <button type="submit">
+                                    <i class="fa-solid fa-trash"></i> 
+                                    Cancelar
+                                </button>
+                            </form>
+                        <?php endif; ?>
                       </td>
                     </tr>
                   <?php endforeach; ?>
@@ -66,11 +77,6 @@
             <?php else: ?>
               <p class="text-center">No tienes reservas registradas.</p>
             <?php endif; ?>
-          </div>
-          <div class="card-footer text-center">
-            <a href="<?php echo BASE_URL . 'config/routes.php?controller=usuario&action=dashboard'; ?>" class="btn btn-secondary">
-              <i class="fa-solid fa-arrow-left"></i> Volver al Dashboard
-            </a>
           </div>
         </div>
       </div>

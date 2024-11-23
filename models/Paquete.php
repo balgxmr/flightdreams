@@ -14,5 +14,13 @@
             $stmt->execute(); // Ejecuta la consulta
             return $stmt->fetchAll(PDO::FETCH_ASSOC); // Devuelve los resultados como array asociativo
         }
+
+        public function obtenerPorServicio($servicio) {
+            $query = "SELECT * FROM paquete WHERE servicio = ?"; // Ajusta según tu tabla
+            $stmt = $this->conexion->prepare($query); // Prepara la consulta
+            $stmt->bindValue(1, $servicio, PDO::PARAM_STR);
+            $stmt->execute(); // Ejecuta la consulta
+            return $stmt->fetchAll(PDO::FETCH_ASSOC); // Devuelve los resultados como array asociativo
+        }
     }
 ?>
