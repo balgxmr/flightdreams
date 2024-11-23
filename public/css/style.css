@@ -416,3 +416,88 @@ body {
 .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/**/
+.gridContainer {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "sidebar main"
+    "sidebar main"
+    "sidebar main";
+  height: 100vh;
+}
+
+.dashboardSidebar {
+  grid-area: sidebar;
+  background-color: #f8f9fa;
+  position: fixed;
+  height: 100vh;
+  width: 300px;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+}
+
+.mainContent {
+  grid-area: main;
+  /* margin-left: 300px; */
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #89119d;
+  text-align: center;
+  padding: 1.5rem 0;
+  color: white;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.menu a {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+}
+
+.mainContainerAdmin {
+  margin: 0;
+}
+
+.paddingContentAdmin {
+  padding: 1.8rem;
+}
+
+.table {
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "footer";
+  }
+  .dashboardSidebar {
+    position: static;
+    width: 100%;
+  }
+  .mainContent {
+    margin-left: 0;
+  }
+}
