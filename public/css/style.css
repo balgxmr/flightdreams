@@ -407,3 +407,12 @@ body {
 .update-user-icon {
   font-size: 20rem;
 }
+
+.table-responsive {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

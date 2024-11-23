@@ -3,11 +3,7 @@ require_once '../models/Viajes.php';
 require_once '../config/config.php';
 
 class ViajesController {
-    private $viajes;
 
-    public function __construct() {
-        $this->viajes = new Viajes();
-    }
 
     public function reservar() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -53,11 +49,6 @@ class ViajesController {
                 echo "Por favor complete todos los campos obligatorios.";
             }
         }
-    }
-
-    public function listarViajes() {
-        $viajes = $this->viajes->obtenerViajes();
-        require_once '../views/viajes/listar.php';
     }
 
     public function verReservas() {

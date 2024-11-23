@@ -1,6 +1,6 @@
 <?php 
   require_once '../config/config.php'; 
-  verificarSesion();
+  verificarSesionAdmin();
 ?>
 
 <!DOCTYPE html>
@@ -21,8 +21,6 @@
   <script src="https://kit.fontawesome.com/5ddbd215bf.js" crossorigin="anonymous"></script>
 </head>
 <body class="">
-  
-  <?php include '../views/header.php'?>
 
   <hr>
 
@@ -39,11 +37,16 @@
                     <thead class="table-primary">
                       <tr>
                         <th>#</th>
+                        <th>Nombre del usuario</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                        <th>Nombre del paquete</th>
                         <th>Servicio</th>
                         <th>Destino</th>
                         <th>Personas</th>
                         <th>Fecha inicial</th>
                         <th>Estado</th>
+                        <th>Visa</th>
                         <th>Cancelar</th>
                       </tr>
                     </thead>
@@ -51,15 +54,21 @@
                       <?php foreach ($reservas as $index => $reserva): ?>
                         <tr>
                           <td><?php echo $index + 1; ?></td>
+                          <td><?php echo htmlspecialchars($reserva['nombre_usuario']); ?></td>
+                          <td><?php echo htmlspecialchars($reserva['Correo']); ?></td>
+                          <td><?php echo htmlspecialchars($reserva['Telefono']); ?></td>
+                          <td><?php echo !empty($reserva['nombre_paquete']) ? htmlspecialchars($reserva['nombre_paquete']) : 'No disponible'; ?></td>
                           <td><?php echo htmlspecialchars($reserva['servicio']); ?></td>
                           <td><?php echo htmlspecialchars($reserva['destino_salida']); ?></td>
                           <td><?php echo htmlspecialchars($reserva['personas']); ?></td>
                           <td><?php echo htmlspecialchars($reserva['fecha_inicio']); ?></td>
+                          
                           <td>
                             <span class="badge bg-<?php echo $reserva['estado'] == 'confirmado' ? 'success' : ($reserva['estado'] == 'pendiente' ? 'warning' : 'secondary'); ?>">
                               <?php echo htmlspecialchars($reserva['estado']); ?>
                             </span>
                           </td>
+                          <td><?php echo $reserva['visa'] === 0 ? 'no' : ($reserva['visa'] === 1 ? 'sí' : 'no'); ?></td>
                           <td>
                             <?php if ($reserva['estado'] !== 'cancelado'): ?>
                                 <form method="POST" class="d-flex align-items-center justify-content-center" action="../config/routes.php?controller=viajes&action=actualizarEstado">
@@ -85,9 +94,6 @@
       </div>
     </div>
   </section>
-
-
-  <?php include '../views/footer.php'?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

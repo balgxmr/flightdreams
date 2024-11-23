@@ -84,11 +84,11 @@ class UsuarioController {
                 $usuarioModel = new Usuario();
                 $administrador = $usuarioModel->obtenerPorNombreUsuario($nombreUsuario);
 
-                if ($administrador && password_verify($contrasena, $administrador['contrasena'])) {
+                if ($administrador && hash('sha256', $contrasena) === $administrador['contrasena']) {
                     // Inicia sesión o redirige
                     session_start();
-                    $_SESSION['admin'] = $administrador['id_administrador'];
-                    header('Location: ../public/index.php');
+                    $_SESSION['admin'] = $administrador['id_admin'];
+                    header('Location: ../views/admin/dashboard.php');
                 } else {
                     echo "Usuario o contraseña incorrectos.";
                 }
@@ -96,7 +96,7 @@ class UsuarioController {
                 echo "Todos los campos son obligatorios.";
             }
         } else {
-            require_once '../views/admin/login.php';
+            require_once '../views/usuario/login.php';
         }
     }
 

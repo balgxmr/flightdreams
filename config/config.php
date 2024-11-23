@@ -7,4 +7,11 @@ function verificarSesion() {
         exit();
     }
 }
+
+function verificarSesionAdmin() {
+    if (!isset($_SESSION['admin'])) {
+        header('Location: ' . BASE_URL . 'views/usuarios/login-admin.php'); 
+        exit();
+    }
+}
 ?>

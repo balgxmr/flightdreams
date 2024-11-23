@@ -53,3 +53,7 @@ CREATE TABLE Administrador (
     nombre_usuario VARCHAR(50) NOT NULL UNIQUE,
     contrasena VARCHAR(255) NOT NULL
 );
+
+
+-- INSERT INTO Administrador (nombre_usuario, contrasena)
+-- VALUES ('admin', SHA2('admin', 256));
