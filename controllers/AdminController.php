@@ -8,9 +8,10 @@ class AdminController {
         session_start();
         if (isset($_SESSION['admin'])) {
 
+            $estado = isset($_GET['estado']) ? $_GET['estado'] : '';
             $adminModel = new Admin();
 
-            $reservas = $adminModel->verReservasAdmin();
+            $reservas = $adminModel->verReservasAdmin($estado);
             // Incluye la vista y pasa las reservas como parámetro
             require_once "../views/admin/reservas-admin.php";
         } else {
