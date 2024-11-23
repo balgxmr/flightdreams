@@ -3,6 +3,7 @@
     require_once '../controllers/UsuarioController.php';
     require_once '../controllers/PaqueteController.php';
     require_once '../controllers/ViajesController.php';
+    require_once '../controllers/AdminController.php';
 
     // Obtiene el controlador y la acción de los parámetros de la URL
     $controller = isset($_GET['controller']) ? $_GET['controller'] : null;
@@ -44,14 +45,23 @@
     }
 
     if ($controller == 'viajes') {
-        $paqueteController = new ViajesController();
+        $viajesController = new ViajesController();
     
         if ($action == 'verReservas') {
-            $paqueteController->verReservas();
+            $viajesController->verReservas();
         } elseif($action == 'reservar') {
-            $paqueteController->reservar();
+            $viajesController->reservar();
         } elseif($action == 'actualizarEstado') {
-            $paqueteController->actualizarEstado();
+            $viajesController->actualizarEstado();
         } 
     }
+
+    if ($controller == 'admin') {
+        $adminController = new AdminController();
+    
+        if ($action == 'verReservasAdmin') {
+            $adminController->verReservasAdmin();
+        } 
+    }
+
 ?>
