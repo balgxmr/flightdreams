@@ -22,7 +22,7 @@
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-md-9 col-lg-6 col-xl-5">
             <i class="fa-solid fa-circle-user update-user-icon row d-flex justify-content-center align-items-center"></i>
-            <p class="d-flex justify-content-center align-items-center mt-5 h4">Actualizar Usuario</p>
+            <p class="d-flex justify-content-center align-items-center mt-5 h4"><?php echo  "Datos de: " . $usuario['Nombre'] . " " . $usuario['Apellido']; ?></p>
           </div>
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form method="POST" action="../config/routes.php?controller=usuario&action=actualizarUsuario">

@@ -87,7 +87,7 @@ class UsuarioController {
                 if ($administrador && password_verify($contrasena, $administrador['contrasena'])) {
                     // Inicia sesión o redirige
                     session_start();
-                    $_SESSION['admin'] = $administrador;
+                    $_SESSION['admin'] = $administrador['id_administrador'];
                     header('Location: ../public/index.php');
                 } else {
                     echo "Usuario o contraseña incorrectos.";
