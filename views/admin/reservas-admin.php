@@ -33,7 +33,6 @@
           <div class="bg-primary text-white p-3 mb-3">
             <h5 class="m-0">Historial de Reservas</h5>
           </div>
-          <form method="POST" action="../config/routes.php?controller=viajes&action=reservar">
             <div class="row gx-0 justify-content-center align-items-center">
               <div class="col-12">
 
@@ -62,7 +61,7 @@
                               <th class="text-center">Fecha Inicio</th>
                               <th class="text-center">Estado</th>
                               <th class="text-center">Visa</th>
-                              <th class="text-center">Acciones</th>
+                              <th class="text-center">Estados</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -108,7 +107,6 @@
                 </div>
               </div>
             </div>
-          </form>
         </div>
       </section>
     </div>

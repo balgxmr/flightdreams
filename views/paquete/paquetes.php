@@ -22,7 +22,22 @@
 
   <main class="mainContainer">
     <h2 class="mainContainer--title">Lista de Paquetes</h2>
+
+    
+
     <div class="container p-5">
+
+    <!-- Filtro de estado -->
+    <div class="d-flex justify-content-start mb-3">
+        <a href="?controller=paquete&action=listar&servicio=" class="btn btn-primary me-2">Ver Todas</a>
+        <a href="?controller=paquete&action=listarPorServicioPaquetes&servicio=autobuses" class="btn btn-warning me-2">Autobuses</a>
+        <a href="?controller=paquete&action=listarPorServicioPaquetes&servicio=hoteles" class="btn btn-success me-2">Hoteles</a>
+        <a href="?controller=paquete&action=listarPorServicioPaquetes&servicio=cruceros" class="btn btn-primary me-2">Cruceros</a>
+        <a href="?controller=paquete&action=listarPorServicioPaquetes&servicio=trenes" class="btn btn-warning me-2">Trenes</a>
+        <a href="?controller=paquete&action=listarPorServicioPaquetes&servicio=vuelos" class="btn btn-success me-2">Vuelos</a>
+
+    </div>
+    
     <?php if (!empty($paquetes)): ?>
         <div class="row">
             <?php 
@@ -50,7 +65,7 @@
                             </p>
                         </div>
                         <div class="card-footer">
-                            <button type="button" class="btn btn-success">Ver itinerario</button>
+                            <a href="paquete-desc.php"><button type="button" class="btn btn-success">Ver itinerario</button></a>
                         </div>
                     </div>
                 </div>

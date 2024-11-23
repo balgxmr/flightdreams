@@ -33,9 +33,14 @@
     if ($controller == 'paquete') {
         $paqueteController = new PaqueteController();
     
+
+        if($action == 'listarPorServicioPaquetes'){
+            $paqueteController->listarPorServicioPaquetes($servicio);
+        }
+
         if ($servicio) {
             if ($action == 'listarPorServicio') {
-                $paqueteController->listarPorServicio();
+                $paqueteController->listarPorServicio($servicio);
             }
         } else {
             if ($action == 'listar') {
@@ -53,7 +58,9 @@
             $viajesController->reservar();
         } elseif($action == 'actualizarEstado') {
             $viajesController->actualizarEstado();
-        } 
+        } elseif($action == 'verReservasLogica') {
+            $viajesController->verReservasLogica();
+        }
     }
 
     if ($controller == 'admin') {
@@ -63,7 +70,18 @@
             $adminController->verReservasAdmin();
         } elseif($action == 'actualizarEstado'){
             $adminController->actualizarEstado();
+        } 
+        
+        if ($servicio) {
+            if ($action == 'listarPorServicioAdmin') {
+                $adminController->listarPorServicioAdmin($servicio);
+            }
+        } else {
+            if ($action == 'listarAdmin') {
+                $adminController->listarAdmin();
+            }
         }
+        
     }
 
 ?>
