@@ -52,9 +52,6 @@ if (session_status() === PHP_SESSION_NONE) {
     <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listar" class="header--link">
       <p>Paquetes</p>
     </a>
-    <a href="<?php echo BASE_URL; ?>views/servicios/visas.php" class="header--link">
-      <p>Visas</p>
-    </a>
     <?php if (isset($_SESSION['usuario'])): ?>
       <a href="<?php echo BASE_URL; ?>config/routes.php?controller=viajes&action=verReservas" class="header--link">
         <p>Reservas</p>
