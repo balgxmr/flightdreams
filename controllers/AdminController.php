@@ -21,17 +21,19 @@ class AdminController {
         }
     }   
 
-    public function actualizarEstado()
-    {
+
+    public function actualizarEstado() {
+
         if (isset($_POST['id_viajes'])) {
             $idViajes = $_POST['id_viajes'];
+            $estado = $_POST['estado'];
 
-            $viajeModel = new Viajes();
-            $resultado = $viajeModel->actualizarEstado($idViajes, "cancelado");
+            $adminModel = new Admin();
+            $resultado = $adminModel->actualizarEstado($idViajes, $estado);
 
             if ($resultado) {
                 // Redirige a la lista de viajes con un mensaje de éxito
-                header('Location: ../config/routes.php?controller=viajes&action=verReservas');
+                header('Location: ../config/routes.php?controller=admin&action=verReservasAdmin');
                 
             } else {
                 // Redirige con un mensaje de error

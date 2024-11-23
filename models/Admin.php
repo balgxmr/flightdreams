@@ -21,45 +21,42 @@ class Admin {
             LEFT JOIN usuario u ON v.id_usuario = u.id_usuario
             LEFT JOIN paquete p ON v.id_paquete = p.id_paquete
         ";
-    
+        
         // Añadir la cláusula WHERE si se pasa el estado
         if ($estado) {
             $sql .= " WHERE v.estado = :estado";
         }
-    
+        
         // Ordenar la consulta
-        $sql .= "
-            ORDER BY 
-                CASE v.estado
-                    WHEN 'pendiente' THEN 1
-                    WHEN 'confirmado' THEN 2
-                    WHEN 'cancelado' THEN 3
-                    ELSE 4
-                END,
-                v.fecha_registro;
-        ";
-    
+        $sql .= " ORDER BY v.fecha_registro DESC";
+        
         // Preparar la consulta
         $query = $this->conexion->prepare($sql);
-    
+        
         // Si se pasa un estado, se debe vincular el parámetro
         if ($estado) {
             $query->bindParam(':estado', $estado, PDO::PARAM_STR);
         }
-    
+        
         // Ejecutar la consulta
         $query->execute();
-    
+        
         // Retornar los resultados
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-    
-    
 
-    public function actualizarEstado($idViajes)
-    {
-        $stmt = $this->conexion->prepare("UPDATE Viajes SET estado = 'cancelado' WHERE id_viajes = ?");
-        return $stmt->execute([$idViajes]);
+    public function actualizarEstado($idViajes, $estado) {
+        // Verifica si el estado es válido
+        $estadosPermitidos = ['cancelado', 'confirmado', 'pendiente'];
+        if (!in_array($estado, $estadosPermitidos)) {
+            throw new Exception("Estado no válido");
+        }
+
+        // Prepara la consulta SQL
+        $stmt = $this->conexion->prepare("UPDATE Viajes SET estado = ? WHERE id_viajes = ?");
+        
+        // Ejecuta la consulta
+        return $stmt->execute([$estado, $idViajes]);
     }
 
 }
