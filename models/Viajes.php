@@ -29,7 +29,7 @@ class Viajes {
         // Usar bindValue para enlazar los valores a la consulta (PDO no necesita tipos explícitos como mysqli)
         $stmt->bindValue(1, $id_usuario, PDO::PARAM_INT);
         $stmt->bindValue(2, $id_paquete, PDO::PARAM_INT);
-        $stmt->bindValue(3, $destino_salida, PDO::PARAM_STR);
+        $stmt->bindValue(3, $destino_final, PDO::PARAM_STR);
         $stmt->bindValue(4, $destino_origen, PDO::PARAM_STR);
         $stmt->bindValue(5, $estado, PDO::PARAM_STR);
         $stmt->bindValue(6, $personas, PDO::PARAM_INT);
@@ -130,5 +130,87 @@ class Viajes {
         return $result;
     }
 
+    public function destinoFinalMasReservado() { 
+        $query = "SELECT destino_origen, COUNT(*) AS reservas 
+                  FROM Viajes 
+                  WHERE destino_final IS NOT NULL 
+                  GROUP BY destino_final 
+                  ORDER BY reservas DESC 
+                  LIMIT 1";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public function tipoAutobusMasReservado() {
+        $query = "SELECT tipo_autobus, COUNT(*) AS reservas 
+                  FROM Viajes 
+                  WHERE tipo_autobus IS NOT NULL 
+                  GROUP BY tipo_autobus 
+                  ORDER BY reservas DESC 
+                  LIMIT 1";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public function tipoHabitacionMasReservado() {
+        $query = "SELECT tipo_habitacion, COUNT(*) AS reservas 
+                  FROM Viajes 
+                  WHERE tipo_habitacion IS NOT NULL 
+                  GROUP BY tipo_habitacion 
+                  ORDER BY reservas DESC 
+                  LIMIT 1";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public function claseVueloMasReservado() {
+        $query = "SELECT clase_vuelo, COUNT(*) AS reservas 
+                  FROM Viajes 
+                  WHERE clase_vuelo IS NOT NULL 
+                  GROUP BY clase_vuelo 
+                  ORDER BY reservas DESC 
+                  LIMIT 1";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public function claseTrenMasReservado() {
+        $query = "SELECT clase_tren, COUNT(*) AS reservas 
+                  FROM Viajes 
+                  WHERE clase_tren IS NOT NULL 
+                  GROUP BY clase_tren 
+                  ORDER BY reservas DESC 
+                  LIMIT 1";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public function fechaRegistroMasVentas() {
+        $query = "SELECT fecha_registro, COUNT(*) AS ventas 
+                  FROM Viajes 
+                  GROUP BY fecha_registro 
+                  ORDER BY ventas DESC 
+                  LIMIT 1";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public function fechaSalidaMasReservada() {
+        $query = "SELECT fecha_inicio, COUNT(*) AS reservas 
+                  FROM Viajes 
+                  GROUP BY fecha_inicio 
+                  ORDER BY reservas DESC 
+                  LIMIT 1";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
 }
 ?>

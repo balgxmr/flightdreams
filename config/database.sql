@@ -31,7 +31,7 @@ CREATE TABLE Viajes (
     id_viajes INT AUTO_INCREMENT PRIMARY KEY, -- Identificador único del viaje
     id_usuario INT NOT NULL, -- Relación con la tabla usuario (obligatorio)
     id_paquete INT, -- Relación con la tabla paquete (puede ser NULL)
-    destino_salida VARCHAR(255) NOT NULL, -- Lugar de salida (obligatorio)
+    destino_final VARCHAR(255) NOT NULL, -- Lugar de salida (obligatorio)
     destino_origen VARCHAR(255), -- Lugar de destino (puede ser NULL)
     estado ENUM('pendiente', 'confirmado', 'cancelado') NOT NULL, -- Estado del viaje (obligatorio)
     personas INT, -- Número de personas (obligatorio)

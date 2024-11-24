@@ -20,6 +20,13 @@
   $nacionalidad = $adminModel->getNacionalidadMasRepetida();
   $servicio = $viajesModel->getServicioMasReservado();
   $visa = $viajesModel->getPersonasPorVisa();
+  $destinoMasReservado = $viajesModel->destinoFinalMasReservado();
+  $autobusMasReservado = $viajesModel->tipoAutobusMasReservado();
+  $habitacionMasReservada = $viajesModel->tipoHabitacionMasReservado();
+  $vueloMasReservado = $viajesModel->claseVueloMasReservado();
+  $trenMasReservado = $viajesModel->claseTrenMasReservado();
+  $fechaRegistroMasVentas = $viajesModel->fechaRegistroMasVentas();
+  $fechaSalidaMasReservada = $viajesModel->fechaSalidaMasReservada();
 
 ?>
 
@@ -134,7 +141,7 @@
                     <div class="card text-white bg-success h-100">
                         <div class="card-body">
                             <h3 class="card-title">Paquete Más Vendido</h3>
-                            <p class="card-text fs-5"><?php  echo "Paquete más vendido: " . $paqueteMasVendido["Nombre"] . " con " . $paqueteMasVendido["total_vendidos"] . " ventas."; ?></p>
+                            <p class="card-text fs-5"><?php  echo $paqueteMasVendido["Nombre"] . " con " . $paqueteMasVendido["total_vendidos"] . " ventas."; ?></p>
                         </div>
                     </div>
                 </div>
@@ -154,7 +161,7 @@
                     <div class="card text-white bg-secondary h-100">
                         <div class="card-body">
                             <h3 class="card-title">Servicio Más Reservado</h3>
-                            <p class="card-text fs-5"><?php echo $servicio['servicio']; ?></p>
+                            <p class="card-text fs-5"><?php echo $servicio['servicio'] . " con " . $servicio['cantidad'] . " reservas"; ?></p>
                         </div>
                     </div>
                 </div>
@@ -170,6 +177,69 @@
                             <?php else: ?>
                                 <p>No se encontraron resultados.</p>
                             <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+                <!-- Destino mas reservado -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-secondary h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Destino Más Reservado</h3>
+                            <p class="card-text fs-5"><?php echo $destinoMasReservado['destino_origen'] . " con " . $destinoMasReservado['reservas'] . " reservas"; ?></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Autobus Más Reservado -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-secondary h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Autobus Más Reservado </h3>
+                            <p class="card-text fs-5"><?php echo $autobusMasReservado['tipo_autobus'] . " con " . $autobusMasReservado['reservas'] . " reservas"; ?></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Habitacion Más Reservada -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-secondary h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Habitacion Más Reservada</h3>
+                            <p class="card-text fs-5"><?php echo $habitacionMasReservada['tipo_habitacion'] . " con " . $habitacionMasReservada['reservas'] . " reservas"; ?></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Vuelo Más Reservado -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-secondary h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Tipo de Vuelo Más Reservado</h3>
+                            <p class="card-text fs-5"><?php echo $vueloMasReservado['clase_vuelo'] . " con " . $vueloMasReservado['reservas'] . " reservas"; ?></p></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tren Más Reservado -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-secondary h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Tipo de Tren Más Reservado</h3>
+                            <p class="card-text fs-5"><?php echo $trenMasReservado['clase_tren'] . " con " . $trenMasReservado['reservas'] . " reservas"; ?></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fecha con mas ventas -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-secondary h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Fecha Con Más Ventas</h3>
+                            <p class="card-text fs-5"><?php echo $fechaRegistroMasVentas['fecha_registro'] . " con " . $fechaRegistroMasVentas['reservas'] . " reservas"; ?></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fecha de salida -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-secondary h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Mayor Fecha de salidas</h3>
+                            <p class="card-text fs-5"><?php echo $fechaSalidaMasReservada['fecha_inicio'] . " con " . $fechaSalidaMasReservada['reservas'] . " reservas"; ?></p>
                         </div>
                     </div>
                 </div>
