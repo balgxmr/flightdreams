@@ -115,7 +115,7 @@
                     <div class="card text-white bg-primary h-100">
                         <div class="card-body">
                             <h3 class="card-title">Total de Reservas</h5>
-                            <p class="card-text fs-5"><?php echo htmlspecialchars($totalViajes); ?></p>
+                            <p class="card-text fs-5"><?php echo htmlspecialchars($totalViajes); ?> reservas</p>
                         </div>
                     </div>
                 </div>
