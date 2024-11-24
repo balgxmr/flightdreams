@@ -70,7 +70,7 @@
                             </p>
                         </div>
                         <div class="card-footer">
-                            <a href="paquete-desc.php"><button type="button" class="btn btn-success">Ver itinerario</button></a>
+                            <a href="../config/routes.php?controller=paquete&action=verPaquete&id_paquete=<?php echo $paquete['id_paquete']; ?>"><button type="button" class="btn btn-success">Ver itinerario</button></a>
                         </div>
                     </div>
                 </div>

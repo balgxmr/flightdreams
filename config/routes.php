@@ -9,6 +9,9 @@
     $controller = isset($_GET['controller']) ? $_GET['controller'] : null;
     $action = isset($_GET['action']) ? $_GET['action'] : null;
     $servicio = $_GET['servicio'] ?? null;
+    $id_paquete = $_GET['id_paquete'] ?? null;
+
+    
 
     // Verifica y dirige a los métodos correspondientes en el controlador
     if ($controller == 'usuario') {
@@ -38,7 +41,14 @@
             $paqueteController->listarPorServicioPaquetes($servicio);
         } elseif($action == 'registrar'){
             $paqueteController->registrar();
+        } 
+        
+        if($id_paquete){
+            if($action == 'verPaquete'){
+                $paqueteController->verPaquete();
+            }
         }
+       
 
         if ($servicio) {
             if ($action == 'listarPorServicio') {
@@ -75,7 +85,7 @@
         } elseif ($action =='insertarPaquete'){
             $adminController->insertarPaquete();
         } 
-        
+
         if ($servicio) {
             if ($action == 'listarPorServicioAdmin') {
                 $adminController->listarPorServicioAdmin($servicio);

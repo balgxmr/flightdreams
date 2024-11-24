@@ -82,8 +82,6 @@ class Admin {
             return null; // Si no se encuentra ninguna nacionalidad
         }
     }
-
-
     
 }
 ?>

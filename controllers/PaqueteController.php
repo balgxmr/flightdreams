@@ -63,6 +63,32 @@
                 }
             }
         }
+
+        public function verPaquete() {
+            // Verificar que el id_paquete está presente en la URL
+            if (isset($_GET['id_paquete'])) {
+                $id_paquete = $_GET['id_paquete'];
+            } else {
+                echo "ID de paquete no proporcionado.";
+                exit();
+            }
+    
+            // Crear una instancia del modelo Paquete
+            $paqueteModel = new Paquete();
+    
+            // Obtener la información del paquete
+            $paquete = $paqueteModel->getPaqueteById($id_paquete);
+    
+            // Verificar si el paquete existe
+            if ($paquete) {
+                // Cargar la vista y pasarle los datos del paquete
+                include '../views/paquete/paquete-desc.php';
+            } else {
+                echo "Paquete no encontrado.";
+            }
+        }
+        
+        
         
         
     }
