@@ -107,8 +107,8 @@
                 <div class="col-md-4">
                     <div class="card text-white bg-primary h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Total de Reservas</h5>
-                            <p class="card-text fs-3"><?php echo htmlspecialchars($totalViajes); ?></p>
+                            <h3 class="card-title">Total de Reservas</h5>
+                            <p class="card-text fs-5"><?php echo htmlspecialchars($totalViajes); ?></p>
                         </div>
                     </div>
                 </div>
@@ -117,25 +117,24 @@
                 <div class="col-md-4">
                     <div class="card text-white bg-secondary h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Reservas por Estado</h5>
-                            <p class="card-text fs-3">
+                            <h3 class="card-title">Reservas por Estado</h5>
                             <?php foreach ($viajesPorEstado as $viaje): ?>
-                                <tr>
-                                    <td><?php echo htmlspecialchars($viaje['estado']); ?></td>
-                                    <td><?php echo htmlspecialchars($viaje['total_estado']); ?></td>
-                                </tr>
+                                <div class="mb-3">
+                                    <h6 class="fw-bold"><?php echo htmlspecialchars($viaje['estado']); ?></h6>
+                                    <p class="fs-5"><?php echo htmlspecialchars($viaje['total_estado']); ?> reservas</p>
+                                </div>
                             <?php endforeach; ?>
-                            </p>
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Paquete Más Vendido -->
                 <div class="col-md-4">
                     <div class="card text-white bg-success h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Paquete Más Vendido</h5>
-                            <p class="card-text fs-3"><?php  echo "Paquete más vendido: " . $paqueteMasVendido["Nombre"] . " con " . $paqueteMasVendido["total_vendidos"] . " ventas."; ?></p>
+                            <h3 class="card-title">Paquete Más Vendido</h3>
+                            <p class="card-text fs-5"><?php  echo "Paquete más vendido: " . $paqueteMasVendido["Nombre"] . " con " . $paqueteMasVendido["total_vendidos"] . " ventas."; ?></p>
                         </div>
                     </div>
                 </div>
@@ -144,29 +143,29 @@
                 <div class="col-md-4">
                     <div class="card text-white bg-danger h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Nacionalidad Más Repetida</h5>
-                            <p class="card-text fs-3"><?php echo $nacionalidad['Nacionalidad'];?></p>
+                            <h3 class="card-title">Nacionalidad Más Repetida</h3>
+                            <p class="card-text fs-5"><?php echo $nacionalidad['Nacionalidad'];?></p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Servicio Más Reservado -->
                 <div class="col-md-4">
-                    <div class="card text-white bg-warning h-100">
+                    <div class="card text-white bg-secondary h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Servicio Más Reservado</h5>
-                            <p class="card-text fs-3"><?php echo $servicio['servicio']; ?></p>
+                            <h3 class="card-title">Servicio Más Reservado</h3>
+                            <p class="card-text fs-5"><?php echo $servicio['servicio']; ?></p>
                         </div>
                     </div>
                 </div>
                 <!-- Visa -->
                 <div class="col-md-4">
-                    <div class="card text-white bg-warning h-100">
+                    <div class="card text-white bg-danger h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Visas Requeridas</h5>
+                            <h3 class="card-title">Visas Requeridas</h3>
                             <?php if ($visa): ?>
                                 <?php foreach ($visa as $row): ?>
-                                    <p>Visa <?php echo ($row['visa'] == 1) ? 'Sí' : 'No'; ?>: <strong><?php echo $row['total_personas']; ?></strong> personas</p>
+                                    <p class="card-text fs-5">Visa <?php echo ($row['visa'] == 1) ? 'Sí' : 'No'; ?>: <strong><?php echo $row['total_personas']; ?></strong> personas</p>
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <p>No se encontraron resultados.</p>
