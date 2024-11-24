@@ -160,6 +160,10 @@
       <?php else: ?>
           <p>No hay paquetes registrados.</p>
       <?php endif; ?>
+      <a href="<?php echo BASE_URL; ?>views/paquete/paquetes.php">
+
+        <button class="button mt-3">Ver todos los paquetes</button>
+      </a>
     </section>
 
     <hr>

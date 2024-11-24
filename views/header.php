@@ -7,22 +7,31 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <section class="infoBar">
   <div class="infoBar--box">
-    <i class="fa-brands fa-instagram fa-lg"></i>
-    <p class="infoBar--text">@fligthsdream</p>
+    <a href="https://www.instagram.com/fligthdreams" target="_blank">
+      <i class="fa-brands fa-instagram fa-lg"></i>
+      <p class="infoBar--text">@fligthdreams</p>
+    </a>
   </div>
   <div class="infoBar--box">
-    <i class="fa-solid fa-phone"></i>
-    <p class="infoBar--text">+(507) 301-1101</p>
+    <a href="tel:+5073011101">
+      <i class="fa-solid fa-phone"></i>
+      <p class="infoBar--text">+(507) 301-1101</p>
+    </a>
   </div>
   <div class="infoBar--box">
-    <i class="fa-brands fa-whatsapp"></i>
-    <p class="infoBar--text">+(507) 6111-1111</p>
+    <a href="https://wa.me/50761111111" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i>
+      <p class="infoBar--text">+(507) 6111-1111</p>
+    </a>
   </div>
   <div class="infoBar--box">
-    <i class="fa-solid fa-location-dot"></i>
-    <p class="infoBar--text">Calle Garibay,4,1ra Dr- Dr, Donostia, Guipúzcoa,20004</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Calle+Garibay+4,+Donostia+Guipúzcoa+20004" target="_blank">
+      <i class="fa-solid fa-location-dot"></i>
+      <p class="infoBar--text">Calle Garibay,4,1ra Dr- Dr, Donostia, Guipúzcoa,20004</p>
+    </a>
   </div>
 </section>
+
 
 <header class="header">
   <div>
