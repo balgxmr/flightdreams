@@ -133,9 +133,13 @@
                     <div class="card h-100">
                       
                     <?php if (!empty($paquete['Foto'])): ?>
-                        <img class="card-img-top h-50" src="" alt="Imagen del paquete">
+                      <div class="">
+                        <img class="img-fluid rounded" src="../controllers/ImagenController.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete">
+                      </div>
                     <?php else: ?>
-                        <img class="card-img-top h-50" src="<?php echo BASE_URL; ?>public/images/paquete-bro.jpg" alt="Imagen por defecto">
+                      <div class="">
+                        <img src="<?php echo BASE_URL; ?>public/images/paquete-bro.jpg" alt="Imagen Predeterminada" class="card-img-top">
+                      </div>
                     <?php endif; ?>
 
                         <div class="card-body">
