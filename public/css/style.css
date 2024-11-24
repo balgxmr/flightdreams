@@ -651,6 +651,10 @@ body {
   height: 100vh;
 }
 .centeredImage {
-  display: block; /* Elimina el espacio extra alrededor del elemento inline */
-  margin: 0 auto; /* Centra horizontalmente */
+  display: block;
+  margin: 0 auto;
+}
+.dashboardStats {
+  display: flex;
+  flex-direction: row;
 }

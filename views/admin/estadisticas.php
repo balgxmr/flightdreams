@@ -46,11 +46,11 @@
   <body class="gridContainer">
     <?php include '../../views/aside-admin.php'?>
 
-    <main class="mainContent dashboardMain">
+    <main class="mainContent">
       <div class="container-fluid">
         <!-- Resumen de estadísticas -->
-        <div class="row text-center mb-4">
-            <h1 class="mb-5">Estadísticas actuales</h1>
+        <h1 class="m-5 text-center">Estadísticas actuales</h1>
+        <div class="dashboardStats">
             <div class="col-2">
                 <div class="card border-0 bg-light shadow-sm">
                     <div class="card-body">
@@ -134,7 +134,7 @@
                     <div class="card text-white bg-success h-100">
                         <div class="card-body">
                             <h3 class="card-title">Paquete Más Vendido</h3>
-                            <p class="card-text fs-5"><?php  echo "Paquete más vendido: " . $paqueteMasVendido["Nombre"] . " con " . $paqueteMasVendido["total_vendidos"] . " ventas."; ?></p>
+                            <p class="card-text fs-5"><?php  echo $paqueteMasVendido["Nombre"] . " con " . $paqueteMasVendido["total_vendidos"] . " ventas."; ?></p>
                         </div>
                     </div>
                 </div>
