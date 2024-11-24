@@ -184,7 +184,7 @@
           <div class="card-content">
             <h2>París</h2>
             <p>Descubre la ciudad del amor y su icónica Torre Eiffel, los románticos paseos por el Sena y la exquisita gastronomía francesa.</p>
-            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorDestino&destino=paris" class="button">Ver más</a>
+            <a href="https://www.paris.es/" class="button">Ver más</a>
           </div>
         </div>
 
@@ -193,7 +193,7 @@
           <div class="card-content">
             <h2>Roma</h2>
             <p>Explora la cuna del Imperio Romano, desde el majestuoso Coliseo hasta la imponente Basílica de San Pedro en el Vaticano.</p>
-            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorDestino&destino=roma" class="button">Ver más</a>
+            <a href="https://www.italia.it/es/lacio/roma/guia-historia-curiosidadess" class="button">Ver más</a>
           </div>
         </div>
 
@@ -202,7 +202,7 @@
           <div class="card-content">
             <h2>Tokio</h2>
             <p>Una ciudad donde la tradición y la modernidad se encuentran. Visita sus templos, disfruta del sushi y experimenta su vibrante vida nocturna.</p>
-            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorDestino&destino=tokio" class="button">Ver más</a>
+            <a href="https://japondesdejapon.com/turismo/tokio/" class="button">Ver más</a>
           </div>
         </div>
 
@@ -211,7 +211,7 @@
           <div class="card-content">
             <h2>Sídney</h2>
             <p>Admira la famosa Ópera de Sídney, relájate en Bondi Beach y explora los hermosos parques nacionales de Australia.</p>
-            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorDestino&destino=sidney" class="button">Ver más</a>
+            <a href="https://www.unsaltoaaustralia.com/sidney/" class="button">Ver más</a>
           </div>
         </div>
 
@@ -220,7 +220,7 @@
           <div class="card-content">
             <h2>Zurich</h2>
             <p>Experimenta el encanto de los Alpes suizos, disfruta de sus pintorescas calles y relájate con una taza de chocolate caliente.</p>
-            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorDestino&destino=zurich" class="button">Ver más</a>
+            <a href="https://www.disfrutazurich.com/informacion-general" class="button">Ver más</a>
           </div>
         </div>
       </div>

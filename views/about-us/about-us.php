@@ -35,12 +35,13 @@
     <section class="about-content container">
       <div class="row">
         <div class="col-md-6">
-          <img src="https://via.placeholder.com/600x400" alt="Nuestra Historia" class="img-fluid rounded" />
+          <img src="<?php echo BASE_URL; ?>public/images/sobre-nosotros.jpeg" alt="Nuestra Historia" class="img-fluid rounded" />
         </div>
         <div class="col-md-6">
           <h2 class="mb-4">Nuestra Historia</h2>
           <p>Desde nuestros inicios, hemos trabajado incansablemente para ofrecer experiencias únicas e inolvidables. Nuestro compromiso con la calidad y la satisfacción de nuestros clientes nos ha permitido crecer y convertirnos en una agencia de confianza.</p>
           <p>Con una visión centrada en la innovación y la excelencia, seguimos explorando nuevas formas de ayudarte a descubrir el mundo.</p>
+          <p>Buscamos siempre proveer servicios de calidad, rápida atención al cliente y sobretodo la comodidad de los mismos.</p>
         </div>
       </div>
     </section>
@@ -59,7 +60,7 @@
           </div>
           <div class="col-md-4">
             <div class="card team-card text-center p-3">
-              <img src="https://via.placeholder.com/150" alt="Integrante" class="mx-auto" />
+              <img src="<?php echo BASE_URL; ?>public/images/jose.png" alt="Integrante" class="mx-auto" />
               <h5>José Encalada</h5>
               <p class="text-muted">Desarrollador Full Stack</p>
             </div>
@@ -76,21 +77,21 @@
         <div class="row g-4">
           <div class="col-md-4">
             <div class="card team-card text-center p-3">
-              <img src="https://via.placeholder.com/150" alt="Integrante" class="mx-auto" />
+              <img src="<?php echo BASE_URL; ?>public/images/jahir.jpg" alt="Integrante" class="mx-auto" />
               <h5>Jonathan Nuñez</h5>
               <p class="text-muted">Analista de Negocios</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card team-card text-center p-3">
-              <img src="https://via.placeholder.com/150" alt="Integrante" class="mx-auto" />
+              <img src="<?php echo BASE_URL; ?>public/images/cineyris.jpg" alt="Integrante" class="mx-auto" />
               <h5>Cineyris Chavarria</h5>
               <p class="text-muted">Desarrolladora y Diseñadora</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card team-card text-center p-3">
-              <img src="https://via.placeholder.com/150" alt="Integrante" class="mx-auto" />
+              <img src="<?php echo BASE_URL; ?>public/images/stefany.jpg" alt="Integrante" class="mx-auto" />
               <h5>Stefany Gonzalez</h5>
               <p class="text-muted">Desarrolladora y Diseñadora</p>
             </div>
