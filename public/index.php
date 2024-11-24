@@ -134,7 +134,7 @@
                       
                     <?php if (!empty($paquete['Foto'])): ?>
                       <div class="">
-                        <img class="img-fluid rounded" src="../controllers/ImagenController.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete">
+                        <img class="card-img-top" src="../controllers/ImagenController.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete">
                       </div>
                     <?php else: ?>
                       <div class="">
