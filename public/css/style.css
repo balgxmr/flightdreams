@@ -152,6 +152,7 @@ body {
   left: 0;
   opacity: 0.9;
   transition: opacity 0.2s ease-out;
+  transition: 0.3s ease;
 }
 
 .custom-card::before {
@@ -212,10 +213,21 @@ body {
 
 .custom-card:hover img {
   opacity: 0.9;
+  scale: 1.2;
 }
 
 .material-symbols-outlined {
   vertical-align: middle;
+}
+
+.services-container-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.services-container-img img {
+  width: auto;
+  height: 180px;
 }
 
 /* FOOTER */

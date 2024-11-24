@@ -26,6 +26,7 @@
   </head>
   <body>
     <?php include '../views/header.php'; ?>
+
     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
       <div class="carousel-overlay">
         <h1>Bienvenido a FlightsDreams</h1>
@@ -110,7 +111,7 @@
       <h3 class="mainContainer--subtitle">Asigna tu próximo viaje</h3>
 
       <?php if (!empty($paquetes)): ?>
-        <div class="row">
+        <div class="row mt-5">
             <?php 
             $count = 0; 
             foreach ($paquetes as $paquete): 
@@ -153,7 +154,19 @@
       <?php else: ?>
           <p>No hay paquetes registrados.</p>
       <?php endif; ?>
-    </main>
+    </section>
+
+    <section class="mainContainer services">
+        <p class="h3">Nuestros afiliados: </p>
+        <div class="services-container-img">
+          <img src="https://meetingspanama.com/wp-content/uploads/IMG_5061.png" alt="">
+          <img src="https://meetingspanama.com/wp-content/uploads/IMG_5061.png" alt="">
+          <img src="https://meetingspanama.com/wp-content/uploads/IMG_5061.png" alt="">
+          <img src="https://meetingspanama.com/wp-content/uploads/IMG_5061.png" alt="">
+          <img src="https://meetingspanama.com/wp-content/uploads/IMG_5061.png" alt="">
+          <img src="https://meetingspanama.com/wp-content/uploads/IMG_5061.png" alt="">
+        </div>
+    </section>
 
     <?php include '../views/footer.php'; ?>
 

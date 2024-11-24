@@ -17,7 +17,7 @@
     <script src="https://kit.fontawesome.com/5ddbd215bf.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <?php include '../views/header.php'; ?>
+    <?php include '../../views/header.php'; ?>
 
     <main class="container mt-5">
       <div class="row">
@@ -62,7 +62,7 @@
       </div>
     </main>
 
-    <?php include '../views/footer.php'; ?>
+    <?php include '../../views/footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>

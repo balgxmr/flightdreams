@@ -28,14 +28,12 @@
     </div>
 
     <div class="footer-col">
-      <img src="../public/images/Flight-&-Dreams-LOGO-Traz.png" alt="Logo pequeño" class="footer-img">
+      <img src="<?php echo BASE_URL; ?>public/images/Flight-&-Dreams-LOGO-Traz.png" alt="Logo pequeño" class="footer-img">
       <!-- <h4>Legal</h4> -->
       <ul class="links">
         <li><a href="#">Flights & Dreams</a></li>
         <li><a href="#">Copyright 2024.</a></li>
       </ul>
     </div>
-    
-    
   </div>
 </section>
