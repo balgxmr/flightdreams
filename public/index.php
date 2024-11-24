@@ -128,9 +128,13 @@
             ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <?php if (!empty($paquete['Foto'])): ?>
-                            <img class="card-img-top h-50" src="../public/images/canal-panama.jpg" alt="Imagen del paquete">
-                        <?php endif; ?>
+                      
+                    <?php if (!empty($paquete['Foto'])): ?>
+                        <img class="card-img-top h-50" src="" alt="Imagen del paquete">
+                    <?php else: ?>
+                        <img class="card-img-top h-50" src="../public/images/canal-panama.jpg" alt="Imagen por defecto">
+                    <?php endif; ?>
+
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $paquete['Nombre']; ?></h5>
                             <p class="card-text"><?php echo $paquete['Descripcion']; ?></p>
@@ -160,8 +164,7 @@
       <?php else: ?>
           <p>No hay paquetes registrados.</p>
       <?php endif; ?>
-      <a href="<?php echo BASE_URL; ?>views/paquete/paquetes.php">
-
+      <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listar">
         <button class="button mt-3">Ver todos los paquetes</button>
       </a>
     </section>

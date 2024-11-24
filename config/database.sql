@@ -34,7 +34,7 @@ CREATE TABLE Viajes (
     destino_salida VARCHAR(255) NOT NULL, -- Lugar de salida (obligatorio)
     destino_origen VARCHAR(255), -- Lugar de destino (puede ser NULL)
     estado ENUM('pendiente', 'confirmado', 'cancelado') NOT NULL, -- Estado del viaje (obligatorio)
-    personas INT NOT NULL, -- Número de personas (obligatorio)
+    personas INT, -- Número de personas (obligatorio)
     fecha_inicio DATE NOT NULL, -- Fecha de inicio del viaje (obligatorio)
     fecha_final DATE, -- Fecha final del viaje (puede ser NULL)
     visa BOOLEAN, -- Si se requiere visa (TRUE/FALSE)
