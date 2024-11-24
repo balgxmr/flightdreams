@@ -56,6 +56,8 @@
                     <div class="card h-100">
                     <?php if (!empty($paquete['Foto'])): ?>
                         <img src="../config/mostrarImagen.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete">
+                    <?php else: ?>
+                        <img src="../public/images/viaje-flyer.jpg" alt="Imagen Predeterminada">
                     <?php endif; ?>
 
                         <div class="card-body">
