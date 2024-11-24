@@ -135,7 +135,7 @@
                     <?php if (!empty($paquete['Foto'])): ?>
                         <img class="card-img-top h-50" src="" alt="Imagen del paquete">
                     <?php else: ?>
-                        <img class="card-img-top h-50" src="../public/images/canal-panama.jpg" alt="Imagen por defecto">
+                        <img class="card-img-top h-50" src="<?php echo BASE_URL; ?>public/images/paquete-bro.jpg" alt="Imagen por defecto">
                     <?php endif; ?>
 
                         <div class="card-body">

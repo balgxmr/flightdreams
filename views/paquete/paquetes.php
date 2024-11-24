@@ -57,7 +57,7 @@
                     <?php if (!empty($paquete['Foto'])): ?>
                         <img src="../controllers/ImagenController.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete" class="card-img-top">
                     <?php else: ?>
-                        <img src="../public/images/viaje-flyer.jpg" alt="Imagen Predeterminada">
+                        <img src="<?php echo BASE_URL; ?>public/images/paquete-bro.jpg" alt="Imagen Predeterminada" class="card-img-top">
                     <?php endif; ?>
 
                         <div class="card-body">

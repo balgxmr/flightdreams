@@ -34,7 +34,7 @@
             </div>
           <?php else: ?>
             <div class="col-md-5">
-              <img class="img-fluid rounded" src="<?php echo BASE_URL; ?>public/images/viaje-flyer.jpg" alt="Imagen no disponible">
+              <img src="<?php echo BASE_URL; ?>public/images/paquete-bro.jpg" alt="Imagen Predeterminada" class="card-img-top">
             </div>
           <?php endif; ?>
 
