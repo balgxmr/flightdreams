@@ -44,6 +44,19 @@ body {
   align-items: center;
   gap: 0.5rem;
 }
+.infoBar--box a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.infoBar--box a:hover {
+  color: #9fb9ff;
+}
 .infoBar--text {
   margin-bottom: 0;
 }
