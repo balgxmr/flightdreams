@@ -86,7 +86,7 @@
       </div>
       <div class="d-flex justify-content-center align-items-center">
         <a href="<?php echo BASE_URL; ?>public/index.php">
-          <button type="submit" class="button">Volver atrás</button>
+          <button type="submit" class="button"> <i class="fa-solid fa-arrow-left pe-3"></i> Volver atrás</button>
         </a>  
       </div>
     </section>

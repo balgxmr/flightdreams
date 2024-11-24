@@ -30,7 +30,7 @@
         <form class="d-flex w-100" method="POST" action="../config/routes.php?controller=viajes&action=reservar">
           <?php if (!empty($paquete['Foto'])): ?>
             <div class="col-md-5">
-              <img class="img-fluid rounded" src="../config/mostrarImagen.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete">
+              <img class="img-fluid rounded" src="../controllers/ImagenController.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete">
             </div>
           <?php else: ?>
             <div class="col-md-5">

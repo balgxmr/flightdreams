@@ -36,22 +36,31 @@
         }
 
         public function insertar($datos) {
+            // Prepara la consulta SQL para insertar el paquete
             $query = "INSERT INTO paquete (nombre, descripcion, destino, precio, foto, fecha_inicio, fecha_final, servicio, itinerario) 
                       VALUES (:nombre, :descripcion, :destino, :precio, :foto, :fecha_inicio, :fecha_final, :servicio, :itinerario)";
             $stmt = $this->conexion->prepare($query);
-        
+
+            // Vincula los parámetros
             $stmt->bindParam(':nombre', $datos['nombre']);
             $stmt->bindParam(':descripcion', $datos['descripcion']);
             $stmt->bindParam(':destino', $datos['destino']);
             $stmt->bindParam(':precio', $datos['precio']);
-            $stmt->bindParam(':foto', $datos['foto'], PDO::PARAM_LOB);
+            
+            // Aquí nos aseguramos de que la imagen esté correctamente convertida a un blob
+            if (isset($datos['foto']) && is_string($datos['foto'])) {
+                $stmt->bindParam(':foto', $datos['foto'], PDO::PARAM_LOB);
+            }
+            
             $stmt->bindParam(':fecha_inicio', $datos['fecha_inicio']);
             $stmt->bindParam(':fecha_final', $datos['fecha_final']);
             $stmt->bindParam(':servicio', $datos['servicio']);
             $stmt->bindParam(':itinerario', $datos['itinerario']);
-        
+            
+            // Ejecuta la consulta
             return $stmt->execute();
         }
+
 
         public function getPaqueteMasVendido() {
             // Consulta SQL para obtener el paquete más vendido

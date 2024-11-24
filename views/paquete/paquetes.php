@@ -55,7 +55,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                     <?php if (!empty($paquete['Foto'])): ?>
-                        <img src="../config/mostrarImagen.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete">
+                        <img src="../controllers/ImagenController.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete" class="card-img-top">
                     <?php else: ?>
                         <img src="../public/images/viaje-flyer.jpg" alt="Imagen Predeterminada">
                     <?php endif; ?>
