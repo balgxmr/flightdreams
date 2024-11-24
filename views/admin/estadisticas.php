@@ -18,15 +18,15 @@
   $viajesPorEstado = $viajesModel->contarViajesPorEstado();
   $paqueteMasVendido = $paqueteModel->getPaqueteMasVendido();
   $nacionalidad = $adminModel->getNacionalidadMasRepetida();
-  $servicio = $viajesModel->getServicioMasReservado();
-  $visa = $viajesModel->getPersonasPorVisa();
-  $destinoMasReservado = $viajesModel->destinoFinalMasReservado();
-  $autobusMasReservado = $viajesModel->tipoAutobusMasReservado();
-  $habitacionMasReservada = $viajesModel->tipoHabitacionMasReservado();
-  $vueloMasReservado = $viajesModel->claseVueloMasReservado();
-  $trenMasReservado = $viajesModel->claseTrenMasReservado();
-  $fechaRegistroMasVentas = $viajesModel->fechaRegistroMasVentas();
-  $fechaSalidaMasReservada = $viajesModel->fechaSalidaMasReservada();
+  $servicio = $adminModel->getServicioMasReservado();
+  $visa = $adminModel->getPersonasPorVisa();
+  $destinoMasReservado = $adminModel->destinoFinalMasReservado();
+  $autobusMasReservado = $adminModel->tipoAutobusMasReservado();
+  $habitacionMasReservada = $adminModel->tipoHabitacionMasReservado();
+  $vueloMasReservado = $adminModel->claseVueloMasReservado();
+  $trenMasReservado = $adminModel->claseTrenMasReservado();
+  $fechaRegistroMasVentas = $adminModel->fechaRegistroMasVentas();
+  $fechaSalidaMasReservada = $adminModel->fechaSalidaMasReservada();
 
 ?>
 

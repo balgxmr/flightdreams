@@ -57,9 +57,10 @@ class ViajesController {
         if (isset($_SESSION['usuario'])) {
 
             $viajesModel = new Viajes();
+            $estado = isset($_GET['estado']) ? $_GET['estado'] : '';
 
             $userId = $_SESSION['usuario'];
-            $reservas = $viajesModel->verReservas($userId);
+            $reservas = $viajesModel->verReservas($userId, $estado);
 
             // Incluye la vista y pasa las reservas como parámetro
             require_once "../views/viajes/reservas.php";
@@ -69,23 +70,6 @@ class ViajesController {
             exit;
         }
     }
-
-    public function verReservasLogica() {
-        session_start();
-        if (isset($_SESSION['usuario'])) {
-
-            $estado = isset($_GET['estado']) ? $_GET['estado'] : '';
-            $adminModel = new Admin();
-
-            $reservas = $adminModel->verReservasAdmin($estado);
-            // Incluye la vista y pasa las reservas como parámetro
-            require_once "../views/viajes/reservas.php";
-        } else {
-            // Redirigir al login si no está logueado
-            header("Location: " . BASE_URL . "views/usuarios/login-admin.php");
-            exit;
-        }
-    } 
 
     public function actualizarEstado()
     {

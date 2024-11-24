@@ -36,10 +36,10 @@
 
           <!-- Filtro de estado -->
           <div class="d-flex justify-content-start mb-3">
-            <a href="?controller=viajes&action=verReservasLogica&estado=" class="btn btn-primary me-2">Ver Todas</a>
-            <a href="?controller=viajes&action=verReservasLogica&estado=pendiente" class="btn btn-warning me-2">Pendientes</a>
-            <a href="?controller=viajes&action=verReservasLogica&estado=confirmado" class="btn btn-success me-2">Confirmadas</a>
-            <a href="?controller=viajes&action=verReservasLogica&estado=cancelado" class="btn btn-secondary">Canceladas</a>
+            <a href="?controller=viajes&action=verReservas&estado=" class="btn btn-primary me-2">Ver Todas</a>
+            <a href="?controller=viajes&action=verReservas&estado=pendiente" class="btn btn-warning me-2">Pendientes</a>
+            <a href="?controller=viajes&action=verReservas&estado=confirmado" class="btn btn-success me-2">Confirmadas</a>
+            <a href="?controller=viajes&action=verReservas&estado=cancelado" class="btn btn-secondary">Canceladas</a>
           </div>
 
           <div class="card mt-5">
