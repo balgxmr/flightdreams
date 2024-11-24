@@ -36,6 +36,8 @@
 
         if($action == 'listarPorServicioPaquetes'){
             $paqueteController->listarPorServicioPaquetes($servicio);
+        } elseif($action == 'registrar'){
+            $paqueteController->registrar();
         }
 
         if ($servicio) {

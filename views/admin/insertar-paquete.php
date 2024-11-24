@@ -1,5 +1,8 @@
 <?php 
   require_once __DIR__ . '/../../config/config.php';
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
   verificarSesionAdmin();
 ?>
 
@@ -22,7 +25,7 @@
 </head>
 
 <body class="gridContainer">
-  <?php include '../views/aside-admin.php'?>
+  <?php include '../aside-admin.php'?>
 
   <main class="mainContent">
     <div class="container-fluid">

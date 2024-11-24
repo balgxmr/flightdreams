@@ -1,3 +1,10 @@
+<?php
+  require_once '../models/Paquete.php';
+
+  $paqueteModel = new Paquete();
+  $paquetes = $paqueteModel->obtenerTresServiciosDiferentes();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -102,41 +109,51 @@
       <h2 class="mainContainer--title">Descubre lugares impresionantes con nosotros</h2>
       <h3 class="mainContainer--subtitle">Asigna tu próximo viaje</h3>
 
-      <div class="card-group p-5">
-        <div class="card">
-          <img src="../public/images/barcelona.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <?php if (!empty($paquetes)): ?>
+        <div class="row">
+            <?php 
+            $count = 0; 
+            foreach ($paquetes as $paquete): 
+                // Calcular la duración entre las fechas
+                $fechaInicio = new DateTime($paquete['Fecha_inicio']);
+                $fechaFinal = new DateTime($paquete['Fecha_final']);
+                $duracion = $fechaInicio->diff($fechaFinal)->days; // Diferencia en días
+            ?>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <?php if (!empty($paquete['Foto'])): ?>
+                            <img class="card-img-top h-50" src="../public/images/canal-panama.jpg" alt="Imagen del paquete">
+                        <?php endif; ?>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $paquete['Nombre']; ?></h5>
+                            <p class="card-text"><?php echo $paquete['Descripcion']; ?></p>
+                            <p class="card-text">
+                                <strong>Destino:</strong> <?php echo $paquete['Destino']; ?><br>
+                                <strong>Precio:</strong> $<?php echo number_format($paquete['Precio'], 2); ?><br>
+                                <strong>Duración:</strong> <?php echo $duracion; ?> días<br>
+                                <!-- <strong>Fechas:</strong> <?php echo $paquete['Fecha_inicio']; ?> - <?php echo $paquete['Fecha_final']; ?> -->
+                                <strong>Servicio: <?php echo $paquete['servicio'];; ?></strong>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="paquete-desc.php"><button type="button" class="btn btn-success">Ver itinerario</button></a>
+                        </div>
+                    </div>
+                </div>
+
+                <?php 
+                $count++;
+                // Cierra la fila actual y abre una nueva después de 3 tarjetas
+                if ($count % 3 == 0): 
+                ?>
+              </div><div class="row">
+                <?php endif; ?>
+            <?php endforeach; ?>
           </div>
-          <div class="card-footer">
-            <button type="button" class="btn btn-success">Ver más info</button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="../public/images/toronto.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <div class="card-footer">
-            <button type="button" class="btn btn-success">Ver más info</button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="../public/images/barcelona.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-          </div>
-          <div class="card-footer">
-            <a href="./paquete.html">
-              <button type="button" class="btn btn-success">Ver más info</button>
-            </a>
-          </div>
-        </div>
-      </div>
-</section>
+      <?php else: ?>
+          <p>No hay paquetes registrados.</p>
+      <?php endif; ?>
+    </main>
 
     <?php include '../views/footer.php'; ?>
 

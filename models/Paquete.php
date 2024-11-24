@@ -9,7 +9,7 @@
         }
 
         public function obtenerTodos() {
-            $query = "SELECT * FROM paquete"; // Ajusta según tu tabla
+            $query = "SELECT * FROM paquete"; 
             $stmt = $this->conexion->prepare($query); // Prepara la consulta
             $stmt->execute(); // Ejecuta la consulta
             return $stmt->fetchAll(PDO::FETCH_ASSOC); // Devuelve los resultados como array asociativo
@@ -22,5 +22,36 @@
             $stmt->execute(); // Ejecuta la consulta
             return $stmt->fetchAll(PDO::FETCH_ASSOC); // Devuelve los resultados como array asociativo
         }
+
+        public function obtenerTresServiciosDiferentes() {
+            $query = "
+                SELECT * 
+                FROM paquete 
+                GROUP BY servicio 
+                LIMIT 3
+            "; // Agrupamos por servicio y limitamos a 3
+            $stmt = $this->conexion->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function insertar($datos) {
+            $query = "INSERT INTO paquete (nombre, descripcion, destino, precio, foto, fecha_inicio, fecha_final, servicio, itinerario) 
+                      VALUES (:nombre, :descripcion, :destino, :precio, :foto, :fecha_inicio, :fecha_final, :servicio, :itinerario)";
+            $stmt = $this->conexion->prepare($query);
+        
+            $stmt->bindParam(':nombre', $datos['nombre']);
+            $stmt->bindParam(':descripcion', $datos['descripcion']);
+            $stmt->bindParam(':destino', $datos['destino']);
+            $stmt->bindParam(':precio', $datos['precio']);
+            $stmt->bindParam(':foto', $datos['foto'], PDO::PARAM_LOB);
+            $stmt->bindParam(':fecha_inicio', $datos['fecha_inicio']);
+            $stmt->bindParam(':fecha_final', $datos['fecha_final']);
+            $stmt->bindParam(':servicio', $datos['servicio']);
+            $stmt->bindParam(':itinerario', $datos['itinerario']);
+        
+            return $stmt->execute();
+        }
+        
     }
 ?>
