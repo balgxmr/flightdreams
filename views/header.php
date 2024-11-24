@@ -34,11 +34,13 @@ if (session_status() === PHP_SESSION_NONE) {
   </div>
 
   <div class="header">
-    <a href="<?php echo BASE_URL; ?>public/index.php" class="header--link">
+    <a href="<?php echo BASE_URL; ?>public/index.php" class="header--link d-flex column gap-2">
+      <i class="fa-solid fa-house"></i>
       <p>Inicio</p>
     </a>
 
     <div class="dropdown p-4 header--link">
+      <i class="fa-solid fa-bus"></i>
       <a class="dropdown-toggle text-decoration-none text-body-secondary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=autobuses">Autobuses</a></li>
@@ -50,14 +52,17 @@ if (session_status() === PHP_SESSION_NONE) {
     </div>
 
     <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listar" class="header--link">
+      <i class="fa-solid fa-box"></i>  
       <p>Paquetes</p>
     </a>
     <?php if (isset($_SESSION['usuario'])): ?>
       <a href="<?php echo BASE_URL; ?>config/routes.php?controller=viajes&action=verReservas" class="header--link">
+        <i class="fa-solid fa-eye"></i>
         <p>Reservas</p>
       </a>
     <?php endif; ?>
     <a href="<?php echo BASE_URL; ?>views/about-us/about-us.php" class="header--link">
+      <i class="fa-solid fa-user-secret"></i>
       <p>Sobre Nosotros</p>
     </a>
   </div>

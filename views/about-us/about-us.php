@@ -47,22 +47,22 @@
           <div class="col-md-4">
             <div class="card team-card text-center p-3">
               <img src="https://via.placeholder.com/150" alt="Integrante" class="mx-auto" />
-              <h5>Juan Pérez</h5>
-              <p class="text-muted">CEO y Fundador</p>
+              <h5>Richard Herranz</h5>
+              <p class="text-muted">Desarrollador Full Stack</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card team-card text-center p-3">
               <img src="https://via.placeholder.com/150" alt="Integrante" class="mx-auto" />
-              <h5>María González</h5>
-              <p class="text-muted">Gerente de Operaciones</p>
+              <h5>José Encalada</h5>
+              <p class="text-muted">Desarrollador Full Stack</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card team-card text-center p-3">
               <img src="https://via.placeholder.com/150" alt="Integrante" class="mx-auto" />
-              <h5>Laura Torres</h5>
-              <p class="text-muted">Líder de Marketing</p>
+              <h5>Miguel Ortega</h5>
+              <p class="text-muted">Gerente DevOps</p>
             </div>
           </div>
         </div>
@@ -71,22 +71,22 @@
           <div class="col-md-4">
             <div class="card team-card text-center p-3">
               <img src="https://via.placeholder.com/150" alt="Integrante" class="mx-auto" />
-              <h5>Juan Pérez</h5>
-              <p class="text-muted">CEO y Fundador</p>
+              <h5>Jonathan Nuñez</h5>
+              <p class="text-muted">Analista de Negocios</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card team-card text-center p-3">
               <img src="https://via.placeholder.com/150" alt="Integrante" class="mx-auto" />
-              <h5>María González</h5>
-              <p class="text-muted">Gerente de Operaciones</p>
+              <h5>Cineyris Chavarria</h5>
+              <p class="text-muted">Desarrolladora y Diseñadora</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card team-card text-center p-3">
               <img src="https://via.placeholder.com/150" alt="Integrante" class="mx-auto" />
-              <h5>Laura Torres</h5>
-              <p class="text-muted">Líder de Marketing</p>
+              <h5>Stefany Gonzalez</h5>
+              <p class="text-muted">Desarrolladora y Diseñadora</p>
             </div>
           </div>
         </div>

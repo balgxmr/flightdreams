@@ -34,10 +34,13 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../public/images/aviones.webp" class="d-block w-100 h-30" alt="..." />
+          <img src="https://static.euronews.com/articles/stories/08/69/95/16/1440x810_cmsv2_59d41854-f375-5160-837c-6e16c649690b-8699516.jpg" alt="Plane"  class="d-block w-100 h-30" />
         </div>
         <div class="carousel-item">
-          <img src="../public/images/abuelos.jpg" class="d-block w-100 h-30" alt="..." />
+          <img src="https://s3.eu-west-1.amazonaws.com/mundy.assets.d3r.com/images/hero_large/76045-best-cruises-groups-family-friends-seabourn.jpeg" class="d-block w-100 h-30" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="https://bostonglobe-prod.cdn.arcpublishing.com/resizer/v2/NVP4VSMGZ5RJKHAKLCJT5HXVCY.jpg?auth=97178dab0fad114204e6ad387a7d87fdaa4df37114f6f2a494c760d42a9706fd&width=1440" class="d-block w-100 h-30" alt="..." />
         </div>
         <div class="carousel-item">
           <img src="../public/images/crucero.jpeg" class="d-block w-100 h-30" alt="..." />
@@ -156,15 +159,18 @@
       <?php endif; ?>
     </section>
 
+    <hr>
+
     <section class="mainContainer services">
         <p class="h3">Nuestros afiliados: </p>
         <div class="services-container-img">
-          <img src="https://meetingspanama.com/wp-content/uploads/IMG_5061.png" alt="">
-          <img src="https://meetingspanama.com/wp-content/uploads/IMG_5061.png" alt="">
-          <img src="https://meetingspanama.com/wp-content/uploads/IMG_5061.png" alt="">
-          <img src="https://meetingspanama.com/wp-content/uploads/IMG_5061.png" alt="">
-          <img src="https://meetingspanama.com/wp-content/uploads/IMG_5061.png" alt="">
-          <img src="https://meetingspanama.com/wp-content/uploads/IMG_5061.png" alt="">
+          <img src="https://aeroinforme.com/wp-content/uploads/2022/01/R-1-768x403.png" alt="">
+          <img src="https://blog.edutin.com/wp-content/uploads/2024/09/bnb_billboard_01-2000x1125-1-1.jpg" alt="">
+          <img src="https://infoturlatam.com/wp-content/uploads/2022/08/tripadvisor-viajes.png" alt="">
+          <img src="https://content.presspage.com/clients/o_685.jpg" alt="">
+          <img src="https://1000marcas.net/wp-content/uploads/2020/02/Hilton-Emblema.jpg" alt="">
+          <img src="https://logos-world.net/wp-content/uploads/2021/03/Hyatt-Hotels-Emblem.png" alt="">
+          <img src="https://i0.wp.com/www.embracethejourneytravel.com/wp-content/uploads/2018/02/norwegian-cruise-line-logo.jpg?fit=300%2C300&ssl=1" alt="">
         </div>
     </section>
 
