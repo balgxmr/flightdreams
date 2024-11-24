@@ -31,13 +31,111 @@
 
     <main class="mainContent dashboardMain">
       <div class="container-fluid">
-        <section class="mainContainerAdmin">
-          <div class="paddingContentAdmin">
-            <div class="bg-primary text-white text-center p-3 mb-3">
-              <h5 class="m-0">Bienvenido al dashboard de Administrador</h5> 
+        <!-- Resumen de estadísticas -->
+        <div class="row text-center mb-4">
+            <h1 class="mb-5">Estadísticas actuales</h1>
+            <div class="col-2">
+                <div class="card border-0 bg-light shadow-sm">
+                    <div class="card-body">
+                        <h6 class="text-uppercase text-muted mb-1">Facebook</h6>
+                        <h5 class="fw-bold m-0">+2</h5>
+                    </div>
+                </div>
             </div>
-            <p class="text-center">Elige una de las opciones disponibles en el panel lateral izquierdo.</p>
-            <!-- <img class="centeredImage" src="../../public/images/dashboard.png" alt=""> -->
+            <div class="col-2">
+                <div class="card border-0 bg-light shadow-sm">
+                    <div class="card-body">
+                        <h6 class="text-uppercase text-muted mb-1">Instagram</h6>
+                        <h5 class="text-success fw-bold m-0">+11</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="card border-0 bg-light shadow-sm">
+                    <div class="card-body">
+                        <h6 class="text-uppercase text-muted mb-1">Pinterest</h6>
+                        <h5 class="text-danger fw-bold m-0">+78</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="card border-0 bg-light shadow-sm">
+                    <div class="card-body">
+                        <h6 class="text-uppercase text-muted mb-1">Twitter</h6>
+                        <h5 class="text-success fw-bold m-0">+1</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="card border-0 bg-light shadow-sm">
+                    <div class="card-body">
+                        <h6 class="text-uppercase text-muted mb-1">YouTube</h6>
+                        <h5 class="text-danger fw-bold m-0">+7</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="card border-0 bg-light shadow-sm">
+                    <div class="card-body">
+                        <h6 class="text-uppercase text-muted mb-1">Sitio Web</h6>
+                        <h5 class="text-danger fw-bold m-0">+459</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="mainContainerAdmin paddingContentAdmin">
+          <div class="container my-5">
+            <div class="row g-4">
+                <!-- Total de Reservas -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-primary h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Total de Reservas</h5>
+                            <p class="card-text fs-3">5</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reservas por Estado -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-secondary h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Reservas por Estado</h5>
+                            <p class="card-text fs-3">5</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paquete Más Vendido -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-success h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Paquete Más Vendido</h5>
+                            <p class="card-text fs-3">Atlantis Map</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nacionalidad Más Repetida -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-danger h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Nacionalidad Más Repetida</h5>
+                            <p class="card-text fs-3">Panameña</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio Más Reservado -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-warning h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Servicio Más Reservado</h5>
+                            <p class="card-text fs-3">Crucero</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
           </div>
         </section>
       </div>

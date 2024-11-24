@@ -86,18 +86,17 @@
                                 </td>
                                 <td class="text-center"><?php echo $reserva['visa'] === 0 ? 'no' : ($reserva['visa'] === 1 ? 'sí' : 'no'); ?></td>
                                 <td class="text-center">
-                                  <form action="../config/routes.php?controller=admin&action=actualizarEstado" method="POST">
-                                    <div class="form-group">
-                                      <select name="estado" id="estado" class="form-control">
-                                        <option value="cancelado" <?= $reserva['estado'] == 'cancelado' ? 'selected' : '' ?>>Cancelado</option>
-                                        <option value="confirmado" <?= $reserva['estado'] == 'confirmado' ? 'selected' : '' ?>>Confirmado</option>
-                                        <option value="pendiente" <?= $reserva['estado'] == 'pendiente' ? 'selected' : '' ?>>Pendiente</option>
-                                      </select>
-                                    </div>
-                                    <input type="hidden" name="id_viajes" value="<?= $reserva['id_viajes'] ?>">
-                                    <button type="submit" class="btn btn-primary btn-sm">Actualizar Estado</button>
-                                  </form>
+                                    <form action="../config/routes.php?controller=admin&action=actualizarEstado" method="POST" class="d-inline">
+                                        <select name="estado" id="estado" class="form-select form-select-sm d-inline w-auto">
+                                            <option value="cancelado" <?= $reserva['estado'] == 'cancelado' ? 'selected' : '' ?>>Cancelado</option>
+                                            <option value="confirmado" <?= $reserva['estado'] == 'confirmado' ? 'selected' : '' ?>>Confirmado</option>
+                                            <option value="pendiente" <?= $reserva['estado'] == 'pendiente' ? 'selected' : '' ?>>Pendiente</option>
+                                        </select>
+                                        <input type="hidden" name="id_viajes" value="<?= $reserva['id_viajes'] ?>">
+                                        <button type="submit" class="btn btn-primary btn-sm mt-1">Actualizar</button>
+                                    </form>
                                 </td>
+
                               </tr>
                             <?php endforeach; ?>
                           </tbody>
