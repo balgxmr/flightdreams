@@ -20,32 +20,46 @@
     <!-- Iconos: Font-Awesome -->
     <script src="https://kit.fontawesome.com/5ddbd215bf.js" crossorigin="anonymous"></script>
     <!-- Favicon -->
-  <link rel="icon" href="<?php echo BASE_URL; ?>public/images/flightdreams-logo-clean.png" type="image/x-icon">
+    <link rel="icon" href="<?php echo BASE_URL; ?>public/images/flightdreams-logo-clean.png" type="image/x-icon">
   </head>
   <body>
     <?php include '../views/header.php'; ?>
 
-  <main class="container mt-5">
-    <div class="row">
-      <?php if (!empty($paquete['Foto'])): ?>
-        <img src="../config/mostrarImagen.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete">
-      <?php endif; ?>
-      <div class="col-md-7 ps-md-5">
-        <p class="h2"><?php echo $paquete['Nombre']; ?></p>
-        <p class="h6"><?php echo $paquete['Descripcion']; ?></p>
-        <p>Destino: <?php echo $paquete['Destino']; ?></p>
-        <p>Precio: $<?php echo $paquete['Precio']; ?></p>
-        <p>Fecha de Inicio: <?php echo $paquete['Fecha_inicio']; ?></p>
-        <p>Fecha Final: <?php echo $paquete['Fecha_final']; ?></p>
+    <main class="container mt-5">
+      <div class="row">
+        <form method="POST" action="../config/routes.php?controller=viajes&action=reservar">
+          <div class="col-md-5">
+            <?php if (!empty($paquete['Foto'])): ?>
+              <img src="../config/mostrarImagen.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete">
+            <?php endif; ?>
+          </div>
+          
+          <div class="col-md-7 ps-md-5">
+            <p class="h2"><?php echo $paquete['Nombre']; ?></p>
+            <p class="h6"><?php echo $paquete['Descripcion']; ?></p>
+            <p>Destino: <?php echo $paquete['Destino']; ?></p>
+            <p>Precio: $<?php echo $paquete['Precio']; ?></p>
+            <p>Fecha de Inicio: <?php echo $paquete['Fecha_inicio']; ?></p>
+            <p>Fecha Final: <?php echo $paquete['Fecha_final']; ?></p>
 
-        <p class="fw-bold">Itinerario:</p>
-        <p><?php echo $paquete['itinerario']; ?></p>
+            <p class="fw-bold">Itinerario:</p>
+            <p><?php echo $paquete['itinerario']; ?></p>
+          </div>
+
+          <div>
+            <button type="submit" class="button">Reservar</button>
+          </div>
+          <input type="hidden" name="id_paquete" value="<?= $paquete['id_paquete'] ?>">
+          <input type="hidden" name="destino_salida" value="<?= $paquete['Destino'] ?>">
+          <input type="hidden" name="fecha_inicio" value="<?= $paquete['Fecha_inicio'] ?>">
+          <input type="hidden" name="fecha_final" value="<?= $paquete['Fecha_final'] ?? '' ?>">
+          <input type="hidden" name="servicio" value="<?= $paquete['servicio'] ?? '' ?>">
+        </form>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <?php include '../views/footer.php'; ?>
+    <?php include '../views/footer.php'; ?>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
 </html>

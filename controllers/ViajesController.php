@@ -18,7 +18,7 @@ class ViajesController {
             $destino_salida = $_POST['destino_salida'];
             $destino_origen = $_POST['destino_origen'] ?? null;
             $estado = $_POST['estado'] ?? 'pendiente';
-            $personas = $_POST['personas'];
+            $personas = $_POST['personas' ?? null];
             $fecha_inicio = $_POST['fecha_inicio'];
             $fecha_final = $_POST['fecha_final'] ?? null;
             $visa = $_POST['visa'] ?? null;
@@ -29,7 +29,7 @@ class ViajesController {
             $clase_tren = $_POST['clase_tren'] ?? null;
 
             // Validar los datos (puedes agregar más validaciones)
-            if (!empty($destino_salida) && !empty($estado) && !empty($personas) && !empty($fecha_inicio) && !empty($servicio)) {
+            if (!empty($destino_salida) && !empty($estado) && !empty($fecha_inicio) && !empty($servicio)) {
                 // Instanciar el modelo
                 $viajesModel = new Viajes();
 
