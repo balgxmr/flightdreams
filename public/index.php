@@ -1,5 +1,6 @@
 <?php
   require_once '../models/Paquete.php';
+  require_once '../config/config.php';
 
   $paqueteModel = new Paquete();
   $paquetes = $paqueteModel->obtenerTresServiciosDiferentes();
@@ -23,6 +24,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <!-- Iconos: Font-Awesome -->
     <script src="https://kit.fontawesome.com/5ddbd215bf.js" crossorigin="anonymous"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="<?php echo BASE_URL; ?>public/images/flightdreams-logo-clean.png" type="image/x-icon">
   </head>
   <body>
     <?php include '../views/header.php'; ?>
@@ -66,7 +69,7 @@
           <div class="card-content">
             <h2>Vuelos</h2>
             <p>¿Buscas una nueva aventura?. ¡Aquí te tenemos los vuelos! ¡Lo que buscas está aqui!</p>
-            <a href="#" class="button">Ver más</a>
+            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=vuelos" class="button">Ver más</a>
           </div>
         </div>
 
@@ -75,7 +78,7 @@
           <div class="card-content">
             <h2>Autobuses</h2>
             <p>Viaja comodamente en nuestro servicio de autobuses. Sientete seguro con nuestro sistema de viajes.</p>
-            <a href="#" class="button">Ver más</a>
+            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=autobuses" class="button">Ver más</a>
           </div>
         </div>
 
@@ -84,7 +87,7 @@
           <div class="card-content">
             <h2>Hoteles</h2>
             <p>¿Buscando donde hospedarte? No dudes más, ¡te brindamos diversidades de lugares!</p>
-            <a href="#" class="button">Ver más</a>
+            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=hoteles" class="button">Ver más</a>
           </div>
         </div>
 
@@ -93,7 +96,7 @@
           <div class="card-content">
             <h2>Cruceros</h2>
             <p>Viaja por el mar, conociendo nuevos destinos. ¡Los cruceros te darán una nueva experiencia!</p>
-            <a href="#" class="button">Ver más</a>
+            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=cruceros" class="button">Ver más</a>
           </div>
         </div>
 
@@ -102,7 +105,7 @@
           <div class="card-content">
             <h2>Trenes</h2>
             <p>Disfruta de lo mejor viajando en tren. Desde clases premium hasta económicas. ¡Lo que buscas está aqui!</p>
-            <a href="#" class="button">Ver más</a>
+            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=trenes" class="button">Ver más</a>
           </div>
         </div>
       </div>

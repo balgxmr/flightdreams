@@ -372,6 +372,13 @@ body {
   }
 }
 
+.error-message {
+  position: absolute;
+  right: 0;
+  top: 70%;
+  font-size: 0.9rem;
+}
+
 /* 
  *
  *
@@ -496,9 +503,17 @@ body {
 }
 
 .team-card img {
+  width: 270px;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+}
+
+/* .team-card img { 
   width: 100%;
   border-radius: 50%;
-}
+}*/
 
 .team-card h5 {
   color: var(--azulBase);

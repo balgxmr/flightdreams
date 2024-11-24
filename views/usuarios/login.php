@@ -1,3 +1,7 @@
+<?php
+  require_once '../../config/config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,6 +19,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <!-- Iconos: Font-Awesome -->
     <script src="https://kit.fontawesome.com/5ddbd215bf.js" crossorigin="anonymous"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="<?php echo BASE_URL; ?>public/images/flightdreams-logo-clean.png" type="image/x-icon">
   </head>
   <body class="login-body">
     <section class="vh-100">
@@ -25,7 +31,8 @@
             <img class="img-fluid" src="../../public/images/Flight-&-Dreams-LOGO-Traz.png" alt="" />
           </div>
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-            <form method="POST" action="../../config/routes.php?controller=usuario&action=loginUsuario">
+            <!-- Formulario -->
+            <form id="loginForm" method="POST" action="../../config/routes.php?controller=usuario&action=loginUsuario">
               <div>
                 <i class="fa-solid fa-user fa-2x row d-flex justify-content-center align-items-center"></i>
                 <h1 class="row d-flex justify-content-center align-items-center p-3">Inicia sesión</h1>
@@ -33,15 +40,17 @@
               </div>
 
               <!-- Email input -->
-              <div data-mdb-input-init class="form-outline mb-2">
-                <input type="email" id="" name="correo" class="form-control form-control-lg" placeholder="Ingresa un correo electrónico válido" />
-                <label class="form-label pt-1" for="form3Example3">Correo electrónico</label>
+              <div data-mdb-input-init class="form-outline mb-2 position-relative">
+                <input type="email" id="email" name="correo" class="form-control form-control-lg" placeholder="Ingresa un correo electrónico válido" />
+                <label class="form-label pt-1" for="email">Correo electrónico</label>
+                <small id="emailError" class="text-danger d-none error-message">Por favor, ingresa un correo válido.</small>
               </div>
 
               <!-- Password input -->
-              <div data-mdb-input-init class="form-outline mb-2">
-                <input type="password" id="" name="contrasena" class="form-control form-control-lg" placeholder="Introduce la contraseña" />
-                <label class="form-label pt-1" for="form3Example4">Contraseña</label>
+              <div data-mdb-input-init class="form-outline mb-2 position-relative">
+                <input type="password" id="password" name="contrasena" class="form-control form-control-lg" placeholder="Introduce la contraseña" />
+                <label class="form-label pt-1" for="password">Contraseña</label>
+                <small id="passwordError" class="text-danger d-none error-message">Por favor, completa este campo.</small>
               </div>
 
               <div class="d-flex justify-content-between align-items-center">
@@ -51,12 +60,49 @@
               </div>
 
               <div class="text-center text-lg-start mt-4 pt-2">
-
-                  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">Iniciar sesión</button>
-
+                <button type="button" id="loginButton" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">
+                  Iniciar sesión
+                </button>
                 <p class="small fw-bold mt-2 pt-1 mb-0">¿No tienes una cuenta? <a href="./registrar.php" class="link-danger">Registrate</a></p>
               </div>
             </form>
+
+            <!-- Script -->
+            <script>
+              document.getElementById("loginButton").addEventListener("click", function (e) {
+                const emailField = document.getElementById("email");
+                const passwordField = document.getElementById("password");
+                const emailError = document.getElementById("emailError");
+                const passwordError = document.getElementById("passwordError");
+                
+                let valid = true;
+
+                // Validar correo electrónico
+                const emailValue = emailField.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailValue || !emailRegex.test(emailValue)) {
+                  emailError.classList.remove("d-none");
+                  valid = false;
+                } else {
+                  emailError.classList.add("d-none");
+                }
+
+                // Validar contraseña
+                const passwordValue = passwordField.value.trim();
+                if (!passwordValue) {
+                  passwordError.classList.remove("d-none");
+                  valid = false;
+                } else {
+                  passwordError.classList.add("d-none");
+                }
+
+                // Si todo es válido, envía el formulario
+                if (valid) {
+                  document.getElementById("loginForm").submit();
+                }
+              });
+            </script>
+
           </div>
         </div>
       </div>

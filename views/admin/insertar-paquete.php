@@ -22,6 +22,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- Iconos: Font-Awesome -->
   <script src="https://kit.fontawesome.com/5ddbd215bf.js" crossorigin="anonymous"></script>
+  <!-- Favicon -->
+  <link rel="icon" href="<?php echo BASE_URL; ?>public/images/flightdreams-logo-clean.png" type="image/x-icon">
 </head>
 
 <body class="gridContainer">
@@ -130,15 +132,20 @@
               </div>
 
               <!-- Servicio -->
-              <div data-mdb-input-init class="form-outline mb-2">
-                <input 
-                  type="text" 
-                  id="servicio" 
-                  name="servicio" 
-                  class="form-control form-control-lg" 
-                  placeholder="Servicios incluidos" 
-                  required 
-                />
+              <div class="form-outline mb-2">
+                  <select 
+                      id="servicio" 
+                      name="servicio" 
+                      class="form-select form-select-lg" 
+                      required
+                  >
+                      <option value="" disabled selected>Seleccione un servicio</option>
+                      <option value="autobuses">Autobuses</option>
+                      <option value="hoteles">Hoteles</option>
+                      <option value="cruceros">Cruceros</option>
+                      <option value="trenes">Trenes</option>
+                      <option value="vuelos">Vuelos</option>
+                  </select>
               </div>
 
               <!-- Itinerario -->

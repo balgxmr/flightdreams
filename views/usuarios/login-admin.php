@@ -1,3 +1,7 @@
+<?php
+  require_once '../../config/config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,6 +19,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <!-- Iconos: Font-Awesome -->
     <script src="https://kit.fontawesome.com/5ddbd215bf.js" crossorigin="anonymous"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="<?php echo BASE_URL; ?>public/images/flightdreams-logo-clean.png" type="image/x-icon">
   </head>
   <body class="login-body">
     <section class="vh-100">
@@ -32,16 +38,18 @@
                 <hr class="p-3" />
               </div>
 
-              <!-- Email input -->
-              <div data-mdb-input-init class="form-outline mb-2">
-                <input type="text" id="" name="nombre_usuario" class="form-control form-control-lg" placeholder="Ingresa tu nombre de usuario" required />
-                <label class="form-label pt-1" for="form3Example3">Nombre de usuario</label>
+              <!-- Nombre de usuario -->
+              <div data-mdb-input-init class="form-outline mb-2 position-relative">
+                <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control form-control-lg" placeholder="Ingresa tu nombre de usuario" required />
+                <label class="form-label pt-1" for="nombre_usuario">Nombre de usuario</label>
+                <small id="usuarioError" class="text-danger d-none error-message">Por favor, ingresa tu nombre de usuario.</small>
               </div>
 
-              <!-- Password input -->
-              <div data-mdb-input-init class="form-outline mb-2">
-                <input type="password" id="" name="contrasena" class="form-control form-control-lg" placeholder="Introduce la contraseña" required />
-                <label class="form-label pt-1" for="form3Example4">Contraseña</label>
+              <!-- Contraseña -->
+              <div data-mdb-input-init class="form-outline mb-2 position-relative">
+                <input type="password" id="contrasena" name="contrasena" class="form-control form-control-lg" placeholder="Introduce la contraseña" required />
+                <label class="form-label pt-1" for="contrasena">Contraseña</label>
+                <small id="contrasenaError" class="text-danger d-none error-message">Por favor, ingresa tu contraseña.</small>
               </div>
 
               <div class="d-flex justify-content-between align-items-center">
@@ -51,11 +59,42 @@
               </div>
 
               <div class="text-center text-lg-start mt-4 pt-2">
-
-                  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">Iniciar sesión</button>
-
+                <button type="button" id="adminLoginButton" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">Iniciar sesión</button>
               </div>
             </form>
+
+            <!-- Script para validación -->
+            <script>
+              document.getElementById("adminLoginButton").addEventListener("click", function () {
+                const usuarioField = document.getElementById("nombre_usuario");
+                const contrasenaField = document.getElementById("contrasena");
+                const usuarioError = document.getElementById("usuarioError");
+                const contrasenaError = document.getElementById("contrasenaError");
+
+                let valid = true;
+
+                // Validar nombre de usuario
+                if (!usuarioField.value.trim()) {
+                  usuarioError.classList.remove("d-none");
+                  valid = false;
+                } else {
+                  usuarioError.classList.add("d-none");
+                }
+
+                // Validar contraseña
+                if (!contrasenaField.value.trim()) {
+                  contrasenaError.classList.remove("d-none");
+                  valid = false;
+                } else {
+                  contrasenaError.classList.add("d-none");
+                }
+
+                // Enviar formulario si es válido
+                if (valid) {
+                  usuarioField.form.submit();
+                }
+              });
+            </script>
           </div>
         </div>
       </div>

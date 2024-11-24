@@ -25,6 +25,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <!-- Iconos: Font-Awesome -->
     <script src="https://kit.fontawesome.com/5ddbd215bf.js" crossorigin="anonymous"></script>
+    <!-- Favicon -->
+  <link rel="icon" href="<?php echo BASE_URL; ?>public/images/flightdreams-logo-clean.png" type="image/x-icon">
   </head>
   <body class="gridContainer">
     <?php include '../../views/aside-admin.php'?>
@@ -33,11 +35,11 @@
       <div class="container-fluid">
         <section class="mainContainerAdmin">
           <div class="paddingContentAdmin">
-            <div class="bg-primary text-white text-center p-3 mb-3">
-              <h5 class="m-0">Bienvenido al dashboard de Administrador</h5> 
+            <div class="text-center p-3 mb-3">
+              <h5 class="m-0 h1">Bienvenido al dashboard de Administrador</h5> 
             </div>
-            <p class="text-center">Elige una de las opciones disponibles en el panel lateral izquierdo.</p>
-            <!-- <img class="centeredImage" src="../../public/images/dashboard.png" alt=""> -->
+            <p class="text-center h5 mb-3">Elige una de las opciones disponibles en el panel lateral izquierdo.</p>
+            <img class="centeredImage" src="https://i.pinimg.com/originals/0b/92/c1/0b92c1ba5ae239c314ba2ec1dab936ec.png" alt="">
           </div>
         </section>
       </div>

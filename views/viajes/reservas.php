@@ -19,9 +19,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- Iconos: Font-Awesome -->
   <script src="https://kit.fontawesome.com/5ddbd215bf.js" crossorigin="anonymous"></script>
+  <!-- Favicon -->
+  <link rel="icon" href="<?php echo BASE_URL; ?>public/images/flightdreams-logo-clean.png" type="image/x-icon">
 </head>
 <body class="">
-  
+
   <?php include '../views/header.php'?>
 
   <hr>
