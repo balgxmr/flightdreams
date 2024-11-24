@@ -47,11 +47,11 @@
           <div class="row g-3 mb-3">
             <!-- Lugar  -->
             <div class="col-md-4">
-              <label for="destino_salida" class="form-label">Lugar</label>
+              <label for="destino_final" class="form-label">Lugar</label>
               <input 
                 type="text" 
-                name="destino_salida" 
-                id="destino_salida" 
+                name="destino_final" 
+                id="destino_final" 
                 class="form-control" 
                 required 
                 maxlength="65" 

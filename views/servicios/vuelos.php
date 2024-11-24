@@ -59,11 +59,11 @@
 
             <!-- Aeropuerto de destino -->
             <div class="col-md-3">
-              <label for="destino_salida" class="form-label">Aeropuerto de destino</label>
+              <label for="destino_final" class="form-label">Aeropuerto de destino</label>
               <input 
                 type="text" 
-                name="destino_salida" 
-                id="destino_salida" 
+                name="destino_final" 
+                id="destino_final" 
                 class="form-control" 
                 required 
                 maxlength="65" 
