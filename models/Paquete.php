@@ -76,6 +76,14 @@
                 return null; // Si no hay resultados, retornar null
             }
         }
+
+        public function getPaqueteById($id_paquete) {
+            $sql = "SELECT * FROM Paquete WHERE id_paquete = :id_paquete";
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->bindParam(':id_paquete', $id_paquete, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
         
     }
     
