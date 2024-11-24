@@ -121,7 +121,7 @@
 
     <section class="mainContainer">
         <h2 class="mainContainer--title">¿Sin ideas a donde ir?</h2>
-        <h3 class="mainContainer--subtitle">Te recomendamos viajes en Cruceros</h3>
+        <h3 class="mainContainer--subtitle pb-5">Te recomendamos viajes en Cruceros</h3>
 
         <?php if (!empty($paquetes)): ?>
         <div class="row">
@@ -135,9 +135,12 @@
             ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <?php if (!empty($paquete['Foto'])): ?>
-                            <img class="card-img-top h-50" src="../public/images/canal-panama.jpg" alt="Imagen del paquete">
-                        <?php endif; ?>
+                    <?php if (!empty($paquete['Foto'])): ?>
+                        <img src="../controllers/ImagenController.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete" class="card-img-top">
+                    <?php else: ?>
+                        <img src="<?php echo BASE_URL; ?>public/images/paquete-bro.jpg" alt="Imagen Predeterminada" class="card-img-top">
+                    <?php endif; ?>
+
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $paquete['Nombre']; ?></h5>
                             <p class="card-text"><?php echo $paquete['Descripcion']; ?></p>
@@ -150,7 +153,7 @@
                             </p>
                         </div>
                         <div class="card-footer">
-                            <button type="button" class="btn btn-success">Ver itinerario</button>
+                            <a href="../config/routes.php?controller=paquete&action=verPaquete&id_paquete=<?php echo $paquete['id_paquete']; ?>"><button type="button" class="btn btn-success">Ver itinerario</button></a>
                         </div>
                     </div>
                 </div>
