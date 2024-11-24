@@ -25,16 +25,20 @@
   <body>
     <?php include '../views/header.php'; ?>
 
-    <main class="container d-flex align-items-center justify-content-center pt-5">
-      <div class="row <?php echo empty($paquete['Foto']) ? 'text-center' : ''; ?> w-100">
-        <form method="POST" action="../config/routes.php?controller=viajes&action=reservar">
+    <main class="container d-flex align-items-center justify-content-center pt-5 pb-5">
+      <div class="row w-100 align-items-center">
+        <form class="d-flex w-100" method="POST" action="../config/routes.php?controller=viajes&action=reservar">
           <?php if (!empty($paquete['Foto'])): ?>
             <div class="col-md-5">
               <img class="img-fluid rounded" src="../config/mostrarImagen.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete">
             </div>
+          <?php else: ?>
+            <div class="col-md-5">
+              <img class="img-fluid rounded" src="<?php echo BASE_URL; ?>public/images/viaje-flyer.jpg" alt="Imagen no disponible">
+            </div>
           <?php endif; ?>
 
-          <div class="<?php echo empty($paquete['Foto']) ? '' : 'ps-md-5'; ?>">
+          <div class="col-md-7 ps-md-5">
             <p class="h2"><?php echo $paquete['Nombre']; ?></p>
             <p class="h6"><?php echo $paquete['Descripcion']; ?></p>
             <p>Destino: <?php echo $paquete['Destino']; ?></p>
@@ -44,11 +48,12 @@
 
             <p class="fw-bold">Itinerario:</p>
             <p><?php echo $paquete['itinerario']; ?></p>
+
+            <div class="pt-3">
+              <button type="submit" class="button">Reservar</button>
+            </div>
           </div>
 
-          <div class="pb-5 <?php echo empty($paquete['Foto']) ? '' : 'ps-5'; ?>">
-            <button type="submit" class="button">Reservar</button>
-          </div>
           <input type="hidden" name="id_paquete" value="<?= $paquete['id_paquete'] ?>">
           <input type="hidden" name="destino_final" value="<?= $paquete['Destino'] ?>">
           <input type="hidden" name="fecha_inicio" value="<?= $paquete['Fecha_inicio'] ?>">
@@ -57,6 +62,7 @@
         </form>
       </div>
     </main>
+
 
 
     <?php include '../views/footer.php'; ?>
