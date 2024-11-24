@@ -25,23 +25,33 @@
   <body>
     <?php include '../views/header.php'; ?>
 
-  <main class="container mt-5">
-    <div class="row">
-      <?php if (!empty($paquete['Foto'])): ?>
-        <img src="../config/mostrarImagen.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete">
-      <?php endif; ?>
-      <div class="col-md-7 ps-md-5">
-        <p class="h2"><?php echo $paquete['Nombre']; ?></p>
-        <p class="h6"><?php echo $paquete['Descripcion']; ?></p>
-        <p>Destino: <?php echo $paquete['Destino']; ?></p>
-        <p>Precio: $<?php echo $paquete['Precio']; ?></p>
-        <p>Fecha de Inicio: <?php echo $paquete['Fecha_inicio']; ?></p>
-        <p>Fecha Final: <?php echo $paquete['Fecha_final']; ?></p>
+  <main class="container mt-5 mb-5">
+    <form action="">
+      <div class="row">
 
-        <p class="fw-bold">Itinerario:</p>
-        <p><?php echo $paquete['itinerario']; ?></p>
+      <?php if (!empty($paquete['Foto'])): ?>
+        <div class="col-md-5">
+          <img class="img-fluid rounded" src="../config/mostrarImagen.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete">
+        </div>
+      <?php endif; ?>
+      
+
+        <div class="col-md-7 ps-md-5">
+          <p class="h2"><?php echo $paquete['Nombre']; ?></p>
+          <p class="h6"><?php echo $paquete['Descripcion']; ?></p>
+          <p>Destino: <?php echo $paquete['Destino']; ?></p>
+          <p>Precio: $<?php echo $paquete['Precio']; ?></p>
+          <p>Fecha de Inicio: <?php echo $paquete['Fecha_inicio']; ?></p>
+          <p>Fecha Final: <?php echo $paquete['Fecha_final']; ?></p>
+
+          <p class="fw-bold">Itinerario:</p>
+          <p><?php echo $paquete['itinerario']; ?></p>
+          <div class="col-md-7 mb-5">
+            <button type="submit" class="button">Comprar</button>
+          </div>
+        </div>
       </div>
-    </div>
+    </form>
   </main>
 
   <?php include '../views/footer.php'; ?>
