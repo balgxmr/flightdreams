@@ -1,5 +1,5 @@
 <?php
-require_once '../config/db.php';
+require_once(__DIR__ . '/../config/db.php');
 
 class Viajes {
     private $conexion;
@@ -69,6 +69,65 @@ class Viajes {
     {
         $stmt = $this->conexion->prepare("UPDATE Viajes SET estado = 'cancelado' WHERE id_viajes = ?");
         return $stmt->execute([$idViajes]);
+    }
+
+    public function contarViajes() {
+        $query = "SELECT COUNT(*) AS total_viajes FROM Viajes";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['total_viajes'];
+    }
+
+    public function contarViajesPorEstado() {
+        $query = "SELECT estado, COUNT(*) AS total_estado FROM Viajes GROUP BY estado";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getServicioMasReservado() {
+        // Consulta SQL para obtener el servicio más reservado
+        $sql = "SELECT servicio, COUNT(*) AS cantidad
+                FROM Viajes
+                GROUP BY servicio
+                ORDER BY cantidad DESC
+                LIMIT 1";
+
+        // Preparar la consulta
+        $stmt = $this->conexion->prepare($sql);
+
+        // Ejecutar la consulta
+        $stmt->execute();
+
+        // Obtener el resultado
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Retornar el resultado
+        if ($row) {
+            return $row; // Contiene el servicio y la cantidad de reservas
+        } else {
+            return null; // Si no se encontró ningún servicio
+        }
+    }
+
+    public function getPersonasPorVisa() {
+        // Consulta SQL para obtener la cantidad de personas con y sin visa
+        $sql = "SELECT visa, SUM(personas) AS total_personas
+                FROM Viajes
+                GROUP BY visa";
+
+        // Preparar la consulta
+        $stmt = $this->conexion->prepare($sql);
+
+        // Ejecutar la consulta
+        $stmt->execute();
+
+        // Obtener el resultado
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Retornar el resultado
+        return $result;
     }
 
 }

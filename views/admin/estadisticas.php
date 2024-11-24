@@ -1,11 +1,26 @@
 <?php 
   require_once __DIR__ . '/../../config/config.php';
+  require_once(__DIR__ . '/../../models/Paquete.php');
+  require_once(__DIR__ . '/../../models/Viajes.php');
+  require_once(__DIR__ . '/../../models/Admin.php');
 
   // Comprobar si la sesión ya está iniciada
   if (session_status() == PHP_SESSION_NONE) {
       session_start();
   }
   verificarSesionAdmin();
+
+  $paqueteModel = new Paquete();
+  $viajesModel = new Viajes();
+  $adminModel = new Admin();
+
+  $totalViajes = $viajesModel->contarViajes();
+  $viajesPorEstado = $viajesModel->contarViajesPorEstado();
+  $paqueteMasVendido = $paqueteModel->getPaqueteMasVendido();
+  $nacionalidad = $adminModel->getNacionalidadMasRepetida();
+  $servicio = $viajesModel->getServicioMasReservado();
+  $visa = $viajesModel->getPersonasPorVisa();
+
 ?>
 
 <!DOCTYPE html>
@@ -93,7 +108,7 @@
                     <div class="card text-white bg-primary h-100">
                         <div class="card-body">
                             <h5 class="card-title">Total de Reservas</h5>
-                            <p class="card-text fs-3">5</p>
+                            <p class="card-text fs-3"><?php echo htmlspecialchars($totalViajes); ?></p>
                         </div>
                     </div>
                 </div>
@@ -103,7 +118,14 @@
                     <div class="card text-white bg-secondary h-100">
                         <div class="card-body">
                             <h5 class="card-title">Reservas por Estado</h5>
-                            <p class="card-text fs-3">5</p>
+                            <p class="card-text fs-3">
+                            <?php foreach ($viajesPorEstado as $viaje): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($viaje['estado']); ?></td>
+                                    <td><?php echo htmlspecialchars($viaje['total_estado']); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -113,7 +135,7 @@
                     <div class="card text-white bg-success h-100">
                         <div class="card-body">
                             <h5 class="card-title">Paquete Más Vendido</h5>
-                            <p class="card-text fs-3">Atlantis Map</p>
+                            <p class="card-text fs-3"><?php  echo "Paquete más vendido: " . $paqueteMasVendido["Nombre"] . " con " . $paqueteMasVendido["total_vendidos"] . " ventas."; ?></p>
                         </div>
                     </div>
                 </div>
@@ -123,17 +145,32 @@
                     <div class="card text-white bg-danger h-100">
                         <div class="card-body">
                             <h5 class="card-title">Nacionalidad Más Repetida</h5>
-                            <p class="card-text fs-3">Panameña</p>
+                            <p class="card-text fs-3"><?php echo $nacionalidad['Nacionalidad'];?></p>
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Servicio Más Reservado -->
                 <div class="col-md-4">
                     <div class="card text-white bg-warning h-100">
                         <div class="card-body">
                             <h5 class="card-title">Servicio Más Reservado</h5>
-                            <p class="card-text fs-3">Crucero</p>
+                            <p class="card-text fs-3"><?php echo $servicio['servicio']; ?></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Visa -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-warning h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Visas Requeridas</h5>
+                            <?php if ($visa): ?>
+                                <?php foreach ($visa as $row): ?>
+                                    <p>Visa <?php echo ($row['visa'] == 1) ? 'Sí' : 'No'; ?>: <strong><?php echo $row['total_personas']; ?></strong> personas</p>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p>No se encontraron resultados.</p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

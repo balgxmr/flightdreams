@@ -1,5 +1,5 @@
 <?php
-require_once '../config/db.php';
+require_once(__DIR__ . '/../config/db.php');
 
 class Admin {
     private $conexion;
@@ -59,5 +59,31 @@ class Admin {
         return $stmt->execute([$estado, $idViajes]);
     }
 
+    public function getNacionalidadMasRepetida() {
+        $sql = "SELECT Nacionalidad, COUNT(*) AS cantidad
+                FROM Usuario
+                GROUP BY Nacionalidad
+                ORDER BY cantidad DESC
+                LIMIT 1";
+    
+        // Preparar la consulta
+        $stmt = $this->conexion->prepare($sql);
+    
+        // Ejecutar la consulta
+        $stmt->execute();
+    
+        // Obtener el resultado
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        // Retornar la nacionalidad más repetida
+        if ($row) {
+            return $row; // Contiene Nacionalidad y cantidad
+        } else {
+            return null; // Si no se encuentra ninguna nacionalidad
+        }
+    }
+
+
+    
 }
 ?>
