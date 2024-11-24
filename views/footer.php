@@ -3,38 +3,39 @@
     <div class="footer-col">
       <h4>Info</h4>
       <ul class="links">
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Compressions</a></li>
+        <li><a href="<?php echo BASE_URL; ?>views/about-us/about-us.php">Acerca de nosotros</a></li>
+        <li><a href="https://linktr.ee/">Redes sociales</a></li>
       </ul>
     </div>
+    
     <div class="footer-col">
-      <h4>Explore</h4>
+      <h4>Servicios</h4>
       <ul class="links">
-        <li><a href="#">Free Designs</a></li>
-        <li><a href="#">Latest Designs</a></li>
-        <li><a href="#">Themes</a></li>
+        <li><a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=autobuses">Autobuses</a></li>
+        <li><a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=cruceros">Cruceros</a></li>
+        <li><a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=trenes">Trenes</a></li>
+        <li><a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=vuelos">Hoteles</a></li>
+        <li><a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorServicio&servicio=hoteles">Vuelos</a></li>
       </ul>
     </div>
+    
     <div class="footer-col">
       <h4>Legal</h4>
       <ul class="links">
-        <li><a href="#">Customer Agreement</a></li>
-        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Términos de Condiciones</a></li>
+        <li><a href="#">Política de Privacidad</a></li>
       </ul>
     </div>
+
     <div class="footer-col">
-      <h4>Newsletter</h4>
-      <p>Subscribe to our newsletter for a weekly dose of news, updates, helpful tips, and exclusive offers.</p>
-      <form action="#">
-        <input type="text" placeholder="Your email" required />
-        <button type="submit">SUBSCRIBE</button>
-      </form>
-      <div class="icons">
-        <i class="fa-brands fa-facebook-f"></i>
-        <i class="fa-brands fa-twitter"></i>
-        <i class="fa-brands fa-linkedin"></i>
-        <i class="fa-brands fa-github"></i>
-      </div>
+      <img src="../public/images/Flight-&-Dreams-LOGO-Traz.png" alt="Logo pequeño" class="footer-img">
+      <!-- <h4>Legal</h4> -->
+      <ul class="links">
+        <li><a href="#">Flights & Dreams</a></li>
+        <li><a href="#">Copyright 2024.</a></li>
+      </ul>
     </div>
+    
+    
   </div>
 </section>

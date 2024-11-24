@@ -26,7 +26,22 @@
     <!-- Iconos: Font-Awesome -->
     <script src="https://kit.fontawesome.com/5ddbd215bf.js" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body class="gridContainer">
     <?php include '../../views/aside-admin.php'?>
+
+    <main class="mainContent dashboardMain">
+      <div class="container-fluid">
+        <section class="mainContainerAdmin">
+          <div class="paddingContentAdmin">
+            <div class="bg-primary text-white text-center p-3 mb-3">
+              <h5 class="m-0">Bienvenido al dashboard de Administrador</h5> 
+            </div>
+            <p class="text-center">Elige una de las opciones disponibles en el panel lateral izquierdo.</p>
+            <!-- <img class="centeredImage" src="../../public/images/dashboard.png" alt=""> -->
+          </div>
+        </section>
+      </div>
+    </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

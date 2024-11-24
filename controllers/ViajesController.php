@@ -85,7 +85,7 @@ class ViajesController {
             header("Location: " . BASE_URL . "views/usuarios/login-admin.php");
             exit;
         }
-    }   
+    } 
 
     public function actualizarEstado()
     {

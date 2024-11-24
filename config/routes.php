@@ -70,7 +70,9 @@
             $adminController->verReservasAdmin();
         } elseif($action == 'actualizarEstado'){
             $adminController->actualizarEstado();
-        } 
+        } elseif ($action =='insertarPaquete'){
+            $adminController->insertarPaquete();
+        }
         
         if ($servicio) {
             if ($action == 'listarPorServicioAdmin') {

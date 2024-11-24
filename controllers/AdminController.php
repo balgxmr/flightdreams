@@ -22,6 +22,19 @@ class AdminController {
         }
     }   
 
+    public function insertarPaquete() {
+        session_start();
+        if (isset($_SESSION['admin'])) {
+
+            // Incluye la vista y pasa las reservas como parámetro
+            require_once "../views/admin/insertar-paquete.php";
+        } else {
+            // Redirigir al login si no está logueado
+            header("Location: " . BASE_URL . "views/usuarios/login-admin.php");
+            exit;
+        }
+    }   
+
 
     public function actualizarEstado() {
 

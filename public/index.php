@@ -45,7 +45,60 @@
       </button>
     </div>
 
-    <main class="mainContainer">
+    <section class="mainContainer">
+      <h2 class="mainContainer--title">Nuestros servicios</h2>
+      <h3 class="mainContainer--subtitle">Tenemos diversidad de servicios, ¡para lo que busques!</h3>
+
+      <div class="d-flex gap-3 mt-5 mb-5">
+        <div class="custom-card">
+          <img class="" src="./images/vuelo-card.jpg" alt="">
+          <div class="card-content">
+            <h2>Vuelos</h2>
+            <p>¿Buscas una nueva aventura?. ¡Aquí te tenemos los vuelos! ¡Lo que buscas está aqui!</p>
+            <a href="#" class="button">Ver más</a>
+          </div>
+        </div>
+
+        <div class="custom-card">
+          <img class="" src="./images/autobus-card.jpg" alt="">
+          <div class="card-content">
+            <h2>Autobuses</h2>
+            <p>Viaja comodamente en nuestro servicio de autobuses. Sientete seguro con nuestro sistema de viajes.</p>
+            <a href="#" class="button">Ver más</a>
+          </div>
+        </div>
+
+        <div class="custom-card">
+          <img class="" src="./images/hotel-card.jpg" alt="">
+          <div class="card-content">
+            <h2>Hoteles</h2>
+            <p>¿Buscando donde hospedarte? No dudes más, ¡te brindamos diversidades de lugares!</p>
+            <a href="#" class="button">Ver más</a>
+          </div>
+        </div>
+
+        <div class="custom-card">
+          <img class="" src="./images/crucero-card.webp" alt="">
+          <div class="card-content">
+            <h2>Cruceros</h2>
+            <p>Viaja por el mar, conociendo nuevos destinos. ¡Los cruceros te darán una nueva experiencia!</p>
+            <a href="#" class="button">Ver más</a>
+          </div>
+        </div>
+
+        <div class="custom-card">
+          <img class="" src="./images/trenes.jpg" alt="">
+          <div class="card-content">
+            <h2>Trenes</h2>
+            <p>Disfruta de lo mejor viajando en tren. Desde clases premium hasta económicas. ¡Lo que buscas está aqui!</p>
+            <a href="#" class="button">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      
+    <section class="mainContainer">
       <h2 class="mainContainer--title">Descubre lugares impresionantes con nosotros</h2>
       <h3 class="mainContainer--subtitle">Asigna tu próximo viaje</h3>
 
@@ -83,7 +136,7 @@
           </div>
         </div>
       </div>
-    </main>
+</section>
 
     <?php include '../views/footer.php'; ?>
 
