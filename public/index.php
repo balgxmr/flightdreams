@@ -59,7 +59,8 @@
       </button>
     </div>
 
-    <section class="mainContainer">
+    <section class="mainContainer pb-3">
+      <h4 class="mainContainer--brand">Flights & Dreams</h4>
       <h2 class="mainContainer--title">Nuestros servicios</h2>
       <h3 class="mainContainer--subtitle">Tenemos diversidad de servicios, ¡para lo que busques!</h3>
 
@@ -111,8 +112,10 @@
       </div>
     </section>
 
+    <hr>
+
       
-    <section class="mainContainer">
+    <section class="mainContainer pt-3 pb-3">
       <h2 class="mainContainer--title">Descubre lugares impresionantes con nosotros</h2>
       <h3 class="mainContainer--subtitle">Asigna tu próximo viaje</h3>
 
@@ -171,7 +174,61 @@
 
     <hr>
 
-    <section class="mainContainer services">
+    <section class="mainContainer pt-3">
+      <h2 class="mainContainer--title">Destinos</h2>
+      <h3 class="mainContainer--subtitle">¡Estos son los lugares más populares!</h3>
+
+      <div class="d-flex gap-3 mt-5 mb-5">
+        <div class="custom-card">
+          <img class="" src="./images/paris.jpg" alt="">
+          <div class="card-content">
+            <h2>París</h2>
+            <p>Descubre la ciudad del amor y su icónica Torre Eiffel, los románticos paseos por el Sena y la exquisita gastronomía francesa.</p>
+            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorDestino&destino=paris" class="button">Ver más</a>
+          </div>
+        </div>
+
+        <div class="custom-card">
+          <img class="" src="./images/roma.jpg" alt="">
+          <div class="card-content">
+            <h2>Roma</h2>
+            <p>Explora la cuna del Imperio Romano, desde el majestuoso Coliseo hasta la imponente Basílica de San Pedro en el Vaticano.</p>
+            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorDestino&destino=roma" class="button">Ver más</a>
+          </div>
+        </div>
+
+        <div class="custom-card">
+          <img class="" src="./images/tokio.webp" alt="">
+          <div class="card-content">
+            <h2>Tokio</h2>
+            <p>Una ciudad donde la tradición y la modernidad se encuentran. Visita sus templos, disfruta del sushi y experimenta su vibrante vida nocturna.</p>
+            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorDestino&destino=tokio" class="button">Ver más</a>
+          </div>
+        </div>
+
+        <div class="custom-card">
+          <img class="" src="./images/sydney.jpeg" alt="">
+          <div class="card-content">
+            <h2>Sídney</h2>
+            <p>Admira la famosa Ópera de Sídney, relájate en Bondi Beach y explora los hermosos parques nacionales de Australia.</p>
+            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorDestino&destino=sidney" class="button">Ver más</a>
+          </div>
+        </div>
+
+        <div class="custom-card">
+          <img class="" src="./images/zurich.webp" alt="">
+          <div class="card-content">
+            <h2>Zurich</h2>
+            <p>Experimenta el encanto de los Alpes suizos, disfruta de sus pintorescas calles y relájate con una taza de chocolate caliente.</p>
+            <a href="<?php echo BASE_URL; ?>config/routes.php?controller=paquete&action=listarPorDestino&destino=zurich" class="button">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <section class="mainContainer services pb-5">
         <p class="h3">Nuestros afiliados: </p>
         <div class="services-container-img">
           <img src="https://aeroinforme.com/wp-content/uploads/2022/01/R-1-768x403.png" alt="">

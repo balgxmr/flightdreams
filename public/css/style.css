@@ -142,6 +142,9 @@ body {
   font-size: 3rem;
   color: var(--naranjaOscuro);
 }
+.mainContainer--brand {
+  color: var(--naranjaOscuro);
+}
 .mainContainer--subtitle {
   font-size: 1.6rem;
   font-weight: 300;
