@@ -70,6 +70,7 @@ class AdminController {
 
         require_once '../views/admin/paquetes-admin.php';
     }
+
 }
 
 ?>

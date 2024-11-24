@@ -74,7 +74,7 @@
             $adminController->actualizarEstado();
         } elseif ($action =='insertarPaquete'){
             $adminController->insertarPaquete();
-        }
+        } 
         
         if ($servicio) {
             if ($action == 'listarPorServicioAdmin') {
@@ -85,7 +85,6 @@
                 $adminController->listarAdmin();
             }
         }
-        
     }
 
 ?>

@@ -1,5 +1,5 @@
 <?php
-    require_once '../config/db.php';
+    require_once(__DIR__ . '/../config/db.php');
 
     class Paquete {
         private $conexion;
@@ -52,6 +52,31 @@
         
             return $stmt->execute();
         }
+
+        public function getPaqueteMasVendido() {
+            // Consulta SQL para obtener el paquete más vendido
+            $sql = "SELECT p.id_paquete, p.Nombre, COUNT(v.id_viajes) AS total_vendidos
+                    FROM Paquete p
+                    LEFT JOIN Viajes v ON p.id_paquete = v.id_paquete
+                    GROUP BY p.id_paquete
+                    ORDER BY total_vendidos DESC
+                    LIMIT 1";
+    
+            // Preparar y ejecutar la consulta
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->execute();
+    
+            // Obtener el resultado
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            // Verificar si se encontró algún resultado
+            if ($row) {
+                return $row; // Retornar el paquete más vendido
+            } else {
+                return null; // Si no hay resultados, retornar null
+            }
+        }
         
     }
+    
 ?>
