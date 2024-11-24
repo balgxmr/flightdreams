@@ -101,7 +101,6 @@
                   name="foto" 
                   class="form-control form-control-lg" 
                   accept=".jpg,.jpeg,.png,.webp" 
-                  required 
                 />
               </div>
 

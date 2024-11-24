@@ -32,6 +32,15 @@
           </div>
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <!-- Formulario -->
+            <?php
+              if (isset($_COOKIE['error_login'])) {
+                  echo '<div class="alert alert-danger">' . $_COOKIE['error_login'] . '</div>';
+
+                  // Borra la cookie después de mostrar el mensaje
+                  setcookie('error_login', '', time() - 3600, '/'); // Establece el tiempo de expiración en el pasado
+              }
+            ?>
+
             <form id="loginForm" method="POST" action="../../config/routes.php?controller=usuario&action=loginUsuario">
               <div>
                 <i class="fa-solid fa-user fa-2x row d-flex justify-content-center align-items-center"></i>
@@ -60,48 +69,12 @@
               </div>
 
               <div class="text-center text-lg-start mt-4 pt-2">
-                <button type="button" id="loginButton" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">
+                <button type="submit" id="loginButton" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">
                   Iniciar sesión
                 </button>
                 <p class="small fw-bold mt-2 pt-1 mb-0">¿No tienes una cuenta? <a href="./registrar.php" class="link-danger">Registrate</a></p>
               </div>
             </form>
-
-            <!-- Script -->
-            <script>
-              document.getElementById("loginButton").addEventListener("click", function (e) {
-                const emailField = document.getElementById("email");
-                const passwordField = document.getElementById("password");
-                const emailError = document.getElementById("emailError");
-                const passwordError = document.getElementById("passwordError");
-                
-                let valid = true;
-
-                // Validar correo electrónico
-                const emailValue = emailField.value.trim();
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailValue || !emailRegex.test(emailValue)) {
-                  emailError.classList.remove("d-none");
-                  valid = false;
-                } else {
-                  emailError.classList.add("d-none");
-                }
-
-                // Validar contraseña
-                const passwordValue = passwordField.value.trim();
-                if (!passwordValue) {
-                  passwordError.classList.remove("d-none");
-                  valid = false;
-                } else {
-                  passwordError.classList.add("d-none");
-                }
-
-                // Si todo es válido, envía el formulario
-                if (valid) {
-                  document.getElementById("loginForm").submit();
-                }
-              });
-            </script>
 
           </div>
         </div>

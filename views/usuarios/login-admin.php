@@ -31,6 +31,16 @@
             <img class="img-fluid" src="../../public/images/Flight-&-Dreams-LOGO-Traz.png "alt="" />
           </div>
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+          <?php
+            if (isset($_COOKIE['error_login_admin'])) {
+                echo '<div class="alert alert-danger">' . $_COOKIE['error_login_admin'] . '</div>';
+                
+                // Borra la cookie después de mostrar el mensaje
+                setcookie('error_login_admin', '', time() - 3600, '/'); // Borra la cookie
+            }
+          ?>
+
             <form method="POST" action="../../config/routes.php?controller=usuario&action=loginAdministrador">
               <div>
                 <i class="fa-solid fa-user-tie fa-2x row d-flex justify-content-center align-items-center"></i>
@@ -59,42 +69,9 @@
               </div>
 
               <div class="text-center text-lg-start mt-4 pt-2">
-                <button type="button" id="adminLoginButton" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">Iniciar sesión</button>
+                <button type="submit" id="adminLoginButton" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">Iniciar sesión</button>
               </div>
             </form>
-
-            <!-- Script para validación -->
-            <script>
-              document.getElementById("adminLoginButton").addEventListener("click", function () {
-                const usuarioField = document.getElementById("nombre_usuario");
-                const contrasenaField = document.getElementById("contrasena");
-                const usuarioError = document.getElementById("usuarioError");
-                const contrasenaError = document.getElementById("contrasenaError");
-
-                let valid = true;
-
-                // Validar nombre de usuario
-                if (!usuarioField.value.trim()) {
-                  usuarioError.classList.remove("d-none");
-                  valid = false;
-                } else {
-                  usuarioError.classList.add("d-none");
-                }
-
-                // Validar contraseña
-                if (!contrasenaField.value.trim()) {
-                  contrasenaError.classList.remove("d-none");
-                  valid = false;
-                } else {
-                  contrasenaError.classList.add("d-none");
-                }
-
-                // Enviar formulario si es válido
-                if (valid) {
-                  usuarioField.form.submit();
-                }
-              });
-            </script>
           </div>
         </div>
       </div>

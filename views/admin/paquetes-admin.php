@@ -85,7 +85,7 @@ verificarSesionAdmin();
                                 <td class="text-center"><?php echo number_format($paquete['Precio'], 2); ?></td>
                                 <td class="text-center"><?php echo htmlspecialchars($paquete['Fecha_inicio']) ?></td>
                                 <td class="text-center"><?php echo htmlspecialchars($paquete['Fecha_final']); ?></td>
-                                <td class="text-center"><?php echo $duracion; ?></td>
+                                <td class="text-center"><?php echo $duracion; ?> dias</td>
                                 <td class="text-center"><?php echo htmlspecialchars($paquete['servicio']); ?></td>
                             
                               </tr>

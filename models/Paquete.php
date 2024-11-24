@@ -61,21 +61,22 @@
                     GROUP BY p.id_paquete
                     ORDER BY total_vendidos DESC
                     LIMIT 1";
-    
+        
             // Preparar y ejecutar la consulta
             $stmt = $this->conexion->prepare($sql);
             $stmt->execute();
-    
+        
             // Obtener el resultado
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+        
             // Verificar si se encontró algún resultado
-            if ($row) {
+            if ($row !== false && !empty($row)) {
                 return $row; // Retornar el paquete más vendido
             } else {
-                return null; // Si no hay resultados, retornar null
+                return null;
             }
         }
+        
 
         public function getPaqueteById($id_paquete) {
             $sql = "SELECT * FROM Paquete WHERE id_paquete = :id_paquete";

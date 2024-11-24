@@ -76,7 +76,7 @@
                                 <td class="text-center"><?php echo htmlspecialchars($reserva['Telefono']); ?></td>
                                 <td class="text-center"><?php echo !empty($reserva['nombre_paquete']) ? htmlspecialchars($reserva['nombre_paquete']) : 'No disponible'; ?></td>
                                 <td class="text-center"><?php echo htmlspecialchars($reserva['servicio']); ?></td>
-                                <td class="text-center"><?php echo htmlspecialchars($reserva['destino_salida']); ?></td>
+                                <td class="text-center"><?php echo htmlspecialchars($reserva['destino_final']); ?></td>
                                 <td class="text-center"><?php echo htmlspecialchars($reserva['personas']); ?></td>
                                 <td class="text-center"><?php echo htmlspecialchars($reserva['fecha_inicio']); ?></td>
                                 <td class="text-center">

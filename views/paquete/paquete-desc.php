@@ -50,7 +50,7 @@
             <button type="submit" class="button">Reservar</button>
           </div>
           <input type="hidden" name="id_paquete" value="<?= $paquete['id_paquete'] ?>">
-          <input type="hidden" name="destino_salida" value="<?= $paquete['Destino'] ?>">
+          <input type="hidden" name="destino_final" value="<?= $paquete['Destino'] ?>">
           <input type="hidden" name="fecha_inicio" value="<?= $paquete['Fecha_inicio'] ?>">
           <input type="hidden" name="fecha_final" value="<?= $paquete['Fecha_final'] ?? '' ?>">
           <input type="hidden" name="servicio" value="<?= $paquete['servicio'] ?? '' ?>">

@@ -133,7 +133,7 @@
 
     <section class="mainContainer">
         <h2 class="mainContainer--title">¿Sin ideas a donde ir?</h2>
-        <h3 class="mainContainer--subtitle">Te recomendamos viajes en autobuses</h3>
+        <h3 class="mainContainer--subtitle">Te recomendamos viajes en Vuelos</h3>
 
         <?php if (!empty($paquetes)): ?>
         <div class="row">

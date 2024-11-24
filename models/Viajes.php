@@ -9,7 +9,7 @@ class Viajes {
     }
 
     // Función para insertar un nuevo viaje en la base de datos
-    public function crearViaje($id_usuario, $id_paquete, $destino_salida, $destino_origen, $estado, $personas, $fecha_inicio, $fecha_final, $visa, $servicio, $tipo_autobus, $tipo_habitacion, $clase_vuelo, $clase_tren) {
+    public function crearViaje($id_usuario, $id_paquete, $destino_final, $destino_origen, $estado, $personas, $fecha_inicio, $fecha_final, $visa, $servicio, $tipo_autobus, $tipo_habitacion, $clase_vuelo, $clase_tren) {
         // Comprobar si algunos valores son nulos y asignar null en la base de datos si es necesario
         $id_paquete = $id_paquete ?: NULL;
         $destino_origen = $destino_origen ?: NULL;
@@ -20,7 +20,7 @@ class Viajes {
         $clase_tren = $clase_tren ?: NULL;
     
         // Crear la consulta SQL
-        $query = "INSERT INTO viajes (id_usuario, id_paquete, destino_salida, destino_origen, estado, personas, fecha_inicio, fecha_final, visa, servicio, tipo_autobus, tipo_habitacion, clase_vuelo, clase_tren) 
+        $query = "INSERT INTO viajes (id_usuario, id_paquete, destino_final, destino_origen, estado, personas, fecha_inicio, fecha_final, visa, servicio, tipo_autobus, tipo_habitacion, clase_vuelo, clase_tren) 
                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
         // Preparar la consulta
@@ -50,18 +50,45 @@ class Viajes {
         // Retorna false si ocurre algún error
         return false;
     }
-    
 
-    public function verReservas($userId) {
-        $query = $this->conexion->prepare("SELECT * FROM Viajes WHERE id_usuario = ? ORDER BY 
-         CASE estado
-             WHEN 'confirmado' THEN 1
-             WHEN 'pendiente' THEN 2
-             WHEN 'cancelado' THEN 3
-             ELSE 4
-         END,
-         fecha_registro desc;");
-        $query->execute([$userId]);
+    public function verReservas($userId, $estado = '') {
+        // Empieza con la consulta base
+        $sql = "
+            SELECT * 
+            FROM Viajes 
+            WHERE id_usuario = :id_usuario
+        ";
+        
+        // Añadir la cláusula WHERE si se pasa el estado
+        if ($estado) {
+            $sql .= " AND estado = :estado";
+        }
+    
+        // Ordenar la consulta por estado y fecha de registro
+        $sql .= " ORDER BY 
+                    CASE estado
+                        WHEN 'confirmado' THEN 1
+                        WHEN 'pendiente' THEN 2
+                        WHEN 'cancelado' THEN 3
+                        ELSE 4
+                    END,
+                    fecha_registro DESC";
+    
+        // Preparar la consulta
+        $query = $this->conexion->prepare($sql);
+        
+        // Vincular el parámetro de ID del usuario
+        $query->bindParam(':id_usuario', $userId, PDO::PARAM_INT);
+        
+        // Si se pasa un estado, se debe vincular el parámetro
+        if ($estado) {
+            $query->bindParam(':estado', $estado, PDO::PARAM_STR);
+        }
+        
+        // Ejecutar la consulta
+        $query->execute();
+        
+        // Retornar los resultados
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -84,132 +111,6 @@ class Viajes {
         $stmt = $this->conexion->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function getServicioMasReservado() {
-        // Consulta SQL para obtener el servicio más reservado
-        $sql = "SELECT servicio, COUNT(*) AS cantidad
-                FROM Viajes
-                GROUP BY servicio
-                ORDER BY cantidad DESC
-                LIMIT 1";
-
-        // Preparar la consulta
-        $stmt = $this->conexion->prepare($sql);
-
-        // Ejecutar la consulta
-        $stmt->execute();
-
-        // Obtener el resultado
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // Retornar el resultado
-        if ($row) {
-            return $row; // Contiene el servicio y la cantidad de reservas
-        } else {
-            return null; // Si no se encontró ningún servicio
-        }
-    }
-
-    public function getPersonasPorVisa() {
-        // Consulta SQL para obtener la cantidad de personas con y sin visa
-        $sql = "SELECT visa, SUM(personas) AS total_personas
-                FROM Viajes
-                GROUP BY visa";
-
-        // Preparar la consulta
-        $stmt = $this->conexion->prepare($sql);
-
-        // Ejecutar la consulta
-        $stmt->execute();
-
-        // Obtener el resultado
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        // Retornar el resultado
-        return $result;
-    }
-
-    public function destinoFinalMasReservado() { 
-        $query = "SELECT destino_origen, COUNT(*) AS reservas 
-                  FROM Viajes 
-                  WHERE destino_final IS NOT NULL 
-                  GROUP BY destino_final 
-                  ORDER BY reservas DESC 
-                  LIMIT 1";
-        $stmt = $this->conexion->prepare($query);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-    
-    public function tipoAutobusMasReservado() {
-        $query = "SELECT tipo_autobus, COUNT(*) AS reservas 
-                  FROM Viajes 
-                  WHERE tipo_autobus IS NOT NULL 
-                  GROUP BY tipo_autobus 
-                  ORDER BY reservas DESC 
-                  LIMIT 1";
-        $stmt = $this->conexion->prepare($query);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-    
-    public function tipoHabitacionMasReservado() {
-        $query = "SELECT tipo_habitacion, COUNT(*) AS reservas 
-                  FROM Viajes 
-                  WHERE tipo_habitacion IS NOT NULL 
-                  GROUP BY tipo_habitacion 
-                  ORDER BY reservas DESC 
-                  LIMIT 1";
-        $stmt = $this->conexion->prepare($query);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-    
-    public function claseVueloMasReservado() {
-        $query = "SELECT clase_vuelo, COUNT(*) AS reservas 
-                  FROM Viajes 
-                  WHERE clase_vuelo IS NOT NULL 
-                  GROUP BY clase_vuelo 
-                  ORDER BY reservas DESC 
-                  LIMIT 1";
-        $stmt = $this->conexion->prepare($query);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-    
-    public function claseTrenMasReservado() {
-        $query = "SELECT clase_tren, COUNT(*) AS reservas 
-                  FROM Viajes 
-                  WHERE clase_tren IS NOT NULL 
-                  GROUP BY clase_tren 
-                  ORDER BY reservas DESC 
-                  LIMIT 1";
-        $stmt = $this->conexion->prepare($query);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-    
-    public function fechaRegistroMasVentas() {
-        $query = "SELECT fecha_registro, COUNT(*) AS ventas 
-                  FROM Viajes 
-                  GROUP BY fecha_registro 
-                  ORDER BY ventas DESC 
-                  LIMIT 1";
-        $stmt = $this->conexion->prepare($query);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-    
-    public function fechaSalidaMasReservada() {
-        $query = "SELECT fecha_inicio, COUNT(*) AS reservas 
-                  FROM Viajes 
-                  GROUP BY fecha_inicio 
-                  ORDER BY reservas DESC 
-                  LIMIT 1";
-        $stmt = $this->conexion->prepare($query);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     
 }
