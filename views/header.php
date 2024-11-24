@@ -87,7 +87,7 @@ if (session_status() === PHP_SESSION_NONE) {
         </a>
       <?php else: ?>
           <!-- Mostrar botón de Login si el usuario no está logueado -->
-          <a href="<?php echo BASE_URL; ?>/views/usuarios/login.php">
+          <a href="<?php echo BASE_URL; ?>views/usuarios/login.php">
               <button type="button" class="btn btn-success">Login</button>
           </a>
       <?php endif; ?>

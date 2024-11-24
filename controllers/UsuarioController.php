@@ -52,53 +52,68 @@ class UsuarioController {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $correo = $_POST['correo'];
             $contrasena = $_POST['contrasena'];
-
+    
             if (!empty($correo) && !empty($contrasena)) {
                 $usuarioModel = new Usuario();
                 $usuario = $usuarioModel->obtenerPorCorreo($correo);
-
+    
                 if ($usuario && password_verify($contrasena, $usuario['Contrasena'])) {
-                    // Inicia sesión o redirige
+                    // Inicia sesión y redirige
                     session_start();
                     $_SESSION['usuario'] = $usuario['id_usuario'];
                     header('Location: ../public/index.php');
+                    exit();
                 } else {
-                    echo "Correo o contraseña incorrectos.";
+                    // Establece una cookie con el mensaje de error
+                    setcookie('error_login', 'Correo o contraseña incorrectos.', time() + 360, '/'); 
+                    header('Location: ../views/usuarios/login.php');
+                    exit();
                 }
             } else {
-                echo "Todos los campos son obligatorios.";
+                // Establece una cookie si faltan campos
+                setcookie('error_login', 'Todos los campos son obligatorios.', time() + 360, '/');
+                header('Location: ../views/usuarios/login.php');
+                exit();
             }
         } else {
+            // Si no es un POST, simplemente carga la vista de login
             require_once '../views/usuarios/login.php';
         }
     }
-    
 
-    // Acción para loguear a un administrador
     public function loginAdministrador() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $nombreUsuario = $_POST['nombre_usuario'];
             $contrasena = $_POST['contrasena'];
-
+    
             if (!empty($nombreUsuario) && !empty($contrasena)) {
                 $usuarioModel = new Usuario();
                 $administrador = $usuarioModel->obtenerPorNombreUsuario($nombreUsuario);
-
+    
                 if ($administrador && hash('sha256', $contrasena) === $administrador['contrasena']) {
-                    // Inicia sesión o redirige
+                    // Inicia sesión y redirige
                     session_start();
                     $_SESSION['admin'] = $administrador['id_admin'];
                     header('Location: ../views/admin/dashboard.php');
+                    exit();
                 } else {
-                    echo "Usuario o contraseña incorrectos.";
+                    // Establece una cookie con el mensaje de error
+                    setcookie('error_login_admin', 'Usuario o contraseña incorrectos.', time() + 3600, '/'); // Expira en 1 hora
+                    header('Location: ../views/usuarios/login-admin.php');
+                    exit();
                 }
             } else {
-                echo "Todos los campos son obligatorios.";
+                // Establece una cookie si faltan campos
+                setcookie('error_login_admin', 'Todos los campos son obligatorios.', time() + 3600, '/'); // Expira en 1 hora
+                header('Location: ../views/usuarios/login-admin.php');
+                exit();
             }
         } else {
-            require_once '../views/usuarios/login.php';
+            // Si no es un POST, simplemente carga la vista de login de administrador
+            require_once '../views/usuarios/login-admin.php';
         }
     }
+    
 
     public function logout() {
         session_start(); // Inicia la sesión si no está iniciada
