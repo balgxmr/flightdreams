@@ -158,7 +158,7 @@
                 
                 <!-- Servicio Más Reservado -->
                 <div class="col-md-4">
-                    <div class="card text-white bg-secondary h-100">
+                    <div class="card text-white bg-primary h-100">
                         <div class="card-body">
                             <h3 class="card-title">Servicio Más Reservado</h3>
                             <p class="card-text fs-5"><?php echo $servicio['servicio'] . " con " . $servicio['cantidad'] . " reservas"; ?></p>
@@ -167,7 +167,7 @@
                 </div>
                 <!-- Visa -->
                 <div class="col-md-4">
-                    <div class="card text-white bg-danger h-100">
+                    <div class="card text-white bg-secondary h-100">
                         <div class="card-body">
                             <h3 class="card-title">Visas Requeridas</h3>
                             <?php if ($visa): ?>
@@ -182,7 +182,7 @@
                 </div>
                 <!-- Destino mas reservado -->
                 <div class="col-md-4">
-                    <div class="card text-white bg-secondary h-100">
+                    <div class="card text-white bg-success h-100">
                         <div class="card-body">
                             <h3 class="card-title">Destino Más Reservado</h3>
                             <p class="card-text fs-5"><?php echo $destinoMasReservado['destino_origen'] . " con " . $destinoMasReservado['reservas'] . " reservas"; ?></p>
@@ -191,7 +191,7 @@
                 </div>
                 <!-- Autobus Más Reservado -->
                 <div class="col-md-4">
-                    <div class="card text-white bg-secondary h-100">
+                    <div class="card text-white bg-danger h-100">
                         <div class="card-body">
                             <h3 class="card-title">Autobus Más Reservado </h3>
                             <p class="card-text fs-5"><?php echo $autobusMasReservado['tipo_autobus'] . " con " . $autobusMasReservado['reservas'] . " reservas"; ?></p>
@@ -200,7 +200,7 @@
                 </div>
                 <!-- Habitacion Más Reservada -->
                 <div class="col-md-4">
-                    <div class="card text-white bg-secondary h-100">
+                    <div class="card text-white bg-primary h-100">
                         <div class="card-body">
                             <h3 class="card-title">Habitacion Más Reservada</h3>
                             <p class="card-text fs-5"><?php echo $habitacionMasReservada['tipo_habitacion'] . " con " . $habitacionMasReservada['reservas'] . " reservas"; ?></p>
@@ -218,7 +218,7 @@
                 </div>
                 <!-- Tren Más Reservado -->
                 <div class="col-md-4">
-                    <div class="card text-white bg-secondary h-100">
+                    <div class="card text-white bg-success h-100">
                         <div class="card-body">
                             <h3 class="card-title">Tipo de Tren Más Reservado</h3>
                             <p class="card-text fs-5"><?php echo $trenMasReservado['clase_tren'] . " con " . $trenMasReservado['reservas'] . " reservas"; ?></p>
@@ -227,16 +227,16 @@
                 </div>
                 <!-- Fecha con mas ventas -->
                 <div class="col-md-4">
-                    <div class="card text-white bg-secondary h-100">
+                    <div class="card text-white bg-danger h-100">
                         <div class="card-body">
                             <h3 class="card-title">Fecha Con Más Ventas</h3>
-                            <p class="card-text fs-5"><?php echo $fechaRegistroMasVentas['fecha_registro'] . " con " . $fechaRegistroMasVentas['reservas'] . " reservas"; ?></p>
+                            <p class="card-text fs-5"><?php echo $fechaRegistroMasVentas['fecha_registro'] . " con " . $fechaRegistroMasVentas['ventas'] . " reservas"; ?></p>
                         </div>
                     </div>
                 </div>
                 <!-- Fecha de salida -->
                 <div class="col-md-4">
-                    <div class="card text-white bg-secondary h-100">
+                    <div class="card text-white bg-primary h-100">
                         <div class="card-body">
                             <h3 class="card-title">Mayor Fecha de salidas</h3>
                             <p class="card-text fs-5"><?php echo $fechaSalidaMasReservada['fecha_inicio'] . " con " . $fechaSalidaMasReservada['reservas'] . " reservas"; ?></p>

@@ -29,13 +29,13 @@ class ViajesController {
             $clase_tren = $_POST['clase_tren'] ?? null;
 
             // Validar los datos (puedes agregar más validaciones)
-            if (!empty($destino_salida) && !empty($estado) && !empty($fecha_inicio) && !empty($servicio)) {
+            if (!empty($destino_final) && !empty($estado) && !empty($fecha_inicio) && !empty($servicio)) {
                 // Instanciar el modelo
                 $viajesModel = new Viajes();
 
                 // Llamar al método del modelo para crear el viaje
                 $resultado = $viajesModel->crearViaje(
-                    $id_usuario, $id_paquete, $destino_salida, $destino_origen, $estado, $personas, 
+                    $id_usuario, $id_paquete, $destino_final, $destino_origen, $estado, $personas, 
                     $fecha_inicio, $fecha_final, $visa, $servicio, $tipo_autobus, $tipo_habitacion, $clase_vuelo, $clase_tren
                 );
 

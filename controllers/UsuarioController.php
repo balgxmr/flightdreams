@@ -48,7 +48,6 @@ class UsuarioController {
         }
     }
 
-     // Acción para loguear a un usuario
     public function loginUsuario() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $correo = $_POST['correo'];
@@ -73,6 +72,7 @@ class UsuarioController {
             require_once '../views/usuarios/login.php';
         }
     }
+    
 
     // Acción para loguear a un administrador
     public function loginAdministrador() {
@@ -96,7 +96,7 @@ class UsuarioController {
                 echo "Todos los campos son obligatorios.";
             }
         } else {
-            require_once '../views/usuario/login.php';
+            require_once '../views/usuarios/login.php';
         }
     }
 

@@ -63,7 +63,7 @@
                         <tr>
                           <td><?php echo $index + 1; ?></td>
                           <td><?php echo htmlspecialchars($reserva['servicio']); ?></td>
-                          <td><?php echo htmlspecialchars($reserva['destino_salida']); ?></td>
+                          <td><?php echo htmlspecialchars($reserva['destino_final']); ?></td>
                           <td><?php echo htmlspecialchars($reserva['personas']); ?></td>
                           <td><?php echo htmlspecialchars($reserva['fecha_inicio']); ?></td>
                           <td>

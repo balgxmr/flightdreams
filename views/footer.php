@@ -4,7 +4,7 @@
       <h4>Info</h4>
       <ul class="links">
         <li><a href="<?php echo BASE_URL; ?>views/about-us/about-us.php">Acerca de nosotros</a></li>
-        <li><a href="https://linktr.ee/">Redes sociales</a></li>
+        <li><a href="https://www.instagram.com/fligthdreams">Redes sociales</a></li>
       </ul>
     </div>
     

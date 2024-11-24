@@ -67,42 +67,6 @@
               </div>
             </form>
 
-            <!-- Script -->
-            <script>
-              document.getElementById("loginButton").addEventListener("click", function (e) {
-                const emailField = document.getElementById("email");
-                const passwordField = document.getElementById("password");
-                const emailError = document.getElementById("emailError");
-                const passwordError = document.getElementById("passwordError");
-                
-                let valid = true;
-
-                // Validar correo electrónico
-                const emailValue = emailField.value.trim();
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailValue || !emailRegex.test(emailValue)) {
-                  emailError.classList.remove("d-none");
-                  valid = false;
-                } else {
-                  emailError.classList.add("d-none");
-                }
-
-                // Validar contraseña
-                const passwordValue = passwordField.value.trim();
-                if (!passwordValue) {
-                  passwordError.classList.remove("d-none");
-                  valid = false;
-                } else {
-                  passwordError.classList.add("d-none");
-                }
-
-                // Si todo es válido, envía el formulario
-                if (valid) {
-                  document.getElementById("loginForm").submit();
-                }
-              });
-            </script>
-
           </div>
         </div>
       </div>
