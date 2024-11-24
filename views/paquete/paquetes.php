@@ -23,8 +23,6 @@
   <main class="mainContainer">
     <h2 class="mainContainer--title">Lista de Paquetes</h2>
 
-    
-
     <div class="container p-5">
 
     <!-- Filtro de estado -->
@@ -50,9 +48,10 @@
             ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <?php if (!empty($paquete['Foto'])): ?>
-                            <img class="card-img-top h-50" src="../public/images/canal-panama.jpg" alt="Imagen del paquete">
-                        <?php endif; ?>
+                    <?php if (!empty($paquete['Foto'])): ?>
+                        <img src="../config/mostrarImagen.php?id=<?= $paquete['id_paquete'] ?>" alt="Imagen del Paquete">
+                    <?php endif; ?>
+
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $paquete['Nombre']; ?></h5>
                             <p class="card-text"><?php echo $paquete['Descripcion']; ?></p>
