@@ -15,7 +15,7 @@ class ViajesController {
             // Obtener los datos del formulario
             $id_usuario = $userId;
             $id_paquete = $_POST['id_paquete'] ?? null;
-            $destino_salida = $_POST['destino_salida'];
+            $destino_final = $_POST['destino_final'];
             $destino_origen = $_POST['destino_origen'] ?? null;
             $estado = $_POST['estado'] ?? 'pendiente';
             $personas = $_POST['personas' ?? null];
