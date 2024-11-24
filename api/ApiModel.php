@@ -9,10 +9,16 @@ class Api {
     }
 
     public function obtenerTodos() {
-        $sql = "SELECT * FROM paquete";
-        $stmt = $this->conexion->prepare($sql); // Usamos el método `prepare` de la clase DB
+        // Excluye la columna `Foto` de la selección
+        $sql = "SELECT id_paquete, Nombre, Descripcion, Destino, Precio, Fecha_inicio, Fecha_final, servicio, itinerario FROM paquete";
+        
+        // Prepara y ejecuta la consulta
+        $stmt = $this->conexion->prepare($sql);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC); // Devolvemos los resultados
+        
+        // Devuelve los resultados como un array asociativo
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
 }
 ?>
